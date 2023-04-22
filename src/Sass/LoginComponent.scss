@@ -1,6 +1,84 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+// .login-content {
+//   display: flex;
+//   flex: 1;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: flex-start;
+//   margin: 0 auto;
+//   min-height: 100vh;
+// }
+
+// .login-wrapper {
+//   background-color: white;
+//   justify-content: center;
+
+//   .heading {
+//     // margin-left: 450px;
+//     font-family: system-ui;
+//     font-weight: 500;
+//     color: rgba(0, 0, 0, 0.9);
+//   }
+//   .sub-heading {
+//     // margin-left: 450px;
+//     margin-top: -10px;
+//     font-family: system-ui;
+//   }
+// }
+
+.login-wrapper {
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // height: 100vh;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  position: absolute;
+  // top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
 .login-btn {
   width: 150px;
   height: 30px;
   cursor: pointer;
   background-color: #212121;
+}
+.auth-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  // margin-left: 450px;
+  font-size: 1.8rem;
+}
+.common-inputs {
+  height: 20px;
+  padding: 10px;
+}
+
+.linkedInLogo {
+  position: absolute;
+  width: 102px;
+  height: 26px;
+  top: 35px;
+  left: 60px;
+}
+.alternative-signin-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
