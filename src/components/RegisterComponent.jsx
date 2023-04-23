@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { LoginAPI, RegisterAPI } from '../api/AuthAPI'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
 import '../Sass/RegisterComponent.scss'
+import { Link } from 'react-router-dom'
 
 export default function LoginComponent() {
   const [credentials, setCredentials] = useState()
@@ -16,7 +17,9 @@ export default function LoginComponent() {
 
   return (
     <div className="login-wrapper">
-      <img src={LinkedInLogo} alt="LinkedInLogo" className="linkedInLogo" />
+      <Link to="/">
+        <img src={LinkedInLogo} alt="LinkedInLogo" className="linkedInLogo" />
+      </Link>
       <h3>LoginComponent</h3>
       <input
         onChange={(event) =>

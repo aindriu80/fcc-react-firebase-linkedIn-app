@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { LoginAPI, RegisterAPI } from '../api/AuthAPI'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
+import googleSignIn from '../assets/googleSignIn.svg'
+import appleSignIn from '../assets/appleSignIn.svg'
 import '../Sass/LoginComponent.scss'
-import Footer from './Footer'
+import Footer from './FooterComponent'
 
+import { Link } from 'react-router-dom'
 export default function LoginComponent() {
   const [credentials, setCredentials] = useState()
 
@@ -19,7 +22,13 @@ export default function LoginComponent() {
     <>
       <header>
         <div className="login-wrapper">
-          <img src={LinkedInLogo} alt="LinkedInLogo" className="linkedInLogo" />
+          <Link to="/">
+            <img
+              src={LinkedInLogo}
+              alt="LinkedInLogo"
+              className="linkedInLogo"
+            />
+          </Link>
         </div>
       </header>
       <section className="login-content">
@@ -30,27 +39,42 @@ export default function LoginComponent() {
             onChange={(event) =>
               setCredentials({ ...credentials, email: event.target.value })
             }
-            className="common-input"
+            type="email"
+            className="common-inputs"
             placeholder="Email or Password"></input>
 
           <input
             onChange={(event) =>
               setCredentials({ ...credentials, password: event.target.value })
             }
-            className="common-input"
+            type="password"
+            className="common-inputs"
             placeholder="Password"></input>
         </div>
-        Forgot Password?
-        <button onClick={login} className="login-btn">
-          Sign in
-        </button>
-        <div className="alternative-signin-container">
-          or
-          <button>Sign in with Google</button>
-          <button>Sign in with Apple</button>
+        <div className="forgot-password">Forgot Password?</div>
+        <div className="alternative-signIn-container">
+          <button onClick={login} className="login-btn">
+            Sign in
+          </button>
+          {/* <span className="text-with-line">Or</span> */}
+          <div className="text-with-line">
+            <div className="line"></div>
+            <div className="text">Or</div>
+            <div className="line"></div>
+          </div>
+          <button className="alternative-signIn-btn">
+            <img src={googleSignIn} />
+            Sign in with Google
+          </button>
+          <button className="alternative-signIn-btn">
+            <img src={appleSignIn} />
+            Sign in with Apple
+          </button>
         </div>
-        New to LinkedIn? Join now
       </section>
+      <div className="join-now">
+        New to LinkedIn? <a href="/"> Join now</a>
+      </div>
       <div className="footer-wrapper">
         <Footer />
       </div>

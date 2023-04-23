@@ -3,71 +3,78 @@ body {
   padding: 0;
 }
 
-// .login-content {
-//   display: flex;
-//   flex: 1;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: flex-start;
-//   margin: 0 auto;
-//   min-height: 100vh;
-// }
-
-// .login-wrapper {
-//   background-color: white;
-//   justify-content: center;
-
-//   .heading {
-//     // margin-left: 450px;
-//     font-family: system-ui;
-//     font-weight: 500;
-//     color: rgba(0, 0, 0, 0.9);
-//   }
-//   .sub-heading {
-//     // margin-left: 450px;
-//     margin-top: -10px;
-//     font-family: system-ui;
-//   }
-// }
-
 .login-wrapper {
   display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // height: 100vh;
 }
 
 .login-content {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   position: absolute;
-  // top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -67%);
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
+  .heading {
+    font-size: 34px;
+    font-family: system-ui;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+  }
 }
 
 .login-btn {
-  width: 150px;
-  height: 30px;
+  height: 50px;
   cursor: pointer;
-  background-color: #212121;
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: #fff;
+  border-radius: 50px;
 }
 .auth-inputs {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 400px;
-  // margin-left: 450px;
+  width: 300px;
   font-size: 1.8rem;
 }
 .common-inputs {
-  height: 20px;
+  background-color: #fffcc8;
+  font-size: 16px;
+  height: 40px;
   padding: 10px;
+  outline: none;
+  border-radius: 3px;
+  font-family: system-ui;
+}
+.common-inputs:focus {
+  outline: 1px solid rgba(2, 2, 117);
+}
+::placeholder {
+  color: black;
+  font-family: system-ui;
+}
+
+.text-or {
+  // transform: translate(45%, 17%);
+}
+.text-with-line {
+  display: flex;
+  align-items: center;
+}
+
+.text-with-line .line {
+  height: 1px;
+  width: 100%;
+  background-color: black;
+}
+
+.text-with-line .text {
+  margin: 0 10px;
+  flex: 1;
+  padding-top: 3px;
+  padding-bottom: 9px;
 }
 
 .linkedInLogo {
@@ -77,8 +84,26 @@ body {
   top: 35px;
   left: 60px;
 }
-.alternative-signin-container {
+.alternative-signIn-container {
   display: flex;
   flex-direction: column;
   margin: 10px;
+}
+.forgot-password {
+  color: #0a66c2;
+  margin-top: 5px;
+}
+
+.join-now {
+  position: absolute;
+  left: 42%;
+  top: 69%;
+}
+.alternative-signIn-btn {
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  color: #767676;
+  margin-top: 5px;
+  border-color: #7a7a7a;
 }

@@ -27,4 +27,8 @@
   line-height: 16px;
   padding: 8px;
   color: rgba(0, 0, 0, 0.6);
+  filter: invert(0%) sepia(97%) saturate(22%) hue-rotate(346deg)
+    brightness(100%) contrast(100%);
+}
+.img {
 }
