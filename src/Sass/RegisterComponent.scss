@@ -1,0 +1,55 @@
+.register-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -67%);
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  width: 20%; /* Add this line to set the width */
+  height: 50%;
+}
+.register-heading {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -67%);
+}
+.page-for-business {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -67%);
+}
+.register-agreement {
+  // width: 75%;
+  font-size: 12px;
+  font-family: system-ui;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.input-label {
+  font-size: 14px;
+}
+
+.already-a-member {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -67%);
+}
+.common-inputs {
+  background-color: #ffffff;
+  font-size: 16px;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  border-radius: 3px;
+}

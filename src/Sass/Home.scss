@@ -4,10 +4,38 @@
   line-height: 67px;
   font: system-ui;
   font-weight: 200;
+  width: 50%;
+  transform: translate(71%, -100%);
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-flat {
   background-color: white;
-  text: black;
-  color: white;
+  color: black;
+}
+.main-left-login-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: translate(90%, 0%);
+  padding: 25px;
+  border-radius: 8px;
+  width: 20%; /* Add this line to set the width */
+  height: 50%;
+}
+
+.main-top-left-content {
+  display: flex;
+  padding-right: 42px;
+  align-self: flex-start;
+}
+
+.main-top-right-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: translate(90%, -60%);
+  padding: 25px;
+  border-radius: 8px;
 }

@@ -73,7 +73,7 @@ export default function LoginComponent() {
         </div>
       </section>
       <div className="join-now">
-        New to LinkedIn? <a href="/"> Join now</a>
+        New to LinkedIn? <a href="/register"> Join now</a>
       </div>
       <div className="footer-wrapper">
         <Footer />

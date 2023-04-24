@@ -7,11 +7,19 @@ const Footer = () => {
   return (
     <footer className="footer">
       <Container>
-        <p className="footer-text">
-          <img src={footerImage} alt="LinkedIn Footer Logo" />© 2023 User
-          Agreement Privacy Policy Community Guidelines Cookie Policy Copyright
-          Policy Send Feedback
-        </p>
+        <ul className="footer-text">
+          <img src={footerImage} alt="LinkedIn Footer Logo" />© 2023{''}
+          <a href="/">About</a>
+          <a href="/">Accessibility </a>
+          <a href="/">User Agreement </a>
+          <a href="/">Privacy Policy</a>
+          <a href="/">Community </a>
+          <a href="/"> Guidelines</a>
+          <a href="/">Cookie Policy </a>
+          <a href="/">Copyright Policy</a>
+          <a href="/">Community Guidelines</a>
+          <a href="/">Language</a>
+        </ul>
       </Container>
     </footer>
   )
