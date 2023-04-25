@@ -20,7 +20,7 @@ function Home() {
             Welcome to your professional community
           </h1>
           <section className="main-left-login-content">
-            <div className="auth-inputs">
+            <div className="home-inputs">
               Email
               <input
                 onChange={(event) =>
@@ -46,7 +46,6 @@ function Home() {
               <button onClick={login} className="login-btn">
                 Sign in
               </button>
-              {/* <span className="text-with-line">Or</span> */}
               <div className="text-with-line">
                 <div className="line"></div>
                 <div className="text">Or</div>
