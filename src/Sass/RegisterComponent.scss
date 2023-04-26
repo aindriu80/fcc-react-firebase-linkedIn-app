@@ -3,12 +3,13 @@
   flex-direction: column;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -67%);
-  padding: 25px;
+  transform: translate(-50%, 30%);
+  padding: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   width: 20%; /* Add this line to set the width */
-  height: 50%;
+  // height: 50%;
+  background-color: #ffffff;
 }
 .register-heading {
   display: flex;
@@ -16,6 +17,13 @@
   left: 50%;
   top: 10%;
   transform: translate(-50%, -67%);
+
+  // width: 75%;
+  // font-size: 12px;
+  font-family: system-ui;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 400;
 }
 .page-for-business {
   display: flex;
@@ -43,7 +51,7 @@
   position: absolute;
   left: 50%;
   top: 65%;
-  transform: translate(-50%, -67%);
+  transform: translate(-50%, 90%);
 }
 .common-inputs {
   background-color: #ffffff;
@@ -52,6 +60,7 @@
   padding: 10px;
   outline: none;
   border-radius: 3px;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .login-wrapper {

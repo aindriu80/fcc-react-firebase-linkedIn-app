@@ -32,6 +32,9 @@ body {
   color: #fff;
   border-radius: 50px;
 }
+.login-btn:hover {
+  background-color: #006097;
+}
 .auth-inputs {
   display: flex;
   flex-direction: column;
@@ -89,6 +92,10 @@ body {
   display: flex;
   flex-direction: column;
   margin: 10px;
+}
+
+.alternative-signIn-btn:hover {
+  background-color: rgba(207, 207, 207, 0.25);
 }
 .forgot-password {
   color: #0a66c2;
