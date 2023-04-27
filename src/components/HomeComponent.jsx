@@ -7,16 +7,19 @@ import '../Sass/Home.scss'
 import { auth } from '../../firebaseConfig'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../components/common/Loader'
+import { LoginAPI, RegisterAPI } from '../api/AuthAPI'
 
 export default function Home() {
+  const [credentials, setCredentials] = useState()
+
   const [loading, setLoading] = useState(true)
   let navigate = useNavigate()
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
-      if (!res?.accessToken) {
-        navigate('/login')
+      if (res?.accessToken) {
+        navigate('/feed')
       } else {
-        setLoading(false)
+        // setLoading(false)
       }
     })
   }, [])
@@ -28,6 +31,7 @@ export default function Home() {
       console.log(error)
     }
   }
+
   return (
     <>
       <NavbarComponent />

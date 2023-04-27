@@ -1,25 +1,21 @@
 .register-content {
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 30%);
-  padding: 30px;
+  padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
-  width: 20%; /* Add this line to set the width */
-  // height: 50%;
-  background-color: #ffffff;
 }
 .register-heading {
   display: flex;
   position: absolute;
+  // position: relative;
   left: 50%;
   top: 10%;
-  transform: translate(-50%, -67%);
-
-  // width: 75%;
-  // font-size: 12px;
+  transform: translate(-20%, 70%);
   font-family: system-ui;
   font-size: 32px;
   line-height: 38px;
@@ -33,7 +29,7 @@
   transform: translate(-50%, -67%);
 }
 .register-agreement {
-  // width: 75%;
+  width: 75%;
   font-size: 12px;
   font-family: system-ui;
   margin-top: 16px;
@@ -54,6 +50,7 @@
   transform: translate(-50%, 90%);
 }
 .common-inputs {
+  width: 75%;
   background-color: #ffffff;
   font-size: 16px;
   height: 40px;
@@ -63,6 +60,6 @@
   color: rgba(0, 0, 0, 0.9);
 }
 
-.login-wrapper {
-  margin-left: -860px;
+.alternative-signIn-container {
+  width: 75%;
 }

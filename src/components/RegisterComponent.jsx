@@ -30,11 +30,12 @@ export default function LoginComponent() {
           </Link>
         </div>
       </header>
+
       <h3 className="register-heading">
         Make the most of your professional life
       </h3>
+
       <section className="register-content">
-        <p className="sub-heading"></p>
         <div className="auth-inputs">
           <label className="input-label">Email</label>
           <input
@@ -73,6 +74,7 @@ export default function LoginComponent() {
           </button>
         </div>
       </section>
+
       <div className="already-a-member">
         Already on LinkedIn? <a href="/login"> Sign in</a>
       </div>

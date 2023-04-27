@@ -1,18 +1,14 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .login-wrapper {
   display: flex;
 }
 
 .login-content {
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -67%);
+  transform: translate(-50%, 20%);
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
@@ -41,7 +37,6 @@ body {
   gap: 10px;
   width: 300px;
   font-size: 1.8rem;
-  // border: 1px solid;
 }
 .common-inputs {
   background-color: #fffcc8;
@@ -60,9 +55,6 @@ body {
   font-family: system-ui;
 }
 
-.text-or {
-  // transform: translate(45%, 17%);
-}
 .text-with-line {
   display: flex;
   align-items: center;
