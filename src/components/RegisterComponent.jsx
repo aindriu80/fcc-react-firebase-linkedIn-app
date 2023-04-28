@@ -20,7 +20,7 @@ export default function LoginComponent() {
   return (
     <>
       <header>
-        <div className="login-wrapper">
+        <div className="register-wrapper">
           <Link to="/">
             <img
               src={LinkedInLogo}
@@ -43,7 +43,7 @@ export default function LoginComponent() {
               setCredentials({ ...credentials, email: event.target.value })
             }
             type="email"
-            className="common-inputs"
+            className="register-inputs"
             placeholder=""></input>
           <label className="input-label">Password (6 or more characters)</label>
           <input
@@ -51,15 +51,15 @@ export default function LoginComponent() {
               setCredentials({ ...credentials, password: event.target.value })
             }
             type="password"
-            className="common-inputs"
+            className="register-inputs"
             placeholder=""></input>
         </div>
         <div className="register-agreement">
           By clicking Agree & Join, you agree to the LinkedIn User Agreement,
           Privacy Policy, and Cookie Policy.{' '}
         </div>
-        <div className="alternative-signIn-container">
-          <button onClick={register} className="login-btn">
+        <div className="register-alternative-signIn-container">
+          <button onClick={register} className="register-btn">
             Agree & Join
           </button>
 
@@ -68,7 +68,7 @@ export default function LoginComponent() {
             <div className="text">Or</div>
             <div className="line"></div>
           </div>
-          <button className="alternative-signIn-btn">
+          <button className="register-alternative-signIn-btn">
             <img src={googleSignIn} />
             Sign in with Google
           </button>

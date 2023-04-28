@@ -1,65 +1,175 @@
+$linkedinBlue1: #0072b1;
+$linkedinBlue2: #0073b1;
+$linkedinBlue3: #004c75;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.register-wrapper {
+  display: flex;
+  // background-color: white !important;
+  .register-wrapper-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.register-heading {
+  display: flex;
+
+  transform: translate(40%, 50%);
+  // font-family: system-ui;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.register-sub-heading {
+  // margin-top: -20px;
+  // font-family: system-ui;
+}
 .register-content {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 30%);
+  transform: translate(-50%, 20%);
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
+  .register-heading {
+    font-size: 34px;
+    font-family: system-ui;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .register-subheading {
+    font-size: 10px;
+  }
 }
-.register-heading {
-  display: flex;
-  position: absolute;
-  // position: relative;
-  left: 50%;
-  top: 10%;
-  transform: translate(-20%, 70%);
-  font-family: system-ui;
-  font-size: 32px;
-  line-height: 38px;
-  font-weight: 400;
+.agree-and-join-btn {
+  height: 50px;
+  cursor: pointer;
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: #fff;
+  border-radius: 50px;
 }
-.page-for-business {
-  display: flex;
-  position: absolute;
-  left: 50%;
-  top: 75%;
-  transform: translate(-50%, -67%);
-}
-.register-agreement {
-  width: 75%;
-  font-size: 12px;
-  font-family: system-ui;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.6);
+.agree-and-join-btn:hover {
+  background-color: #006097;
 }
 
-.input-label {
-  font-size: 14px;
+.register-btn {
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  background-color: $linkedinBlue2;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: system-ui;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 20px;
 }
 
-.already-a-member {
-  display: flex;
-  position: absolute;
-  left: 50%;
-  top: 65%;
-  transform: translate(-50%, 90%);
+.register-btn:hover {
+  background-color: $linkedinBlue3;
 }
-.common-inputs {
-  width: 75%;
-  background-color: #ffffff;
+
+.register-inputs {
+  background-color: #fffcc8;
   font-size: 16px;
   height: 40px;
   padding: 10px;
   outline: none;
   border-radius: 3px;
-  color: rgba(0, 0, 0, 0.9);
+  font-family: system-ui;
+}
+.auth-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
 }
 
-.alternative-signIn-container {
-  width: 75%;
+.linkedinLogo {
+  width: 80px;
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+  &:before {
+    content: '';
+    // use the linear-gradient for the fading effect
+    // use a solid background color for a solid bar
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    // this is really the only tricky part, you need to specify the background color of the container element...
+    color: #818078;
+    background-color: #fcfcfa;
+  }
+}
+.register-alternative-signIn-btn {
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  color: #767676;
+  margin-top: 5px;
+  border-color: #7a7a7a;
+}
+
+.register-alternative-signIn-container {
+  flex-direction: column;
+  margin: 10px;
+}
+
+.register-alternative-signIn-btn:hover {
+  background-color: rgba(207, 207, 207, 0.25);
+}
+
+.google-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .google-btn {
+    width: 300px !important;
+  }
+
+  .go-to-signup {
+    font-size: 18px;
+  }
+
+  .join-now {
+    color: $linkedinBlue1;
+    font-family: system-ui;
+    cursor: pointer;
+    font-size: 18px;
+  }
 }

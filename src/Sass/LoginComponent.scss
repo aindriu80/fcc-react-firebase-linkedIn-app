@@ -1,7 +1,8 @@
-.login-wrapper {
+.login-login-wrapper {
   display: flex;
 }
 
+// background-color: rgba(255, 255, 255, 0.87);
 .login-content {
   background-color: #ffffff;
   display: flex;
@@ -12,11 +13,14 @@
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
-  .heading {
+  .login-heading {
     font-size: 34px;
     font-family: system-ui;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.9);
+  }
+  .login-subheading {
+    font-size: 10px;
   }
 }
 
@@ -38,7 +42,7 @@
   width: 300px;
   font-size: 1.8rem;
 }
-.common-inputs {
+.login-inputs {
   background-color: #fffcc8;
   font-size: 16px;
   height: 40px;
@@ -47,7 +51,7 @@
   border-radius: 3px;
   font-family: system-ui;
 }
-.common-inputs:focus {
+.login-inputs:focus {
   outline: 1px solid rgba(2, 2, 117);
 }
 ::placeholder {
@@ -55,18 +59,18 @@
   font-family: system-ui;
 }
 
-.text-with-line {
+.login-text-with-line {
   display: flex;
   align-items: center;
 }
 
-.text-with-line .line {
+.login-text-with-line .line {
   height: 1px;
   width: 100%;
   background-color: black;
 }
 
-.text-with-line .text {
+.login-text-with-line .text {
   margin: 0 10px;
   flex: 1;
   padding-top: 3px;
@@ -80,13 +84,14 @@
   top: 35px;
   left: 430px;
 }
-.alternative-signIn-container {
+
+.login-alternative-signIn-container {
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
 
-.alternative-signIn-btn:hover {
+.login-alternative-signIn-btn:hover {
   background-color: rgba(207, 207, 207, 0.25);
 }
 .forgot-password {
@@ -94,12 +99,12 @@
   margin-top: 5px;
 }
 
-.join-now {
+.login-join-now {
   position: absolute;
   left: 42%;
   top: 69%;
 }
-.alternative-signIn-btn {
+.login-alternative-signIn-btn {
   background-color: white;
   border-radius: 20px;
   padding: 10px;

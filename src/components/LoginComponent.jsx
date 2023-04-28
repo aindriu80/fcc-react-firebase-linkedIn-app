@@ -21,7 +21,7 @@ export default function LoginComponent() {
   return (
     <>
       <header>
-        <div className="login-wrapper">
+        <div className="login-logo-wrapper">
           <Link to="/">
             <img
               src={LinkedInLogo}
@@ -32,15 +32,17 @@ export default function LoginComponent() {
         </div>
       </header>
       <section className="login-content">
-        <h1 className="heading">Sign In</h1>
-        <p className="sub-heading">Stay updated on your professional world</p>
+        <h1 className="login-heading">Sign In</h1>
+        <p className="login-sub-heading">
+          Stay updated on your professional world
+        </p>
         <div className="auth-inputs">
           <input
             onChange={(event) =>
               setCredentials({ ...credentials, email: event.target.value })
             }
             type="email"
-            className="common-inputs"
+            className="login-inputs"
             placeholder="Email or Password"></input>
 
           <input
@@ -48,31 +50,30 @@ export default function LoginComponent() {
               setCredentials({ ...credentials, password: event.target.value })
             }
             type="password"
-            className="common-inputs"
+            className="login-inputs"
             placeholder="Password"></input>
         </div>
-        <div className="forgot-password">Forgot Password?</div>
-        <div className="alternative-signIn-container">
+        <div className="login-forgot-password">Forgot Password?</div>
+        <div className="login-alternative-signIn-container">
           <button onClick={login} className="login-btn">
             Sign in
           </button>
-          {/* <span className="text-with-line">Or</span> */}
-          <div className="text-with-line">
+          <div className="login-text-with-line">
             <div className="line"></div>
             <div className="text">Or</div>
             <div className="line"></div>
           </div>
-          <button className="alternative-signIn-btn">
+          <button className="login-alternative-signIn-btn">
             <img src={googleSignIn} />
             Sign in with Google
           </button>
-          <button className="alternative-signIn-btn">
+          <button className="login-alternative-signIn-btn">
             <img src={appleSignIn} />
             Sign in with Apple
           </button>
         </div>
       </section>
-      <div className="join-now">
+      <div className="login-join-now">
         New to LinkedIn? <a href="/register"> Join now</a>
       </div>
       <div className="footer-wrapper">
