@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { LoginAPI, RegisterAPI } from '../api/AuthAPI'
+import { LoginAPI } from '../api/AuthAPI'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
 import googleSignIn from '../assets/googleSignIn.svg'
 import appleSignIn from '../assets/appleSignIn.svg'
@@ -20,7 +20,7 @@ export default function LoginComponent() {
 
   return (
     <>
-      <header>
+      <header className="tm">
         <div className="login-logo-wrapper">
           <Link to="/">
             <img

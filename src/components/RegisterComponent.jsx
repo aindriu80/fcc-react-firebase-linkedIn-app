@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { LoginAPI, RegisterAPI } from '../api/AuthAPI'
+import { RegisterAPI } from '../api/AuthAPI'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
 import googleSignIn from '../assets/googleSignIn.svg'
+// import '../index.scss'
 import '../Sass/RegisterComponent.scss'
+
 import { Link } from 'react-router-dom'
 import Footer from './FooterComponent'
 
@@ -19,69 +21,93 @@ export default function LoginComponent() {
 
   return (
     <>
-      <header>
-        <div className="register-wrapper">
-          <Link to="/">
-            <img
-              src={LinkedInLogo}
-              alt="LinkedInLogo"
-              className="linkedInLogo"
-            />
-          </Link>
-        </div>
-      </header>
+      <div>
+        <main className="main">
+          <header className="main__header">
+            <div className="main__logo-container">
+              <Link to="/">
+                <img
+                  src={LinkedInLogo}
+                  alt="LinkedInLogo"
+                  className="linkedInLogo"
+                />
+              </Link>
 
-      <h3 className="register-heading">
-        Make the most of your professional life
-      </h3>
+              <span aria-label="LinkedIn logo"></span>
+            </div>
+            <h1 className="main__subtitle">
+              Make the most of your professional life
+            </h1>
+          </header>
+          <div className="join-form-wrapper">
+            <section className="join-form__form-body join-form__form-body--gsi">
+              <div className="join-form__form-input-container join-form__form-input-container--is-section-1">
+                <label className="input__label">Email</label>
+                <input
+                  onChange={(event) =>
+                    setCredentials({
+                      ...credentials,
+                      email: event.target.value,
+                    })
+                  }
+                  type="email"
+                  className="input__input"
+                  placeholder=""></input>
+                <label className="input__label">
+                  Password (6 or more characters)
+                </label>
+                <input
+                  onChange={(event) =>
+                    setCredentials({
+                      ...credentials,
+                      password: event.target.value,
+                    })
+                  }
+                  type="password"
+                  className="input__input"
+                  placeholder=""></input>
+              </div>
+              <div className="join-form__form-body-agreement">
+                By clicking Agree & Join, you agree to the LinkedIn User
+                Agreement, Privacy Policy, and Cookie Policy.{' '}
+              </div>
 
-      <section className="register-content">
-        <div className="auth-inputs">
-          <label className="input-label">Email</label>
-          <input
-            onChange={(event) =>
-              setCredentials({ ...credentials, email: event.target.value })
-            }
-            type="email"
-            className="register-inputs"
-            placeholder=""></input>
-          <label className="input-label">Password (6 or more characters)</label>
-          <input
-            onChange={(event) =>
-              setCredentials({ ...credentials, password: event.target.value })
-            }
-            type="password"
-            className="register-inputs"
-            placeholder=""></input>
-        </div>
-        <div className="register-agreement">
-          By clicking Agree & Join, you agree to the LinkedIn User Agreement,
-          Privacy Policy, and Cookie Policy.{' '}
-        </div>
-        <div className="register-alternative-signIn-container">
-          <button onClick={register} className="register-btn">
-            Agree & Join
-          </button>
+              <button
+                onClick={register}
+                className="join-form__form-body-submit-button">
+                Agree & Join
+              </button>
 
-          <div className="text-with-line">
-            <div className="line"></div>
-            <div className="text">Or</div>
-            <div className="line"></div>
+              <div className="third-party-join__container">
+                <p className="third-party-join__reg-option">
+                  <span className="third-party-join__line-wrapper">
+                    <span className="third-party-join__line"></span>
+                  </span>
+                  <span className="third-party-join__content">
+                    <span className="third-party-join__or-span">or</span>
+                  </span>
+                </p>
+                <div className="gsi_452543_515733-wrapper">
+                  <div className="third-party-join__gsi-btn-container">
+                    <div className="">
+                      <button>
+                        <img src={googleSignIn} />
+                        Sign in with Google
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div className="main__sign-in-container">
+              Already on LinkedIn? <a href="/login"> Sign in</a>
+            </div>
+            <p className="page-help-link__text">
+              Looking to create a page for a business? <a href="/"> Get help</a>
+            </p>
           </div>
-          <button className="register-alternative-signIn-btn">
-            <img src={googleSignIn} />
-            Sign in with Google
-          </button>
-        </div>
-      </section>
+        </main>
 
-      <div className="already-a-member">
-        Already on LinkedIn? <a href="/login"> Sign in</a>
-      </div>
-      <div className="page-for-business">
-        Looking to create a page for a business? <a href="/"> Get help</a>
-      </div>
-      <div className="footer-wrapper">
         <Footer />
       </div>
     </>
