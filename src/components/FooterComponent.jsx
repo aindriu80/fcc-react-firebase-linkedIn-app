@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
-import footer from '../Sass/Footer.scss'
-import footerImage from '../assets/footerImage.svg'
+// import { Container } from 'react-bootstrap'
+// import footer from '../Sass/Footer.scss'
+// import footerImage from '../assets/footerImage.svg'
 
 const Footer = () => {
   return (

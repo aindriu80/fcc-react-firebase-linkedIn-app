@@ -5,6 +5,7 @@ import { auth } from '../../firebaseConfig'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../components/common/Loader'
 import HomeComponent from '../components/HomeComponent'
+import Footer from '../components/FooterComponent'
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -20,5 +21,10 @@ export default function Home() {
   // }, [])
 
   // return loading ? <Loader /> : <HomeComponent />
-  return <HomeComponent />
+  return (
+    <>
+      <HomeComponent />
+      <Footer />
+    </>
+  )
 }

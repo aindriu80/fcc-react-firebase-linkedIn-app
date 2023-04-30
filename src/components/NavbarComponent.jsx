@@ -1,76 +1,54 @@
 import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Nav from 'react-bootstrap/Nav'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
 import discover from '../assets/discover.svg'
 import people from '../assets/people.svg'
 import learning from '../assets/learning.svg'
 import jobs from '../assets/jobs.svg'
-import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import '../Sass/NavbarComponent.scss'
 
 function NavbarComponent() {
   return (
-    <Navbar fixed="top">
-      <Container>
-        <Navbar.Brand href="/">
-          <Link to="/">
-            <img
-              src={LinkedInLogo}
-              width="140"
-              height="40"
-              alt="LinkedIn Logo"
-            />
-          </Link>
-        </Navbar.Brand>
+    <div className="Navbar">
+      <div className="Navbar__Link Navbar__Link-brand">
+        <Link to="/">
+          <img src={LinkedInLogo} width="140" height="40" alt="LinkedIn Logo" />
+        </Link>
+      </div>
+      <div className="Navbar__Link Navbar__Link-toggle">
+        <i className="fas fa-bars"></i>
+      </div>
+      <nav className="Navbar__Items"></nav>
+      <nav className="Navbar__Items Navbar__Items--right">
+        <div className="Navbar__Link">
+          <img src={discover} width="24px" height="24px" />
+          <div className="Navbar__Text">Discover</div>
+        </div>
+        <div className="Navbar__Link">
+          <img src={people} width="24px" height="24px" />
+          <div className="Navbar__Text">People</div>
+        </div>
+        <div className="Navbar__Link">
+          <img src={learning} width="24px" height="24px" />
 
-        <Form className="d-flex">
-          <Nav className="" style={{ maxHeight: '100px' }} navbarScroll>
-            <Nav.Link
-              href="#action1"
-              className="d-flex flex-column align-items-center">
-              <div>
-                <img src={discover} width="24px" height="24px" />
-              </div>
-              <div>Discover</div>
-            </Nav.Link>
-            <Nav.Link
-              href="#action2"
-              className="d-flex flex-column align-items-center">
-              <div>
-                <img src={people} width="24px" height="24px" />
-              </div>
-              People
-            </Nav.Link>
-            <Nav.Link
-              href="#action2"
-              className="d-flex flex-column align-items-center">
-              <div>
-                <img src={learning} width="24px" height="24px" />
-              </div>
-              Learning
-            </Nav.Link>
-            <Nav.Link
-              href="#action2"
-              className="d-flex flex-column align-items-center">
-              <div>
-                <img src={jobs} width="24px" height="24px" />
-              </div>
-              Jobs
-            </Nav.Link>
-          </Nav>
-          <Button variant="flat">
+          <div className="Navbar__Text">Learning</div>
+        </div>
+        <div className="Navbar__Link">
+          <img src={jobs} width="24px" height="24px" />
+          <div className="Navbar__Text">Jobs</div>
+        </div>
+        <div className="Navbar__Link">
+          <Button className="btn-md btn-primary-no-emphasis">
             <Link to="/register">Join now</Link>
           </Button>
-
-          <Button variant="header-sign-in">
+        </div>
+        <div className="Navbar__Link">
+          <Button className="btn-md btn-secondary-emphasis ">
             <Link to="/login">Sign in</Link>
           </Button>
-        </Form>
-      </Container>
-    </Navbar>
+        </div>
+      </nav>
+    </div>
   )
 }
 

@@ -1,9 +1,104 @@
-.header-sign-in {
-  box-shadow: 0 0 0 1px;
-  background-color: #0a66c2;
-  color: #004182;
-  border-radius: 25px;
+.Navbar {
+  background-color: #ffffff;
+  display: flex;
+  padding: 16px;
+  font-family: sans-serif;
+  color: black;
+  padding-right: 25%;
 }
-.navbar-brand {
-  margin-left: 60px;
+
+.Navbar__Link {
+  display: flex;
+  flex-direction: column;
+  padding-right: 18px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Navbar__Items {
+  display: flex;
+}
+.Navbar__Text {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Navbar__Items--right {
+  margin-left: auto;
+}
+
+.Navbar__Link-toggle {
+  display: none;
+}
+.btn-md {
+  height: min-content;
+  min-height: 48px;
+  border-radius: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-primary-no-emphasis {
+  font-size: 15px;
+  a:visited {
+    color: #000000;
+  }
+}
+
+.btn-secondary-emphasis {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto;
+  font-size: 16px;
+  color: rgb(0, 65, 130);
+  height: 48px;
+  width: 97.2px;
+  border: 0px none rgb(0, 65, 130);
+  border-top: 0px none rgb(0, 65, 130);
+  border-right: 0px none rgb(0, 65, 130);
+  border-bottom: 0px none rgb(0, 65, 130);
+  border-left: 0px none rgb(0, 65, 130);
+  padding: 12px 24px;
+  cursor: pointer;
+  word-wrap: normal;
+  box-shadow: rgb(10, 102, 194) 0px 0px 0px 1px;
+
+  a:visited {
+    color: rgb(0, 65, 130);
+  }
+}
+.btn-secondary-emphasis:hover {
+  a:link {
+    text-decoration: none;
+    // color: rgb(0, 65, 130);
+  }
+  box-shadow: black;
+  background-color: #f0f7fe;
+  color: yellow;
+}
+
+@media only screen and (max-width: 768px) {
+  .Navbar__Items,
+  .Navbar {
+    flex-direction: column;
+  }
+  .Navbar__Items {
+    display: none;
+  }
+  .Navbar__Items--right {
+    margin-left: 0;
+  }
+  .Navbar__ToggleShow {
+    display: flex;
+  }
+  .Navbar__Link-toggle {
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+  }
 }

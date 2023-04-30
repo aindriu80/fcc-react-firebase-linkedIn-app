@@ -35,6 +35,7 @@ export default function Home() {
   return (
     <>
       <NavbarComponent />
+
       <div className="main-content">
         <div className="main-top-left-content">
           <h1 className="welcome-text">
