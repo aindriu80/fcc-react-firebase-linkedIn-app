@@ -49,7 +49,7 @@ export default function Home() {
                   setCredentials({ ...credentials, email: event.target.value })
                 }
                 type="email"
-                className="common-inputs"
+                className=" input__input"
                 placeholder=""></input>
               Password
               <input
@@ -60,27 +60,26 @@ export default function Home() {
                   })
                 }
                 type="password"
-                className="common-inputs"
+                className=" input__input"
                 placeholder=""></input>
             </div>
             <div className="forgot-password">Forgot Password?</div>
-            <div className="alternative-signIn-container">
-              <button onClick={login} className="login-btn">
-                Sign in
-              </button>
-              <div className="text-with-line">
-                <div className="line"></div>
-                <div className="text">Or</div>
-                <div className="line"></div>
-              </div>
-              <button className="alternative-signIn-btn">
-                <img src={googleSignIn} />
-                Sign in with Google
-              </button>
-              <button className="alternative-signIn-btn">
-                New to LinkedIn? Join now
-              </button>
+            {/* <div className="home-login-btn"></div> */}
+            <button onClick={login} className="home-login-btn">
+              Sign In
+            </button>
+            <div className="login-text-with-line">
+              <div className="line"></div>
+              <div className="text">Or</div>
+              <div className="line"></div>
             </div>
+            <button className="home-login-google-btn ">
+              <img src={googleSignIn} />
+              Sign in with Google
+            </button>
+            <button className="home-new-to-site-btn">
+              New to LinkedIn? Join now
+            </button>
           </section>
         </div>
         <div className="main-top-right-content">

@@ -1,0 +1,41 @@
+.topbar-main {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+}
+.feedLinkedInLogo {
+  width: 10%;
+  margin-left: 20px;
+}
+.react-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45%;
+  margin-left: 30px;
+  align-items: right;
+}
+
+.react-icon {
+  color: #666666;
+  cursor: pointer;
+}
+
+.react-icon:hover {
+  color: #000000;
+}
+
+.user-logo {
+  width: 40px;
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+}
+
+.feed-logout-btn {
+  background-color: #000000;
+  text: black;
+  cursor: pointer;
+}
