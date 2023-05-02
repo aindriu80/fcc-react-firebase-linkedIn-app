@@ -64,7 +64,6 @@ export default function Home() {
                 placeholder=""></input>
             </div>
             <div className="forgot-password">Forgot Password?</div>
-            {/* <div className="home-login-btn"></div> */}
             <button onClick={login} className="home-login-btn">
               Sign In
             </button>

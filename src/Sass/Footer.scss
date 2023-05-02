@@ -1,7 +1,6 @@
 .footer-wrapper {
   display: flex;
   justify-content: center;
-  //   background-color: #f8f8f8;
   padding: 10px;
   position: absolute;
   bottom: 0;
@@ -10,22 +9,17 @@
 
 .footer {
   position: fixed;
-  // bottom: 0px;
   width: 100%;
-  height: 60px; // Or whatever height you want your footer to be
+  height: 60px;
 
   .container {
     align-items: flex-end;
-    // padding-top: 10px;
-    // padding-bottom: 10px;
-    // padding-left: 330px;
   }
 }
 .footer-text {
   display: flex;
   position: absolute;
   left: 50%;
-  // bottom: 10%;
   transform: translate(-50%, -67%);
 
   font-family: system-ui;

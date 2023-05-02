@@ -9,12 +9,21 @@ import {
   AiOutlineBell,
 } from 'react-icons/ai'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
+
 import '../Sass/FeedComponent.scss'
 
 export default function FeedComponent() {
+  const navigate = useNavigate()
+
+  const goToRoute = (route) => {
+    navigate(route)
+  }
+
   const logout = () => {
     auth.signOut()
   }
+
   return (
     <>
       <div className="topbar-main">
@@ -24,8 +33,16 @@ export default function FeedComponent() {
           alt="LinkedIn Logo"
         />
         <div className="react-icons">
-          <AiOutlineHome size={30} className="react-icon" />
-          <AiOutlineUserSwitch size={30} className="react-icon" />
+          <AiOutlineHome
+            size={30}
+            className="react-icon"
+            onClick={() => goToRoute('/')}
+          />
+          <AiOutlineUserSwitch
+            size={30}
+            className="react-icon"
+            onClick={() => goToRoute('/profile')}
+          />
           <BsBriefcase size={30} className="react-icon" />
           <AiOutlineSearch size={30} className="react-icon" />
           <AiOutlineMessage size={30} className="react-icon" />

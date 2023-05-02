@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { RegisterAPI } from '../api/AuthAPI'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
 import googleSignIn from '../assets/googleSignIn.svg'
-// import '../index.scss'
 import '../Sass/RegisterComponent.scss'
 
 import { Link } from 'react-router-dom'

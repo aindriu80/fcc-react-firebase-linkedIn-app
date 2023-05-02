@@ -19,7 +19,5 @@ export default function Feed() {
     })
   }, [])
 
-  // return loading ? <Loader /> : <HomeComponent />
   return <FeedComponent />
-  // return <HomeComponent />
 }

@@ -1,7 +1,4 @@
 import React from 'react'
-// import { Container } from 'react-bootstrap'
-// import footer from '../Sass/Footer.scss'
-// import footerImage from '../assets/footerImage.svg'
 
 const Footer = () => {
   return (
@@ -9,17 +6,6 @@ const Footer = () => {
       <ul className="li-footer__list">
         <li className="li-footer__item">
           <span className="sr-only">LinkedIn</span>
-          {/* <icon className="li-footer__copy-logo lazy-loaded" aria-hidden="true">
-            <svg
-              viewBox="0 0 56 14"
-              preserveAspectRatio="xMinYMin meet"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              fill="CurrentColor"
-              focusable="false"
-              className="lazy-loaded"></svg>
-          </icon> */}
           <span className="li-footer__copy-text">© 2023</span>
         </li>
         <li className="li-footer__item">
@@ -78,17 +64,6 @@ const Footer = () => {
               aria-expanded="false"
               data-tracking-control-name="footer-lang-dropdown_trigger">
               <span className="language-selector__label-text">Language</span>
-              {/* <icon
-                className="language-selector__label-chevron lazy-loaded"
-                aria-hidden="true">
-                <svg
-                  width="16"
-                  height="16"
-                  preserveAspectRatio="xMinYMin meet"
-                  xmlns="http://www.w3.org/2000/svg"
-                  focusable="false"
-                  className="lazy-loaded"></svg>
-              </icon> */}
             </button>
           </div>
         </li>
