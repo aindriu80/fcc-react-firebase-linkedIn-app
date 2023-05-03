@@ -18,7 +18,6 @@ function NavbarComponent() {
       <div className="Navbar__Link Navbar__Link-toggle">
         <i className="fas fa-bars"></i>
       </div>
-      <nav className="Navbar__Items"></nav>
       <nav className="Navbar__Items Navbar__Items--right">
         <div className="Navbar__Link">
           <img src={discover} width="24px" height="24px" />

@@ -10,6 +10,7 @@ import {
 } from 'react-icons/ai'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
+import PostUpdate from '../components/common/PostUpdate'
 
 import '../Sass/FeedComponent.scss'
 
@@ -32,6 +33,7 @@ export default function FeedComponent() {
           src={linkedInLogo}
           alt="LinkedIn Logo"
         />
+
         <div className="react-icons">
           <AiOutlineHome
             size={30}
@@ -52,6 +54,7 @@ export default function FeedComponent() {
       </div>
 
       <h2>Feed Component</h2>
+      <PostUpdate />
       <button onClick={logout} className="feed-logout-btn">
         Logout
       </button>
