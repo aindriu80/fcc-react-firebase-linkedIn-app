@@ -11,6 +11,9 @@ import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 
 export default function PostUpdate() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [status, setStatus] = useState('')
+  const sendStatus = () => {}
+
   return (
     <>
       <div className="post-status-main">
@@ -43,7 +46,13 @@ export default function PostUpdate() {
             <div className="Navbar__Text">Write Article</div>
           </div>
         </div>
-        <ModalComponent modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        <ModalComponent
+          setStatus={setStatus}
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+          status={status}
+          sendStatus={sendStatus}
+        />
       </div>
     </>
   )
