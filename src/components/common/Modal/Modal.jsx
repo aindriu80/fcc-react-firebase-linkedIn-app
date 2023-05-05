@@ -37,8 +37,7 @@ const ModalComponent = ({
             key="submit"
             type="primary"
             disabled={status.length > 0 ? false : true}
-            loading={loading}
-            onClick={handleOk}>
+            loading={loading}>
             Post
           </Button>,
         ]}>

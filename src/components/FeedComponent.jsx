@@ -40,11 +40,11 @@ export default function FeedComponent() {
             className="react-icon"
             onClick={() => goToRoute('/')}
           />
-          <AiOutlineUserSwitch
+          {/* <AiOutlineUserSwitch
             size={30}
             className="react-icon"
             onClick={() => goToRoute('/profile')}
-          />
+          /> */}
           <BsBriefcase size={30} className="react-icon" />
           <AiOutlineSearch size={30} className="react-icon" />
           <AiOutlineMessage size={30} className="react-icon" />

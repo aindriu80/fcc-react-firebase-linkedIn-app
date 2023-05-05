@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { PostStatus } from '../../api/FirestoreAPI'
 import photo from '../../assets/photo.svg'
 import video from '../../assets/video.svg'
 import event from '../../assets/event.svg'
@@ -12,7 +13,9 @@ import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 export default function PostUpdate() {
   const [modalOpen, setModalOpen] = useState(false)
   const [status, setStatus] = useState('')
-  const sendStatus = () => {}
+  const sendStatus = () => {
+    PostStatus(status)
+  }
 
   return (
     <>
