@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Button, Modal } from 'antd'
 
 import '../../../Sass/Modal.scss'
@@ -11,15 +11,21 @@ const ModalComponent = ({
   status,
 }) => {
   const [loading, setLoading] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const myRef = useRef()
 
-  const handleOk = () => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-      setOpen(false)
-    }, 3000)
+  const showModal = () => {
+    setVisible(true)
   }
+
+  const handleOk = (e) => {
+    setVisible(false)
+  }
+
+  const handleCancel = (e) => {
+    setVisible(false)
+  }
+
   return (
     <>
       <Modal

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PostStatus } from '../../api/FirestoreAPI'
+import { postStatus } from '../../api/FirestoreAPI'
 import photo from '../../assets/photo.svg'
 import video from '../../assets/video.svg'
 import event from '../../assets/event.svg'
@@ -13,8 +13,10 @@ import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 export default function PostUpdate() {
   const [modalOpen, setModalOpen] = useState(false)
   const [status, setStatus] = useState('')
-  const sendStatus = () => {
-    PostStatus(status)
+  const sendStatus = async () => {
+    await postStatus(status)
+    await setModalOpen(false)
+    await setStatus('')
   }
 
   return (
