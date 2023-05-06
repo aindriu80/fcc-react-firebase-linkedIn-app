@@ -40,24 +40,23 @@ export default function FeedComponent() {
             className="react-icon"
             onClick={() => goToRoute('/')}
           />
-          {/* <AiOutlineUserSwitch
+          <AiOutlineUserSwitch
             size={30}
             className="react-icon"
             onClick={() => goToRoute('/profile')}
-          /> */}
+          />
           <BsBriefcase size={30} className="react-icon" />
           <AiOutlineSearch size={30} className="react-icon" />
           <AiOutlineMessage size={30} className="react-icon" />
           <AiOutlineBell size={30} className="react-icon" />
-          <BsPersonCircle size={30} className="user-logo" />
+          <BsPersonCircle size={30} className="user-logo" onClick={logout} />
         </div>
       </div>
 
-      <h2>Feed Component</h2>
-      <PostUpdate />
-      <button onClick={logout} className="feed-logout-btn">
-        Logout
-      </button>
+      <div className="feed-component">
+        {/* <h2>Feed Component</h2> */}
+        <PostUpdate />
+      </div>
     </>
   )
 }

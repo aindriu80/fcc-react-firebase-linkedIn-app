@@ -57,3 +57,10 @@
   width: 50%;
   border-radius: 10px;
 }
+
+.post-messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

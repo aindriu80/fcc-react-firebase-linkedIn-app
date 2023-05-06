@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { postStatus } from '../../api/FirestoreAPI'
+import React, { useState, useMemo } from 'react'
+import { postStatus, getStatus } from '../../api/FirestoreAPI'
 import photo from '../../assets/photo.svg'
 import video from '../../assets/video.svg'
 import event from '../../assets/event.svg'
@@ -13,11 +13,16 @@ import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 export default function PostUpdate() {
   const [modalOpen, setModalOpen] = useState(false)
   const [status, setStatus] = useState('')
+  const [allStatuses, setAllStatuses] = useState([])
   const sendStatus = async () => {
     await postStatus(status)
     await setModalOpen(false)
     await setStatus('')
   }
+
+  useMemo(() => {
+    getStatus(setAllStatuses)
+  }, [])
 
   return (
     <>
@@ -30,6 +35,7 @@ export default function PostUpdate() {
             Start a Post
           </button>
         </div>
+
         <div className="post-status">
           <div className="Navbar__Link">
             <img src={photo} width="24px" height="24px" />
@@ -51,6 +57,7 @@ export default function PostUpdate() {
             <div className="Navbar__Text">Write Article</div>
           </div>
         </div>
+
         <ModalComponent
           setStatus={setStatus}
           modalOpen={modalOpen}
@@ -58,6 +65,16 @@ export default function PostUpdate() {
           status={status}
           sendStatus={sendStatus}
         />
+      </div>
+
+      <div className="post-messages">
+        {allStatuses.map((posts) => {
+          return (
+            <>
+              <p>{posts.status}</p>
+            </>
+          )
+        })}
       </div>
     </>
   )
