@@ -1,6 +1,6 @@
 import React from 'react'
 import { auth } from '../../firebaseConfig'
-import linkedInLogo from '../assets/LinkedInLogo.svg'
+import linkedInLogo from '../assets/top-nav.svg'
 import {
   AiOutlineHome,
   AiOutlineUserSwitch,
@@ -8,9 +8,12 @@ import {
   AiOutlineMessage,
   AiOutlineBell,
 } from 'react-icons/ai'
+import { TbGridDots } from 'react-icons/tb'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import PostUpdate from '../components/common/PostUpdate'
+import MessageUpdates from '../components/common/MessageUpdates'
+import FeedSearch from '../components/common/FeedSearch'
 
 import '../Sass/FeedComponent.scss'
 
@@ -27,35 +30,80 @@ export default function FeedComponent() {
 
   return (
     <>
-      <div className="topbar-main">
-        <img
-          className="feedLinkedInLogo"
-          src={linkedInLogo}
-          alt="LinkedIn Logo"
-        />
+      <div className="container">
+        <div className="global-nav">
+          <div className="topbar-main">
+            <img
+              className="feedLinkedInLogo"
+              src={linkedInLogo}
+              alt="LinkedIn Logo"
+            />
+            <FeedSearch />
 
-        <div className="react-icons">
-          <AiOutlineHome
-            size={30}
-            className="react-icon"
-            onClick={() => goToRoute('/')}
-          />
-          <AiOutlineUserSwitch
-            size={30}
-            className="react-icon"
-            onClick={() => goToRoute('/profile')}
-          />
-          <BsBriefcase size={30} className="react-icon" />
-          <AiOutlineSearch size={30} className="react-icon" />
-          <AiOutlineMessage size={30} className="react-icon" />
-          <AiOutlineBell size={30} className="react-icon" />
-          <BsPersonCircle size={30} className="user-logo" onClick={logout} />
+            <div className="global-nav-feed">
+              <div className="Navbar__Link">
+                <AiOutlineHome
+                  size={30}
+                  className="react-icon"
+                  onClick={() => goToRoute('/')}
+                />
+                <div className="Navbar__Text">Home</div>
+              </div>
+
+              <div className="Navbar__Link">
+                <AiOutlineUserSwitch
+                  size={30}
+                  className="react-icon"
+                  onClick={() => goToRoute('/profile')}
+                />
+                <div className="Navbar__Text">My Network</div>
+              </div>
+              <div className="Navbar__Link">
+                <BsBriefcase size={30} className="react-icon" />
+                <div className="Navbar__Text">My Network</div>
+              </div>
+
+              <div className="Navbar__Link">
+                <AiOutlineSearch size={30} className="react-icon" />
+                <div className="Navbar__Text">Jobs</div>
+              </div>
+              <div className="Navbar__Link">
+                <AiOutlineMessage size={30} className="react-icon" />
+                <div className="Navbar__Text">Messaging</div>
+              </div>
+              <div className="Navbar__Link">
+                <AiOutlineBell size={30} className="react-icon" />
+                <div className="Navbar__Text">Notifications</div>
+              </div>
+              <div className="Navbar__Link">
+                <BsPersonCircle
+                  size={30}
+                  className="user-logo"
+                  onClick={logout}
+                />
+                <div className="Navbar__Text">Me</div>
+              </div>
+
+              <div className="Navbar__Link">
+                <TbGridDots size={30} className="user-logo" />
+                <div className="Navbar__Text">For Business</div>
+              </div>
+
+              <div className="Navbar__Link">
+                <div className="Navbar__Text">Retry Premium Free</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="feed-component">
-        {/* <h2>Feed Component</h2> */}
-        <PostUpdate />
+        <div className="sidebar-layout">sidebar-layout</div>
+        <div className="share-box">
+          <PostUpdate />
+        </div>
+        <div className="feed-share">
+          <MessageUpdates />
+        </div>
+        <div className="layout-aside">layout-aside</div>
       </div>
     </>
   )

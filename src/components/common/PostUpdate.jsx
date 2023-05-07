@@ -66,16 +66,6 @@ export default function PostUpdate() {
           sendStatus={sendStatus}
         />
       </div>
-
-      <div className="post-messages">
-        {allStatuses.map((posts) => {
-          return (
-            <>
-              <p>{posts.status}</p>
-            </>
-          )
-        })}
-      </div>
     </>
   )
 }
