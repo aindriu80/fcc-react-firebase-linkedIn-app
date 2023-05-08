@@ -5,8 +5,9 @@
   flex-direction: column;
   border: 1px solid #b7b7b7;
   background-color: white;
-  width: 50%;
+  // width: 50%;
   border-radius: 10px;
+  margin-top: 10px;
 }
 .post-status {
   width: 80%;
@@ -59,8 +60,8 @@
 }
 
 .post-messages {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
 }

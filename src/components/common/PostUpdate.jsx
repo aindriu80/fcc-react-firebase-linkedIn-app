@@ -7,7 +7,6 @@ import article from '../../assets/article.svg'
 import ModalComponent from '../common/Modal/Modal'
 
 import '../../Sass/PostUpdate.scss'
-
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 
 export default function PostUpdate() {
