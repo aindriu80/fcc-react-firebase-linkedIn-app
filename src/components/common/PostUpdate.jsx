@@ -5,6 +5,7 @@ import video from '../../assets/video.svg'
 import event from '../../assets/event.svg'
 import article from '../../assets/article.svg'
 import ModalComponent from '../common/Modal/Modal'
+import { getCurrentTimeStamp } from '../helpers/useMoment'
 
 import '../../Sass/PostUpdate.scss'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
@@ -13,8 +14,14 @@ export default function PostUpdate() {
   const [modalOpen, setModalOpen] = useState(false)
   const [status, setStatus] = useState('')
   const [allStatuses, setAllStatuses] = useState([])
+  let userEmail = localStorage.getItem('userEmail')
   const sendStatus = async () => {
-    await postStatus(status)
+    let object = {
+      status: status,
+      timeStamp: getCurrentTimeStamp('LLLL'),
+      userEmail: userEmail,
+    }
+    await postStatus(object)
     await setModalOpen(false)
     await setStatus('')
   }

@@ -5,6 +5,7 @@ import googleSignIn from '../assets/googleSignIn.svg'
 import appleSignIn from '../assets/appleSignIn.svg'
 import '../Sass/LoginComponent.scss'
 import Footer from './FooterComponent'
+import { toast } from 'react-toastify'
 
 import { Link } from 'react-router-dom'
 export default function LoginComponent() {
@@ -13,6 +14,8 @@ export default function LoginComponent() {
   const login = async () => {
     try {
       let res = await LoginAPI(credentials.email, credentials.password)
+      toast.success('Successfully logged in to LinkedIn')
+      localStorage.setItem('userEmail', res.user.email)
     } catch (error) {
       console.log(error)
     }
