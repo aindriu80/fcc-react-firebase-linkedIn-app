@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { auth } from '../../firebaseConfig'
 import linkedInLogo from '../assets/top-nav.svg'
 import {
@@ -14,10 +14,12 @@ import { useNavigate } from 'react-router-dom'
 import PostUpdate from '../components/common/PostUpdate'
 import MessageUpdates from '../components/common/MessageUpdates'
 import FeedSearch from '../components/common/FeedSearch'
-
+import ProfilePopUp from '../components/common/ProfilePopUp'
+import DownArrow from '../assets/downArrow.svg'
 import '../Sass/FeedComponent.scss'
 
 export default function FeedComponent() {
+  const [popUpVisible, setPopUpVisible] = useState(false)
   const navigate = useNavigate()
 
   const goToRoute = (route) => {
@@ -28,9 +30,24 @@ export default function FeedComponent() {
     auth.signOut()
   }
 
+  const displayPopUp = () => {
+    setPopUpVisible(!popUpVisible)
+  }
+
   return (
     <>
+      {/* <div className="topbar-main"> */}
+      {/* </div> */}
+
       <div className="container">
+        {popUpVisible ? (
+          <div className="popup-position">
+            <ProfilePopUp />
+          </div>
+        ) : (
+          // <></>
+          <p></p>
+        )}
         <div className="global-nav">
           <div className="topbar-main">
             <img
@@ -79,9 +96,11 @@ export default function FeedComponent() {
                 <BsPersonCircle
                   size={30}
                   className="user-logo"
-                  onClick={logout}
+                  onClick={displayPopUp}
                 />
-                <div className="Navbar__Text">Me</div>
+                <div className="Navbar__Text">
+                  Me <img src={DownArrow} />
+                </div>
               </div>
 
               <div className="Navbar__Link">
