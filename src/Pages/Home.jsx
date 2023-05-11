@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import '../Sass/Home.scss'
 import { auth } from '../../firebaseConfig'
@@ -9,7 +9,13 @@ import Footer from '../components/FooterComponent'
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
+  const [curentUser, setCurrentUser] = useState({})
   let navigate = useNavigate()
+
+  useMemo(() => {
+    getCurrentUser(setCurrentUser)
+  }, [])
+
   // useEffect(() => {
   //   onAuthStateChanged(auth, (res) => {
   //     if (!res?.accessToken) {
@@ -23,7 +29,7 @@ export default function Home() {
   // return loading ? <Loader /> : <HomeComponent />
   return (
     <>
-      <HomeComponent />
+      <HomeComponent curentUser={currentUser} />
       <Footer />
     </>
   )

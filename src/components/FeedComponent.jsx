@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { auth } from '../../firebaseConfig'
 import linkedInLogo from '../assets/top-nav.svg'
 import {
@@ -17,8 +17,14 @@ import FeedSearch from '../components/common/FeedSearch'
 import ProfilePopUp from '../components/common/ProfilePopUp'
 import DownArrow from '../assets/downArrow.svg'
 import '../Sass/FeedComponent.scss'
+import { getCurrentUser } from '../api/FirestoreAPI'
+import SidebarComponent from './SidebarComponent'
 
 export default function FeedComponent() {
+  const [currentUser, setCurrentUser] = useState({})
+  useMemo(() => {
+    getCurrentUser(setCurrentUser)
+  }, [])
   const [popUpVisible, setPopUpVisible] = useState(false)
   const navigate = useNavigate()
 
@@ -115,7 +121,9 @@ export default function FeedComponent() {
           </div>
         </div>
 
-        <div className="sidebar-layout">sidebar-layout</div>
+        <div className="sidebar-layout">
+          <SidebarComponent currentUser={currentUser} />
+        </div>
         <div className="share-box">
           <PostUpdate />
         </div>

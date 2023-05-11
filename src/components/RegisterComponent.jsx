@@ -1,18 +1,24 @@
 import React, { useState } from 'react'
 import { RegisterAPI } from '../api/AuthAPI'
+import { postUserData } from '../api/FirestoreAPI'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
 import googleSignIn from '../assets/googleSignIn.svg'
 import '../Sass/RegisterComponent.scss'
 
 import { Link } from 'react-router-dom'
 import Footer from './FooterComponent'
+import { useNavigate } from 'react-router-dom'
 
-export default function LoginComponent() {
-  const [credentials, setCredentials] = useState()
+export default function RegisterComponent() {
+  let navigate = useNavigate()
+  const [credentials, setCredentials] = useState({})
 
   const register = async () => {
     try {
-      let res = RegisterAPI(credentials.email, credentials.password)
+      let res = await RegisterAPI(credentials.email, credentials.password)
+      postUserData({ name: credentials.name, email: credentials.email })
+      localStorage.setItem('userEmail', res.user.email)
+      navigate('/feed')
     } catch (error) {
       console.log(error)
     }
@@ -41,6 +47,18 @@ export default function LoginComponent() {
           <div className="join-form-wrapper">
             <section className="join-form__form-body join-form__form-body--gsi">
               <div className="join-form__form-input-container join-form__form-input-container--is-section-1">
+                <label className="input__label">Name</label>
+                <input
+                  onChange={(event) =>
+                    setCredentials({
+                      ...credentials,
+                      name: event.target.value,
+                    })
+                  }
+                  type="text"
+                  className="input__input"
+                  placeholder=""></input>
+
                 <label className="input__label">Email</label>
                 <input
                   onChange={(event) =>

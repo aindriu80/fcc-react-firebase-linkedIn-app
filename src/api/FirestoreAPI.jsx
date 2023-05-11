@@ -3,14 +3,11 @@ import { firestore } from '../../firebaseConfig'
 import { addDoc, collection, onSnapshot } from 'firebase/firestore'
 import { toast } from 'react-toastify'
 
-let dbRef = collection(firestore, 'posts')
+let postsRef = collection(firestore, 'posts')
+let userRef = collection(firestore, 'users')
 
 export const postStatus = (object) => {
-  // let object = {
-  //   status: status,
-  // }
-
-  addDoc(dbRef, object)
+  addDoc(postsRef, object)
     .then(() => {
       toast.success('Document has been added successfully')
     })
@@ -19,11 +16,35 @@ export const postStatus = (object) => {
     })
 }
 export const getStatus = (setAllStatuses) => {
-  onSnapshot(dbRef, (response) => {
+  onSnapshot(postsRef, (response) => {
     setAllStatuses(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id }
       })
+    )
+  })
+}
+
+export const postUserData = (object) => {
+  addDoc(userRef, object)
+    .then(() => {})
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
+export const getCurrentUser = (setCurrentUser) => {
+  let currentEmail = localStorage.getItem('userEmail')
+  onSnapshot(userRef, (response) => {
+    setCurrentUser(
+      // console.log(
+      response.docs
+        .map((docs) => {
+          return { ...docs.data(), userIDd: docs.id }
+        })
+        .filter((item) => {
+          return item.email === currentEmail
+        })[0]
     )
   })
 }
