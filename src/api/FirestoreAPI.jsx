@@ -43,7 +43,7 @@ export const getCurrentUser = (setCurrentUser) => {
           return { ...docs.data(), userIDd: docs.id }
         })
         .filter((item) => {
-          return item.email === currentEmail
+          return item.email === localStorage.getItem('userEmail')
         })[0]
     )
   })

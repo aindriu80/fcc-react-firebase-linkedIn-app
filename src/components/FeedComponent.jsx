@@ -125,7 +125,7 @@ export default function FeedComponent() {
           <SidebarComponent currentUser={currentUser} />
         </div>
         <div className="share-box">
-          <PostUpdate />
+          <PostUpdate currentUser={currentUser} />
         </div>
         <div className="feed-share">
           <MessageUpdates />

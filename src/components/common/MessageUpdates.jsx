@@ -12,12 +12,11 @@ export default function MessageUpdates() {
   return (
     <>
       <div className="post-messages">
-        {allStatuses.map((posts) => {
+        {allStatuses.map((posts, id) => {
           return (
-            <>
-              {/* <p>{posts.status}</p> */}
+            <div key={posts.id}>
               <PostsCard posts={posts} />
-            </>
+            </div>
           )
         })}
       </div>

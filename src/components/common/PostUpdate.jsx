@@ -6,11 +6,12 @@ import event from '../../assets/event.svg'
 import article from '../../assets/article.svg'
 import ModalComponent from '../common/Modal/Modal'
 import { getCurrentTimeStamp } from '../helpers/useMoment'
+import { getUniqueID } from '../helpers/getUniqueId'
 
 import '../../Sass/PostUpdate.scss'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 
-export default function PostUpdate() {
+export default function PostUpdate({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [status, setStatus] = useState('')
   const [allStatuses, setAllStatuses] = useState([])
@@ -19,7 +20,9 @@ export default function PostUpdate() {
     let object = {
       status: status,
       timeStamp: getCurrentTimeStamp('LLLL'),
-      userEmail: userEmail,
+      userEmail: currentUser.email,
+      userName: currentUser.name,
+      postID: getUniqueID(),
     }
     await postStatus(object)
     await setModalOpen(false)
