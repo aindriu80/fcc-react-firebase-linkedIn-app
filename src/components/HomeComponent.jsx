@@ -11,9 +11,9 @@ import { LoginAPI, RegisterAPI } from '../api/AuthAPI'
 
 export default function Home() {
   const [credentials, setCredentials] = useState()
-
   const [loading, setLoading] = useState(true)
   let navigate = useNavigate()
+
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       if (res?.accessToken) {

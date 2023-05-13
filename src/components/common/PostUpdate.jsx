@@ -37,7 +37,9 @@ export default function PostUpdate({ currentUser }) {
     <>
       <div className="post-status-main">
         <div className="post-status">
-          <BsPersonCircle size={30} className="user-logo-post" />
+          <div className="post-status-profile">
+            <BsPersonCircle size={48} className="user-logo-post" />
+          </div>
           <button
             className="open-post-modal"
             onClick={() => setModalOpen(true)}>

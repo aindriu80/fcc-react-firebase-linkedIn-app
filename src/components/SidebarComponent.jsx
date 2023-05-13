@@ -1,12 +1,19 @@
 import React, { useState, useMemo } from 'react'
-import { getCurrentUser } from '../api/FirestoreAPI'
+import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
+import '../Sass/SidebarComponent.scss'
 
 const SidebarComponent = ({ currentUser }) => {
-  //   const [currentUser, setCurrentUser] = useState({})
-  //   useMemo(() => {
-  //     getCurrentUser(setCurrentUser)
-  //   })
-  return <div>SidebarComponent</div>
+  return (
+    <>
+      <div className="sidebar-main">
+        <div className="sidebar-content">
+          <BsPersonCircle size={70} className="user-logo-post" />
+          <div className="sidebar-user-details">{currentUser.name}</div>
+          Job title
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default SidebarComponent

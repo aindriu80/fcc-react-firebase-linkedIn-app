@@ -21,6 +21,8 @@
 .share-box {
   padding-top: 10px;
   grid-area: share-box;
+  max-width: 555px;
+  padding: 10px;
 }
 
 .feed-share {
@@ -54,6 +56,10 @@
   // align-items: right;
 }
 
+.Navbar__Text {
+  text-align: center;
+}
+
 .react-icon {
   color: #666666;
   cursor: pointer;
@@ -85,5 +91,19 @@
     width: 10%;
     background-color: blue;
     color: black;
+  }
+}
+
+@media (max-width: 1462px) {
+  /* styles */
+  .Navbar__Text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1256px) {
+  /* styles */
+  .Navbar__Text {
+    font-size: 10px;
   }
 }

@@ -44,7 +44,11 @@
   justify-content: space-around;
   border: none;
 }
-
+.post-status-profile {
+  display: flex;
+  align-items: left;
+  padding-right: 10px;
+}
 .Navbar__Link {
 }
 
