@@ -41,7 +41,6 @@
   align-items: center;
 }
 .feedLinkedInLogo {
-  // width: 10%;
   height: 4.1rem;
   width: 4.1rem;
   margin-left: 17%;
@@ -49,11 +48,7 @@
 
 .global-nav-feed {
   display: flex;
-  // align-items: center;
-  // justify-content: space-between;
-  // width: 45%;
   margin-left: 5%;
-  // align-items: right;
 }
 
 .Navbar__Text {
@@ -71,7 +66,6 @@
 
 .user-logo {
   width: 40px;
-  // position: absolute;
   right: 30px;
   cursor: pointer;
 }
@@ -82,11 +76,9 @@
   cursor: pointer;
 }
 .feed-component {
-  // margin-top: 100px;
   display: flex;
   justify-content: center;
   padding-top: 10px;
-  // flex-direction: column;
   button {
     width: 10%;
     background-color: blue;

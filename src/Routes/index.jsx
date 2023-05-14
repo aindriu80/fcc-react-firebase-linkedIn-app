@@ -3,6 +3,7 @@ import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import Register from '../Pages/Register'
 import Feed from '../Pages/Feed'
+import Profile from '../Pages/Profile'
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
   {
     path: '/feed',
     element: <Feed />,
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
   },
 ])

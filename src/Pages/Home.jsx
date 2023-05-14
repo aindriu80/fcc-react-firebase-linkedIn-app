@@ -16,18 +16,6 @@ export default function Home({ currentUser }) {
   useMemo(() => {
     getCurrentUser(setCurrentUser)
   }, [])
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (res) => {
-  //     if (!res?.accessToken) {
-  //       navigate('/login')
-  //     } else {
-  //       setLoading(false)
-  //     }
-  //   })
-  // }, [])
-
-  // return loading ? <Loader /> : <HomeComponent />
   return (
     <>
       <HomeComponent curentUser={currentUser} />

@@ -3,10 +3,10 @@ import { auth } from '../../firebaseConfig'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import TopNavigation from '../components/common/TopNavigation'
-import FeedComponent from '../components/FeedComponent'
+import ProfileComponent from '../components/ProfileComponent'
 import '../index.scss'
 
-export default function Feed() {
+const Profile = ({ currentUser }) => {
   const [loading, setLoading] = useState(true)
   let navigate = useNavigate()
   useEffect(() => {
@@ -22,7 +22,9 @@ export default function Feed() {
   return (
     <>
       <TopNavigation />
-      <FeedComponent />
+      <ProfileComponent />
     </>
   )
 }
+
+export default Profile
