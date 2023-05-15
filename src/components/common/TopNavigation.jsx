@@ -32,9 +32,9 @@ const TopNavigation = () => {
     auth.signOut()
   }
 
-  const displayPopUp = () => {
-    setPopUpVisible(!popUpVisible)
-  }
+  // const displayPopUp = () => {
+  //   setPopUpVisible(!popUpVisible)
+  // }
 
   return (
     <>
@@ -89,15 +89,19 @@ const TopNavigation = () => {
               <AiOutlineBell size={30} className="react-icon" />
               <div className="Navbar__Text">Notifications</div>
             </div>
-            <div className="Navbar__Link">
-              <BsPersonCircle
-                size={30}
-                className="user-logo"
-                onClick={displayPopUp}
-              />
+            <div className="dropdown">
+              <BsPersonCircle size={30} className="user-logo" />
               <div className="Navbar__Text">
                 Me <img src={DownArrow} />
               </div>
+              <div class="dropdown-content">
+                <a onClick={logout}>Logout</a>
+                <a href="/profile">View Profile</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+            <div className="Navbar__Link">
+              <div className="Navbar__Text"></div>
             </div>
 
             <div className="Navbar__Link">
