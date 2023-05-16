@@ -1,13 +1,27 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PostUpdate from '../components/common/PostUpdate'
 import MessageUpdates from '../components/common/MessageUpdates'
 import '../Sass/FeedComponent.scss'
 import { getCurrentUser } from '../api/FirestoreAPI'
 import SidebarComponent from './SidebarComponent'
+import { auth } from '../../firebaseConfig'
+import { onAuthStateChanged } from 'firebase/auth'
 
 export default function FeedComponent() {
   const [currentUser, setCurrentUser] = useState({})
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (res) => {
+      if (res?.accessToken) {
+        navigate('/feed')
+      } else {
+        setLoading(false)
+      }
+    })
+  }, [])
+
   useMemo(() => {
     getCurrentUser(setCurrentUser)
   }, [])

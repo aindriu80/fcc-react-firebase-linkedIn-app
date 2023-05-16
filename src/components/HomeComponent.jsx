@@ -19,7 +19,7 @@ export default function Home() {
       if (res?.accessToken) {
         navigate('/feed')
       } else {
-        // setLoading(false)
+        setLoading(false)
       }
     })
   }, [])

@@ -22,7 +22,7 @@ const Profile = ({ currentUser }) => {
   return (
     <>
       <TopNavigation />
-      <ProfileComponent />
+      <ProfileComponent currentUser={currentUser} />
     </>
   )
 }

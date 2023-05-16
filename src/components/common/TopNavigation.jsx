@@ -15,6 +15,7 @@ import ProfilePopUp from '../common/ProfilePopUp'
 import DownArrow from '../../assets/downArrow.svg'
 import '../../Sass/FeedComponent.scss'
 import { getCurrentUser } from '../../api/FirestoreAPI'
+import { onLogout } from '../../api/AuthAPI'
 
 const TopNavigation = () => {
   const [currentUser, setCurrentUser] = useState({})
@@ -27,14 +28,6 @@ const TopNavigation = () => {
   const goToRoute = (route) => {
     navigate(route)
   }
-
-  const logout = () => {
-    auth.signOut()
-  }
-
-  // const displayPopUp = () => {
-  //   setPopUpVisible(!popUpVisible)
-  // }
 
   return (
     <>
@@ -94,8 +87,8 @@ const TopNavigation = () => {
               <div className="Navbar__Text">
                 Me <img src={DownArrow} />
               </div>
-              <div class="dropdown-content">
-                <a onClick={logout}>Logout</a>
+              <div className="dropdown-content">
+                <a onClick={onLogout}>Logout</a>
                 <a href="/profile">View Profile</a>
                 <a href="#">Link 3</a>
               </div>
