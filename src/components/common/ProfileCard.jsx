@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
-import ProfileEdit from './ProfileEdit'
 import '../../Sass/ProfileCard.scss'
+import { BsFillPencilFill } from 'react-icons/bs'
 
-const ProfileCard = ({ currentUser }) => {
-  const [isEdit, setisEdit] = useState(false)
-
-  const onEdit = () => {
-    setisEdit(!isEdit)
-  }
+const ProfileCard = ({ currentUser, onEdit }) => {
   return (
     <>
       <div className="profile-card">
         <div className="edit-btn">
-          <button className="edit-btn" onClick={() => setisEdit(!isEdit)}>
+          <button className="edit-btn" onClick={onEdit}>
             Edit
+            <BsFillPencilFill size={20} className="react-icon" />
           </button>
         </div>
         <h3 className="userName">{currentUser.name}</h3>
