@@ -18,7 +18,7 @@ const ProfileComponent = () => {
   return (
     <>
       {isEdit ? (
-        <ProfileEdit onEdit={onEdit} />
+        <ProfileEdit onEdit={onEdit} currentUser={currentUser} />
       ) : (
         <ProfileCard currentUser={currentUser} onEdit={onEdit} />
       )}
