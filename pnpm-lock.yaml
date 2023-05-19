@@ -6,7 +6,7 @@ dependencies:
     version: 5.4.6(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
   bootstrap:
     specifier: ^5.2.3
-    version: 5.2.3
+    version: 5.2.3(@popperjs/core@2.11.7)
   firebase:
     specifier: ^9.20.0
     version: 9.20.0
@@ -40,6 +40,9 @@ dependencies:
   react-toastify:
     specifier: ^9.1.2
     version: 9.1.2(react-dom@18.2.0)(react@18.2.0)
+  react-transition-group:
+    specifier: ^4.4.5
+    version: 4.4.5(react-dom@18.2.0)(react@18.2.0)
   react-uuid:
     specifier: ^2.0.0
     version: 2.0.0
@@ -1411,10 +1414,12 @@ packages:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
 
-  /bootstrap@5.2.3:
+  /bootstrap@5.2.3(@popperjs/core@2.11.7):
     resolution: {integrity: sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==}
     peerDependencies:
       '@popperjs/core': ^2.11.6
+    dependencies:
+      '@popperjs/core': 2.11.7
     dev: false
 
   /braces@3.0.2:
