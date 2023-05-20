@@ -13,6 +13,7 @@ $linkedinBlue3: #004c75;
   }
 
   .edit-input {
+    background-color: white;
     width: 300px;
     height: 40px;
   }
@@ -48,7 +49,7 @@ $linkedinBlue3: #004c75;
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #404040;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +68,10 @@ $linkedinBlue3: #004c75;
 }
 
 .modal-content {
-  width: 500px;
+  width: 900px;
+  border-radius: 10px;
+  max-height: 50vh;
+  overflow-y: auto;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   transform: translateY(-200px);
@@ -94,4 +98,10 @@ $linkedinBlue3: #004c75;
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+.edit-modal-header {
+  padding-left: 10px;
+}
+.edit-modal-form {
+  padding-left: 10px;
 }
