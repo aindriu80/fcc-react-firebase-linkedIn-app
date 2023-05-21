@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
+import { CgClose } from 'react-icons/cg'
+import { FaInfoCircle } from 'react-icons/fa'
+import { AiOutlinePlus } from 'react-icons/ai'
+
 import '../Sass/ProfileEdit.scss'
 
 const Modal = (props, { onEdit, currentUser }) => {
@@ -37,24 +41,61 @@ const Modal = (props, { onEdit, currentUser }) => {
             <h4 className="modal-title"></h4>
           </div>
           <div className="edit-modal-header">
-            <h2>Edit intro</h2>
+            <>Edit intro</>
+          </div>
+          <div className="profile-modal-button">
+            <CgClose className="modal-close-button" />
           </div>
           <div className="edit-modal-form">
             <p>* indicates required</p>
             <h2>Basic Info</h2>
           </div>
-          <div className="modal-footer">
-            <button className="button">Close</button>
+          {/* <div className="modal-footer"> */}
+          <div className="modal-body">
             <div className="profile-edit-inputs">
-              <label>Name</label>
+              <label>Firstname *</label>
               <input
                 onChange={getInput}
                 className="input__input"
-                placeholder="Name"
+                placeholder="First Name"
                 name="name"
                 // value={editInputs.name}
               />
-              <label>Headline</label>
+              <label>Last Name*</label>
+              <input
+                onChange={getInput}
+                className="input__input"
+                placeholder="Last name"
+                name="lastName"
+                // value={editInputs.name}
+              />
+              <label>Additional Name</label>
+              <input
+                onChange={getInput}
+                className="input__input"
+                placeholder=""
+                name="additionalName"
+                // value={editInputs.name}
+              />
+              <label>Name pronunciation</label>
+              <span className="profile-edit-pronunciation">
+                <FaInfoCircle className="pronunciation-info" />
+                <>This can only be added using our mobile app</>
+              </span>
+              <label>Pronouns</label>
+              <div class="">
+                <select
+                  id="text-entity-list-form-component-profileEditFormElement"
+                  className="pronouns-option">
+                  <option value="Please select">Please select</option>
+                  <option value="She/Her">She/Her</option>
+                  <option value="He/Him">He/Him</option>
+                  <option value="They/Them">They/Them</option>
+                  <option value="Custom">Custom</option>
+                </select>
+                Let others know how to refer to you.
+              </div>
+              <label>Headline*</label>
               <input
                 onChange={getInput}
                 className="input__input"
@@ -62,6 +103,23 @@ const Modal = (props, { onEdit, currentUser }) => {
                 // value={editInputs.headline}
                 name="headline"
               />
+              <h2>Current Position</h2>
+              <label>Position*</label>
+              <select id="current-position" className="current-position">
+                <option value="Please select">Please select</option>
+              </select>
+
+              <span className="profile-edit-pronunciation">
+                <AiOutlinePlus />
+                <>Add new position</>
+              </span>
+              {/* <input
+                onChange={getInput}
+                className="input__input"
+                placeholder="Headline"
+                // value={editInputs.headline}
+                name="headline"
+              /> */}
               <label>Country</label>
               <input
                 onChange={getInput}
@@ -127,7 +185,10 @@ const Modal = (props, { onEdit, currentUser }) => {
                 name="skills"
                 // value={editInputs.skills}
               />
-              <button class="home-login-btn">Save</button>
+            </div>
+
+            <div className="modal-footer">
+              <button className="modal-save-button">Save</button>
             </div>
           </div>
         </div>
