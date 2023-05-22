@@ -34,8 +34,8 @@ const Modal = (props, { onEdit, currentUser }) => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}>
       <div className="modal">
-        onClick={props.onClose}
-        onClick={}
+        {/* onClick={props.onClose} */}
+        {/* onClick={} */}
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
             <h4 className="modal-title"></h4>
