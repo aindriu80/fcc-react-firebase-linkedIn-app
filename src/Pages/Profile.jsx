@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { auth } from '../../firebaseConfig'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import TopNavigation from '../components/common/TopNavigation'
+import TopNavigation from '../components/common/TopNavigation/TopNavigation'
 import ProfileComponent from '../components/ProfileComponent'
+
 import '../index.scss'
 
 const Profile = ({ currentUser }) => {

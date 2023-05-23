@@ -1,6 +1,6 @@
 import React from 'react'
-import { onLogout } from '../../api/AuthAPI'
-import '../../Sass/ProfilePopUp.scss'
+import { onLogout } from '../../../api/AuthAPI'
+import './ProfilePopUp.scss'
 
 export default function ProfilePopUp() {
   return (

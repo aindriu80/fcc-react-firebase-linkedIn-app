@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import '../../Sass/ProfileCard.scss'
+import './ProfileCard.scss'
 import { BsFillPencilFill } from 'react-icons/bs'
-import Modal from '../ProfileEditModal'
+import Modal from '../../ProfileEditModal'
+
 const ProfileCard = ({ currentUser, onEdit }) => {
   const [show, setShow] = useState(false)
 

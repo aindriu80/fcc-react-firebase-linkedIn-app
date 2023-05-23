@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Button, Modal } from 'antd'
 
-import '../../../Sass/Modal.scss'
+import './Modal.scss'
 
 const ModalComponent = ({
   modalOpen,

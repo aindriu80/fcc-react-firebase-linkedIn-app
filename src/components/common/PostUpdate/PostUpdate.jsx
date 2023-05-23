@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react'
-import { postStatus, getStatus } from '../../api/FirestoreAPI'
-import photo from '../../assets/photo.svg'
-import video from '../../assets/video.svg'
-import event from '../../assets/event.svg'
-import article from '../../assets/article.svg'
-import ModalComponent from '../common/Modal/Modal'
-import { getCurrentTimeStamp } from '../helpers/useMoment'
-import { getUniqueID } from '../helpers/getUniqueId'
+import { postStatus, getStatus } from '../../../api/FirestoreAPI'
+import photo from '../../../assets/photo.svg'
+import video from '../../../assets/video.svg'
+import event from '../../../assets/event.svg'
+import article from '../../../assets/article.svg'
+import ModalComponent from '../Modal/Modal'
+import { getCurrentTimeStamp } from '../../helpers/useMoment'
+import { getUniqueID } from '../../helpers/getUniqueId'
 
-import '../../Sass/PostUpdate.scss'
+import './PostUpdate.scss'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 
 export default function PostUpdate({ currentUser }) {
@@ -16,6 +16,7 @@ export default function PostUpdate({ currentUser }) {
   const [status, setStatus] = useState('')
   const [allStatuses, setAllStatuses] = useState([])
   let userEmail = localStorage.getItem('userEmail')
+
   const sendStatus = async () => {
     let object = {
       status: status,

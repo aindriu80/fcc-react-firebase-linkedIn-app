@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
-import { postStatus, getStatus } from '../../api/FirestoreAPI'
-import PostsCard from '../common/PostsCard'
+import { postStatus, getStatus } from '../../../api/FirestoreAPI'
+import PostsCard from '../PostsCard/PostsCard'
 
 export default function MessageUpdates() {
   const [allStatuses, setAllStatuses] = useState([])

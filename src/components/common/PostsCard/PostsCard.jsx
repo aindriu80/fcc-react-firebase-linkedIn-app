@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Sass/PostsCard.scss'
+import './PostsCard.scss'
 
 const PostsCard = ({ posts, id }) => {
   return (

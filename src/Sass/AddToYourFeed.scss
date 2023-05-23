@@ -1,18 +1,18 @@
-.sidebar-main {
-  justify-content: center;
-  align-items: center;
+.layout-aside-main {
+  //   justify-content: center;
+  //   align-items: center;
   border: 1px solid #b7b7b7;
   background-color: white;
   border-radius: 10px;
   margin-top: 20px;
-  margin-left: 50%;
+  margin-right: 50%;
   border-radius: 7px;
   min-height: 80px;
 }
-.sidebar-content {
+.layout-aside-content {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   display: flex;
-  align-items: center;
+  //   align-items: center;
 }

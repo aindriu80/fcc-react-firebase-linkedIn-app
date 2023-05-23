@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import linkedInLogo from '../../assets/top-nav.svg'
+import linkedInLogo from '../../../assets/top-nav.svg'
 import {
   AiOutlineHome,
   AiOutlineUserSwitch,
@@ -10,12 +10,12 @@ import {
 import { TbGridDots } from 'react-icons/tb'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
-import FeedSearch from '../common/FeedSearch'
-import ProfilePopUp from '../common/ProfilePopUp'
-import DownArrow from '../../assets/downArrow.svg'
-import '../../Sass/FeedComponent.scss'
-import { getCurrentUser } from '../../api/FirestoreAPI'
-import { onLogout } from '../../api/AuthAPI'
+import FeedSearch from '../FeedSearch/FeedSearch'
+import ProfilePopUp from '../ProfilePopUp/ProfilePopUp'
+import DownArrow from '../../../assets/downArrow.svg'
+import './TopNavigation.scss'
+import { getCurrentUser } from '../../../api/FirestoreAPI'
+import { onLogout } from '../../../api/AuthAPI'
 
 const TopNavigation = () => {
   const [currentUser, setCurrentUser] = useState({})

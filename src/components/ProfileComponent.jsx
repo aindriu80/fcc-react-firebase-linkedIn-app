@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { getCurrentUser } from '../api/FirestoreAPI'
-import ProfileCard from './common/ProfileCard'
+import ProfileCard from './common/ProfileCard/ProfileCard'
 import Modal from '../components/ProfileEditModal'
 import '../Sass/ProfileComponent.scss'
 import ProfileBackground from '../assets/profileBackground.svg'
