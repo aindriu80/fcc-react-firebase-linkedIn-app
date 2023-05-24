@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './ProfileCard.scss'
 import { BsFillPencilFill } from 'react-icons/bs'
 import Modal from '../../ProfileEditModal'
+import profileBackground from '../../../assets/profileBackground.svg'
 
 const ProfileCard = ({ currentUser, onEdit }) => {
   const [show, setShow] = useState(false)
@@ -9,9 +10,8 @@ const ProfileCard = ({ currentUser, onEdit }) => {
   return (
     <>
       <div className="profile-card">
+        <img src={profileBackground} />
         <div className="edit-btn">
-          {/* <button onClick={() => setShow(true)}>Show Modal</button> */}
-          {/* <button className="edit-btn" onClick={onEdit}> */}
           <button className="edit-btn" onClick={() => setShow(true)}>
             Edit
             <BsFillPencilFill size={20} className="react-icon" />
@@ -21,12 +21,10 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         <p className="userEmail">{currentUser.email}</p>
       </div>
       <Modal
-        title="My Modal"
+        title="Edit profile data"
         onClose={() => setShow(false)}
         show={show}
-        currentUser={currentUser}>
-        <p>This is modal body</p>
-      </Modal>
+        currentUser={currentUser}></Modal>
     </>
   )
 }

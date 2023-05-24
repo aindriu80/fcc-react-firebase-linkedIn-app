@@ -3,7 +3,6 @@ import { getCurrentUser } from '../api/FirestoreAPI'
 import ProfileCard from './common/ProfileCard/ProfileCard'
 import Modal from '../components/ProfileEditModal'
 import '../Sass/ProfileComponent.scss'
-import ProfileBackground from '../assets/profileBackground.svg'
 
 const ProfileComponent = () => {
   const [currentUser, setCurrentUser] = useState({})
@@ -23,7 +22,6 @@ const ProfileComponent = () => {
       <div className="profile-component">
         <div class="profile-container">
           <div class="scaffold-layout__main">
-            {/* <ProfileBackground /> */}
             {isEdit ? (
               <ProfileEdit onEdit={onEdit} currentUser={currentUser} />
             ) : (
