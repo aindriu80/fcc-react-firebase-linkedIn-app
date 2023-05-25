@@ -5,9 +5,10 @@
   background-color: white;
   border-radius: 10px;
   margin-top: 20px;
-  margin-right: 50%;
-  border-radius: 7px;
-  min-height: 80px;
+  // margin-right: 55%;
+  width: 300px;
+  // border-radius: 7px;
+  // min-height: 80px;
 }
 .layout-aside-content {
   margin-top: 10px;
@@ -15,4 +16,5 @@
   flex-direction: column;
   display: flex;
   //   align-items: center;
+  padding-left: 10px;
 }

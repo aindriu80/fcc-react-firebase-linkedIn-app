@@ -1,13 +1,13 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { onAuthStateChanged } from 'firebase/auth'
 import PostUpdate from '../components/common/PostUpdate/PostUpdate'
 import MessageUpdates from '../components/common/MessageUpdates/MessageUpdates'
-import '../Sass/FeedComponent.scss'
 import { getCurrentUser } from '../api/FirestoreAPI'
 import SidebarComponent from './SidebarComponent'
 import AddToYourFeed from './AddToYourFeed'
 import { auth } from '../../firebaseConfig'
-import { onAuthStateChanged } from 'firebase/auth'
+import '../Sass/FeedComponent.scss'
 
 export default function FeedComponent() {
   const [currentUser, setCurrentUser] = useState({})
@@ -29,7 +29,7 @@ export default function FeedComponent() {
 
   return (
     <>
-      <div className="container">
+      <div className="feed-container">
         <div className="sidebar-layout">
           <SidebarComponent currentUser={currentUser} />
         </div>

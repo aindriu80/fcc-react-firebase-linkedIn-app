@@ -13,9 +13,9 @@ import { useNavigate } from 'react-router-dom'
 import FeedSearch from '../FeedSearch/FeedSearch'
 import ProfilePopUp from '../ProfilePopUp/ProfilePopUp'
 import DownArrow from '../../../assets/downArrow.svg'
-import './TopNavigation.scss'
 import { getCurrentUser } from '../../../api/FirestoreAPI'
 import { onLogout } from '../../../api/AuthAPI'
+import './TopNavigation.scss'
 
 const TopNavigation = () => {
   const [currentUser, setCurrentUser] = useState({})
@@ -103,7 +103,7 @@ const TopNavigation = () => {
             </div>
 
             <div className="Navbar__Link">
-              <div className="Navbar__Text">Retry Premium Free</div>
+              <div className="Navbar__Text__Premium">Retry Premium Free</div>
             </div>
           </div>
         </div>

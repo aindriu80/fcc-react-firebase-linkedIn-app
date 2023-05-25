@@ -16,6 +16,7 @@
 
 .sidebar-layout {
   grid-area: sidebar-layout;
+  padding-right: 15px;
 }
 
 .share-box {
@@ -53,6 +54,12 @@
 
 .Navbar__Text {
   text-align: center;
+}
+
+.Navbar__Text__Premium {
+  padding-top: 12px;
+  text-align: center;
+  width: 100px;
 }
 
 .react-icon {
