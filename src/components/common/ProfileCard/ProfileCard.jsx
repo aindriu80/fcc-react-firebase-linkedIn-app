@@ -4,15 +4,19 @@ import { BsFillPencilFill } from 'react-icons/bs'
 import Modal from '../../ProfileEditModal'
 import profileBackground from '../../../assets/profileBackground.svg'
 
-const ProfileCard = ({ currentUser, onEdit }) => {
-  const [show, setShow] = useState(false)
+const ProfileCard = ({ onEdit, currentUser }) => {
+  const [isModalOpen, setModalOpen] = useState(false)
 
   return (
     <>
       <div className="profile-card">
         <img src={profileBackground} />
         <div className="edit-btn">
-          <button className="edit-btn" onClick={() => setShow(true)}>
+          <button
+            className="edit-btn"
+            onClick={() => {
+              setModalOpen(true)
+            }}>
             Edit
             <BsFillPencilFill size={20} className="react-icon" />
           </button>
@@ -20,11 +24,12 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         <h3 className="userName">{currentUser.name}</h3>
         <p className="userEmail">{currentUser.email}</p>
       </div>
-      <Modal
-        title="Edit profile data"
-        onClose={() => setShow(false)}
-        show={show}
-        currentUser={currentUser}></Modal>
+      {isModalOpen && (
+        <Modal
+          onClose={() => setModalOpen(false)}
+          // Pass other necessary props to the modal component
+        />
+      )}
     </>
   )
 }

@@ -53,9 +53,7 @@ $linkedinBlue3: #004c75;
   display: flex;
   align-items: center;
   justify-content: center;
-  // opacity: 0;
   transition: all 0.3s ease-in-out;
-  // pointer-events: none;
 }
 
 .modal.enter-done {
@@ -69,6 +67,7 @@ $linkedinBlue3: #004c75;
 
 .modal-content {
   width: 900px;
+  margin-top: 20%;
   border-radius: 10px;
   max-height: 90vh;
   overflow-y: auto;
@@ -111,19 +110,17 @@ $linkedinBlue3: #004c75;
 .modal-body {
   padding-left: 20px;
   padding-right: 20px;
-  // padding: 10px;
-  // border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
 .profile-edit-pronunciation {
   color: #56687a;
   padding: 0.5em;
-  // line-height: 1.22;
-  // float: left;
 }
+
 .pronunciation-info {
   margin-right: 5px;
 }
+
 .pronouns-option,
 .current-position {
   width: 100%;
@@ -134,9 +131,6 @@ $linkedinBlue3: #004c75;
   color: black;
   border-width: 1px;
   cursor: pointer;
-}
-
-.current-position {
 }
 
 .profile-modal-button {

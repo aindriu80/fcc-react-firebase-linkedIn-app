@@ -7,11 +7,6 @@ import '../Sass/ProfileComponent.scss'
 const ProfileComponent = () => {
   const [currentUser, setCurrentUser] = useState({})
   const [isEdit, setisEdit] = useState(false)
-  const [show, setShow] = useState(false)
-
-  const onEdit = () => {
-    setisEdit(!isEdit)
-  }
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)
@@ -20,26 +15,18 @@ const ProfileComponent = () => {
   return (
     <>
       <div className="profile-component">
-        <div class="profile-container">
-          <div class="scaffold-layout__main">
-            {isEdit ? (
-              <ProfileEdit onEdit={onEdit} currentUser={currentUser} />
-            ) : (
-              <ProfileCard onEdit={onEdit} currentUser={currentUser} />
-            )}
+        <div className="profile-container">
+          <div className="scaffold-layout__main">
+            <ProfileCard currentUser={currentUser} />
           </div>
-          <div class="scaffold-layout__aside">Aside</div>
-          <div class="scaffold-layout__analytics">Analytics</div>
-          <div class="scaffold-layout__about">About</div>
-          <div class="scaffold-layout__activity">Activity</div>
-          <div class="scaffold-layout__experience">Experience</div>
-          <div class="scaffold-layout__skills">Skills</div>
-          <div class="scaffold-layout__interests">Interests</div>
+          <div className="scaffold-layout__aside">Aside</div>
+          <div className="scaffold-layout__analytics">Analytics</div>
+          <div className="scaffold-layout__about">About</div>
+          <div className="scaffold-layout__activity">Activity</div>
+          <div className="scaffold-layout__experience">Experience</div>
+          <div className="scaffold-layout__skills">Skills</div>
+          <div className="scaffold-layout__interests">Interests</div>
         </div>
-        <Modal
-          onClose={() => setShow(false)}
-          show={show}
-          currentUser={currentUser}></Modal>
       </div>
     </>
   )

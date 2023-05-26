@@ -1,5 +1,6 @@
 import { AiOutlineSearch } from 'react-icons/ai'
 import { AutoComplete, Input } from 'antd'
+import './FeedSearch.scss'
 
 const App = () => (
   <>
@@ -7,7 +8,12 @@ const App = () => (
       style={{
         width: 250,
       }}>
-      <Input size="large" placeholder="Search" prefix={<AiOutlineSearch />} />
+      <Input
+        size="large"
+        className="feedsearch-top"
+        placeholder="Search"
+        prefix={<AiOutlineSearch />}
+      />
     </AutoComplete>
   </>
 )
