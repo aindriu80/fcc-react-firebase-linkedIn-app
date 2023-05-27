@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { editProfile } from '../api/FirestoreAPI'
 import { CgClose } from 'react-icons/cg'
 import { FaInfoCircle } from 'react-icons/fa'
 import { AiOutlinePlus } from 'react-icons/ai'
@@ -14,21 +15,15 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
     setEditInputs({ ...editInputs, ...input })
   }
 
-  const updateProfileData = () => {
-    console.log(currentUser)
+  const updateProfileData = async () => {
+    await editProfile(currentUser?.userID, editInputs)
+    await onClose()
   }
 
   useEffect(() => {
     const handleEscKey = (event) => {
       if (event.keyCode === 27) {
         // Close modal when the ESC key is pressed
-        onClose()
-      }
-    }
-
-    const handleModalClick = (event) => {
-      // Close modal when clicking outside the content area
-      if (event.target.classList.contains('modal')) {
         onClose()
       }
     }
@@ -40,8 +35,15 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
     }
   }, [onClose])
 
+  const handleModalClick = (event) => {
+    // Close modal when clicking outside the content area
+    if (event.target.classList.contains('modal')) {
+      onClose()
+    }
+  }
+
   return (
-    <div className="modal">
+    <div className="modal" onClick={handleModalClick}>
       <div className="modal-content">
         <div className="modal-header">
           <h4 className="modal-title"></h4>
@@ -64,7 +66,7 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               className="input__input"
               placeholder="First Name"
               name="name"
-              value={editInputs.name}
+              value={editInputs.firstname}
             />
             <label>Last Name*</label>
             <input
@@ -72,7 +74,7 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               className="input__input"
               placeholder="Last name"
               name="lastName"
-              value={editInputs.name}
+              value={editInputs.lastname}
             />
             <label>Additional Name</label>
             <input
@@ -80,26 +82,29 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               className="input__input"
               placeholder=""
               name="additionalName"
-              value={editInputs.name}
+              value={editInputs.additionalName}
             />
             <label>Name pronunciation</label>
             <span className="profile-edit-pronunciation">
               <FaInfoCircle className="pronunciation-info" />
               <>This can only be added using our mobile app</>
             </span>
+            {/* <div className=""> */}
             <label>Pronouns</label>
-            <div className="">
-              <select
-                id="text-entity-list-form-component-profileEditFormElement"
-                className="pronouns-option">
-                <option value="Please select">Please select</option>
-                <option value="She/Her">She/Her</option>
-                <option value="He/Him">He/Him</option>
-                <option value="They/Them">They/Them</option>
-                <option value="Custom">Custom</option>
-              </select>
-              Let others know how to refer to you.
-            </div>
+            <select
+              onChange={getInput}
+              id="text-entity-list-form-component-profileEditFormElement"
+              value={editInputs.pronouns}
+              name="pronouns"
+              className="pronouns-option">
+              <option value="Please select">Please select</option>
+              <option value="She/Her">She/Her</option>
+              <option value="He/Him">He/Him</option>
+              <option value="They/Them">They/Them</option>
+              <option value="Custom">Custom</option>
+            </select>
+            Let others know how to refer to you.
+            {/* </div> */}
             <label>Headline*</label>
             <input
               onChange={getInput}
@@ -110,15 +115,19 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
             />
             <h2>Current Position</h2>
             <label>Position*</label>
-            <select id="current-position" className="current-position">
+            <select
+              onChange={getInput}
+              id="current-position"
+              name="current-position"
+              value={editInputs.currentposition}
+              className="current-position">
               <option value="Please select">Please select</option>
+              <option value="None">None</option>
             </select>
-
             <span className="profile-edit-pronunciation">
               <AiOutlinePlus />
               <>Add new position</>
             </span>
-
             <label>Country</label>
             <input
               onChange={getInput}
@@ -169,10 +178,9 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
             />
             <label>About</label>
             <textarea
+              onChange={getInput}
               placeholder="About Me"
               className="input__input"
-              onChange={getInput}
-              rows={5}
               name="aboutMe"
               value={editInputs.aboutMe}
             />

@@ -6,7 +6,7 @@ import '../Sass/ProfileComponent.scss'
 
 const ProfileComponent = () => {
   const [currentUser, setCurrentUser] = useState({})
-  const [isEdit, setisEdit] = useState(false)
+  // const [isEdit, setisEdit] = useState(false)
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)

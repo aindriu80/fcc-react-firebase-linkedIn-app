@@ -21,11 +21,27 @@ const ProfileCard = ({ onEdit, currentUser }) => {
             <BsFillPencilFill size={20} className="react-icon" />
           </button>
         </div>
-        <h3 className="userName">{currentUser.name}</h3>
-        <p className="userEmail">{currentUser.email}</p>
+        <h3 className="userName">
+          {currentUser.name}&nbsp;
+          {currentUser.lastName}
+        </h3>
+        <p className="headline">{currentUser.headline}</p>
+        <p className="address">
+          {currentUser.city},&nbsp;
+          {currentUser.country},&nbsp;
+          <a href="#">Contact Info</a>
+        </p>
+        <a href="#">500+ Connections</a>
       </div>
+      <button class="profile-card-open-btn">Open to</button>
+      <button class="profile-card-profile-btn">Add Profile section</button>
+      <button class="modal-save-more-btn">More</button>
+      <br />
+      <br />
+      <br />
       {isModalOpen && (
         <Modal
+          currentUser={currentUser}
           onClose={() => setModalOpen(false)}
           // Pass other necessary props to the modal component
         />

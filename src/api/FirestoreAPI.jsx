@@ -1,6 +1,12 @@
 import React, { useState, useMemo } from 'react'
 import { firestore } from '../../firebaseConfig'
-import { addDoc, collection, onSnapshot } from 'firebase/firestore'
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  doc,
+  updateDoc,
+} from 'firebase/firestore'
 import { toast } from 'react-toastify'
 
 let postsRef = collection(firestore, 'posts')
@@ -9,7 +15,7 @@ let userRef = collection(firestore, 'users')
 export const postStatus = (object) => {
   addDoc(postsRef, object)
     .then(() => {
-      toast.success('Document has been added successfully')
+      toast.success('Post has been added successfully')
     })
     .catch((err) => {
       console.log(err)
@@ -39,7 +45,7 @@ export const getCurrentUser = (setCurrentUser) => {
     setCurrentUser(
       response.docs
         .map((docs) => {
-          return { ...docs.data(), userIDd: docs.id }
+          return { ...docs.data(), userID: docs.id }
         })
         .filter((item) => {
           return item.email === localStorage.getItem('userEmail')
@@ -49,10 +55,12 @@ export const getCurrentUser = (setCurrentUser) => {
 }
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID)
+  console.log(payload)
 
   updateDoc(userToEdit, payload)
     .then(() => {
       toast.success('Profile has been updated successfully')
+      console.log('Profile has been updated successfully')
     })
     .catch((err) => {
       console.log(err)

@@ -26,3 +26,61 @@
     font-size: 16px;
   }
 }
+.profile-card-open-btn {
+  height: 32px;
+  width: 89.7167px;
+  padding: 6px 16px 6px 16px;
+  min-height: 32px;
+  max-width: 480px;
+  cursor: pointer;
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: #fff;
+  border-radius: 50px;
+  font-family: system-ui;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.profile-card-profile-btn {
+  height: 35px;
+  // width: 170px;
+  // margin: 0 8px 0 0;
+  // padding: 14px 16px 6px 16px;
+  margin: 10px 8px 10px 11px;
+  padding: 7px 8px 6px 12px;
+  min-height: auto;
+  min-width: auto;
+  max-width: 480px;
+  background-color: #fff;
+  color: #0a66c2;
+  border-radius: 50px;
+  font-family: system-ui;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  display: inline-flex;
+  cursor: pointer;
+  word-spacing: 0px;
+  text-align: center;
+}
+.modal-save-more-btn {
+  height: 32px;
+  width: 89.7167px;
+  padding: 6px 16px 6px 18px;
+  min-height: 32px;
+  max-width: 80px;
+  cursor: pointer;
+  background-color: #fff;
+  border-color: #a9a9a9;
+  color: #666666;
+  border-radius: 50px;
+  font-family: system-ui;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  display: inline-flex;
+}
