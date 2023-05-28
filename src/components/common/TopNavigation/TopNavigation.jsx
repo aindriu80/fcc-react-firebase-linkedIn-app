@@ -88,9 +88,23 @@ const TopNavigation = () => {
                 Me <img src={DownArrow} />
               </div>
               <div className="dropdown-content">
+                <p>
+                  {currentUser.name}&nbsp;
+                  {currentUser.lastName}
+                </p>
+                <p>{currentUser.headline}</p>
+                <p>
+                  <btn href="/profile">View Profile</btn>
+                </p>
+                <h3>Account</h3>
+                <p>Retry Premium Free</p>
+                <p>Settings & Privacy</p>
+                <p>Help</p>
+                <p>Language</p>
+                <h3>Manage</h3>
+                <p>Posts & Activity</p>
+                <p>Job Posting Account</p>
                 <a onClick={onLogout}>Logout</a>
-                <a href="/profile">View Profile</a>
-                <a href="#">Link 3</a>
               </div>
             </div>
             <div className="Navbar__Link">

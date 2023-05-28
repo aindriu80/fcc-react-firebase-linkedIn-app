@@ -99,16 +99,19 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
+  width: 265px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
+  font-size: 16px;
+  line-height: 24px;
   float: none;
   color: black;
   padding: 12px 16px;
-  text-decoration: none;
+  text-decoration: rgba(0, 0, 0, 0.9);
   display: block;
   text-align: left;
 }
