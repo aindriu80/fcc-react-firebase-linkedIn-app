@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react'
 import { getCurrentUser } from '../api/FirestoreAPI'
 import ProfileCard from './common/ProfileCard/ProfileCard'
-import Modal from '../components/ProfileEditModal'
+import ProfileFooter from './common/ProfileFooter/ProfileFooter'
+// import Modal from '../components/ProfileEditModal'
 import '../Sass/ProfileComponent.scss'
 
 const ProfileComponent = () => {
@@ -26,7 +27,9 @@ const ProfileComponent = () => {
           <div className="scaffold-layout__experience">Experience</div>
           <div className="scaffold-layout__skills">Skills</div>
           <div className="scaffold-layout__interests">Interests</div>
+          <ProfileFooter />
         </div>
+        <div className=""></div>
       </div>
     </>
   )

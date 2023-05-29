@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import linkedInLogo from '../../../assets/top-nav.svg'
+import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 import {
   AiOutlineHome,
   AiOutlineUserSwitch,
@@ -94,7 +96,9 @@ const TopNavigation = () => {
                 </p>
                 <p>{currentUser.headline}</p>
                 <p>
-                  <btn href="/profile">View Profile</btn>
+                  <Button className="btn-md btn-primary-no-emphasis">
+                    <Link to="/profile">View Profile</Link>
+                  </Button>
                 </p>
                 <h3>Account</h3>
                 <p>Retry Premium Free</p>
