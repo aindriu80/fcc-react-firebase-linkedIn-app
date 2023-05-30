@@ -21,12 +21,16 @@ const ProfileComponent = () => {
             <ProfileCard currentUser={currentUser} />
           </div>
           <div className="scaffold-layout__aside">Aside</div>
-          <div className="scaffold-layout__analytics">Analytics</div>
+          <div className="scaffold-layout__analytics">
+            <div className="profile-page-card-item">Analytics</div>
+          </div>
           <div className="scaffold-layout__about">About</div>
           <div className="scaffold-layout__activity">Activity</div>
           <div className="scaffold-layout__experience">Experience</div>
           <div className="scaffold-layout__skills">Skills</div>
-          <div className="scaffold-layout__interests">Interests</div>
+          <div className="scaffold-layout__interests">
+            <div className="profile-page-card-item">Interests</div>
+          </div>
           <ProfileFooter />
         </div>
         <div className=""></div>

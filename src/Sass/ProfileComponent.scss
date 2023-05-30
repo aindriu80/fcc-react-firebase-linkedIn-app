@@ -17,6 +17,15 @@
     'scaffold-layout__skills scaffold-layout__skills scaffold-layout__aside'
     'scaffold-layout__interests scaffold-layout__interests scaffold-layout__aside';
 }
+.profile-page-card-item {
+  width: 804px;
+  background-color: #fff;
+  // margin-top: 30px;
+  position: relative;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 
 .scaffold-layout__aside {
   grid-area: scaffold-layout__aside;
