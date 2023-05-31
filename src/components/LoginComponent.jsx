@@ -6,7 +6,6 @@ import appleSignIn from '../assets/appleSignIn.svg'
 import '../Sass/LoginComponent.scss'
 import Footer from './FooterComponent'
 import { toast } from 'react-toastify'
-
 import { Link } from 'react-router-dom'
 export default function LoginComponent() {
   const [credentials, setCredentials] = useState()
