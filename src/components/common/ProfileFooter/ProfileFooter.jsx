@@ -1,68 +1,103 @@
 import './ProfileFooter.scss'
 import React from 'react'
 import questionsFooter from '../../../assets/questionsFooter.svg'
+import manageAccountFooter from '../../../assets/manageAccountFooter.svg'
+import recommendationTransparencyFooter from '../../../assets/recommendationTransparencyFooter.svg'
 
 const ProfileFooter = () => {
   return (
     <div className="profileFooter-container">
-      <div className="top-left">
+      <div className="profile-footer-top-left">
         <a href="#">About</a>
       </div>
-      <div className="top-middle">
+      <div className="profile-footer-top-middle">
         <a href="#">Accessibility</a>
       </div>
-      <div className="top-right">
+      <div className="profile-footer-top-right">
         <a href="#">Talent Solutions</a>
       </div>
-      <div className="left-two">
+      <div className="profile-footer-left-two">
         <a href="#">Community Guidelines</a>
       </div>
-      <div className="left-three">
+      <div className="profile-footer-left-three">
         <a href="#">Privacy & Terms</a>
       </div>
-      <div className="left-four">
+      <div className="profile-footer-left-four">
         <a href="#">Sales Solutions</a>
       </div>
-      <div className="left-five">
+      <div className="profile-footer-left-five">
         <a href="#">Safety Center</a>
       </div>
-      <div className="middle-two">
+      <div className="profile-footer-middle-two">
         <a href="#">Careers</a>
       </div>
-      <div className="middle-three">
+      <div className="profile-footer-middle-three">
         <a href="#">Ad Choices</a>
       </div>
-      <div className="middle-four">
+      <div className="profile-footer-middle-four">
         <a href="#">Mobile</a>
       </div>
-      <div className="middle-five"></div>
-      <div className="right-two">
+      <div className="profile-footer-middle-five"></div>
+      <div className="profile-footer-right-two">
         <a href="#">Talent Solutions</a>
       </div>
-      <div className="right-three">
+      <div className="profile-footer-right-three">
         <a href="#">Marketing Solutions</a>
       </div>
-      <div className="right-four">
+      <div className="profile-footer-right-four">
         <a href="#">Advertising</a>
       </div>
-      <div className="right-five">
+      <div className="profile-footer-right-five">
         <a href="#">Small Business</a>
       </div>
       <div className="footer-action-top-left">
-        <img src={questionsFooter} alt="Questions" className="" />
-        Questions
+        <li className="profile-footer-icons">
+          <img
+            src={questionsFooter}
+            alt="Questions"
+            className="profile-footer-helper-icon"
+          />
+          <span className="profile-footer-content">
+            <span className="profile-footer-title">
+              <a href="#">Questions?</a>
+            </span>
+            <br />
+            Visit our Help Center.
+          </span>
+        </li>
         <br />
-        Visit our Help Center.
       </div>
       <div className="footer-action-middle-left">
-        Manage your account and privacy
-        <br />
-        Go to your Settings.
+        <li className="profile-footer-icons">
+          <img
+            src={manageAccountFooter}
+            alt="Questions"
+            className="profile-footer-helper-icon"
+          />
+          <span className="profile-footer-content">
+            <span className="profile-footer-title">
+              <a href="#">Manage your account and privacy</a>
+            </span>
+            <br />
+            Go to your Settings.
+          </span>
+        </li>
       </div>
       <div className="footer-action-bottom-left">
-        Recommendation transparency
-        <br />
-        Learn more about Recommended Content.
+        <li className="profile-footer-icons">
+          <img
+            src={recommendationTransparencyFooter}
+            alt="Questions"
+            className="profile-footer-helper-icon"
+          />
+          <span className="profile-footer-content">
+            <span className="profile-footer-title">
+              Recommendation transparency
+            </span>
+            <br />
+            Learn more about Recommended Content.
+          </span>
+        </li>
       </div>
       <div className="footer-action-top-right"></div>
       <div className="footer-action-middle-right"></div>
