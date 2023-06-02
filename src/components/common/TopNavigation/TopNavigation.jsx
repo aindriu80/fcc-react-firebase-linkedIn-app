@@ -13,7 +13,6 @@ import { TbGridDots } from 'react-icons/tb'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import FeedSearch from '../FeedSearch/FeedSearch'
-import ProfilePopUp from '../ProfilePopUp/ProfilePopUp'
 import DownArrow from '../../../assets/downArrow.svg'
 import { getCurrentUser } from '../../../api/FirestoreAPI'
 import { onLogout } from '../../../api/AuthAPI'
@@ -24,7 +23,6 @@ const TopNavigation = () => {
   useMemo(() => {
     getCurrentUser(setCurrentUser)
   }, [])
-  const [popUpVisible, setPopUpVisible] = useState(false)
   const navigate = useNavigate()
 
   const goToRoute = (route) => {
@@ -33,13 +31,6 @@ const TopNavigation = () => {
 
   return (
     <>
-      {popUpVisible ? (
-        <div className="popup-position">
-          <ProfilePopUp />
-        </div>
-      ) : (
-        <p></p>
-      )}
       <div className="global-nav">
         <div className="topbar-main">
           <img

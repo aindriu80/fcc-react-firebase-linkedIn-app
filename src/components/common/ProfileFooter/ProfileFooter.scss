@@ -1,10 +1,10 @@
 .profileFooter-container {
+  padding-top: 20px;
   font-size: 14px;
   display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 270px 1fr 1fr;
+  grid-template-columns: 150px 1fr 150px 270px 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  gap: 10px 70px;
+  gap: 0px 20px;
   grid-template-areas:
     'top-left top-middle top-right footer-action-top-left footer-action-top-right footer-action-bottom-right'
     'left-two middle-two right-two footer-action-middle-left footer-action-middle-right .'

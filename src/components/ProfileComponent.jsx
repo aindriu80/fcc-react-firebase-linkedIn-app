@@ -2,12 +2,10 @@ import React, { useState, useMemo } from 'react'
 import { getCurrentUser } from '../api/FirestoreAPI'
 import ProfileCard from './common/ProfileCard/ProfileCard'
 import ProfileFooter from './common/ProfileFooter/ProfileFooter'
-// import Modal from '../components/ProfileEditModal'
 import '../Sass/ProfileComponent.scss'
 
 const ProfileComponent = () => {
   const [currentUser, setCurrentUser] = useState({})
-  // const [isEdit, setisEdit] = useState(false)
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)
