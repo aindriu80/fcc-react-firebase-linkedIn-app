@@ -1,0 +1,18 @@
+.edit-public-profile-item {
+  display: flex;
+  position: relative;
+  font-family: system-ui;
+  font-size: 16px;
+  color: #666666;
+  font-weight: 600;
+  line-height: 24px;
+  a {
+    color: #666666;
+  }
+}
+.edit-public-profile-hr {
+  display: block;
+  height: 1px;
+  margin: 1rem 0 24px;
+  width: 50%;
+}

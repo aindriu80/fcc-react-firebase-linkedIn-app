@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { getCurrentUser } from '../api/FirestoreAPI'
 import ProfileCard from './common/ProfileCard/ProfileCard'
+import EditPublicProfile from './common/EditPublicProfile/EditPublicProfile'
 import ProfileFooter from './common/ProfileFooter/ProfileFooter'
 import '../Sass/ProfileComponent.scss'
 
@@ -18,7 +19,9 @@ const ProfileComponent = () => {
           <div className="scaffold-layout__main">
             <ProfileCard currentUser={currentUser} />
           </div>
-          <div className="scaffold-layout__aside">Aside</div>
+          <div className="scaffold-layout__aside">
+            <EditPublicProfile />
+          </div>
           <div className="scaffold-layout__analytics">
             <div className="profile-page-card-item">Analytics</div>
           </div>

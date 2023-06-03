@@ -16,3 +16,23 @@
   display: flex;
   align-items: center;
 }
+.user-logo-sidebar {
+  margin-top: -30px;
+}
+.profile-background-sidebar {
+  margin-top: -10px;
+}
+.profile-connections {
+  display: flex;
+  padding-left: 10px;
+  padding-top: 10px;
+  flex-direction: column;
+}
+.profile-connections-title {
+  color: #808080;
+  font-size: 12px;
+}
+.profile-connections-growth {
+  color: black;
+  font-size: 12px;
+}

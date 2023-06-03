@@ -112,7 +112,12 @@ const TopNavigation = () => {
             </div>
 
             <div className="Navbar__Link">
-              <div className="Navbar__Text__Premium">Retry Premium Free</div>
+              <div className="Navbar__Text__Premium">
+                <a href="#">
+                  Get Hired Faster <br />
+                  Retry Premium Free
+                </a>
+              </div>
             </div>
           </div>
         </div>
