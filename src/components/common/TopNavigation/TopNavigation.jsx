@@ -20,6 +20,7 @@ import './TopNavigation.scss'
 
 const TopNavigation = () => {
   const [currentUser, setCurrentUser] = useState({})
+  const [dropdownVisible, setDropdownVisible] = useState(false)
   useMemo(() => {
     getCurrentUser(setCurrentUser)
   }, [])
@@ -27,6 +28,10 @@ const TopNavigation = () => {
 
   const goToRoute = (route) => {
     navigate(route)
+  }
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible)
   }
 
   return (
@@ -43,7 +48,7 @@ const TopNavigation = () => {
           <div className="global-nav-feed">
             <div className="Navbar__Link">
               <AiOutlineHome
-                size={30}
+                size={25}
                 className="react-icon"
                 onClick={() => goToRoute('/')}
               />
@@ -52,63 +57,70 @@ const TopNavigation = () => {
 
             <div className="Navbar__Link">
               <AiOutlineUserSwitch
-                size={30}
+                size={25}
                 className="react-icon"
                 onClick={() => goToRoute('/profile')}
               />
               <div className="Navbar__Text">My Network</div>
             </div>
             <div className="Navbar__Link">
-              <BsBriefcase size={30} className="react-icon" />
+              <BsBriefcase size={25} className="react-icon" />
               <div className="Navbar__Text">My Network</div>
             </div>
 
             <div className="Navbar__Link">
-              <AiOutlineSearch size={30} className="react-icon" />
+              <AiOutlineSearch size={25} className="react-icon" />
               <div className="Navbar__Text">Jobs</div>
             </div>
             <div className="Navbar__Link">
-              <AiOutlineMessage size={30} className="react-icon" />
+              <AiOutlineMessage size={25} className="react-icon" />
               <div className="Navbar__Text">Messaging</div>
             </div>
             <div className="Navbar__Link">
-              <AiOutlineBell size={30} className="react-icon" />
+              <AiOutlineBell size={25} className="react-icon" />
               <div className="Navbar__Text">Notifications</div>
             </div>
             <div className="dropdown">
-              <BsPersonCircle size={30} className="user-logo" />
-              <div className="Navbar__Text">
-                Me <img src={DownArrow} />
+              <BsPersonCircle
+                size={20}
+                className="user-logo"
+                onClick={toggleDropdown}
+              />
+              <div
+                className={`Navbar__Text ${dropdownVisible ? 'active' : ''}`}
+                onClick={toggleDropdown}>
+                Me <img src={DownArrow} onClick={toggleDropdown} />
               </div>
-              <div className="dropdown-content">
-                <p>
+              {dropdownVisible && (
+                <div className="dropdown-content">
+                  <BsPersonCircle size={48} className="user-logo-post" />
                   {currentUser.name}&nbsp;
                   {currentUser.lastName}
-                </p>
-                <p>{currentUser.headline}</p>
-                <p>
-                  <Button className="btn-md btn-primary-no-emphasis">
-                    <Link to="/profile">View Profile</Link>
-                  </Button>
-                </p>
-                <h3>Account</h3>
-                <p>Retry Premium Free</p>
-                <p>Settings & Privacy</p>
-                <p>Help</p>
-                <p>Language</p>
-                <h3>Manage</h3>
-                <p>Posts & Activity</p>
-                <p>Job Posting Account</p>
-                <a onClick={onLogout}>Logout</a>
-              </div>
+                  <br />
+                  <p>{currentUser.headline}</p>
+                  <a href="/profile">View Profile</a>
+                  <h3>Account</h3>
+                  <p>Retry Premium Free</p>
+                  <p>Settings & Privacy</p>
+                  <p>Help</p>
+                  <p>Language</p>
+                  <h3>Manage</h3>
+                  <p>Posts & Activity</p>
+                  <p>Job Posting Account</p>
+                  <a onClick={onLogout}>Logout</a>
+                </div>
+              )}
             </div>
             <div className="Navbar__Link">
               <div className="Navbar__Text"></div>
             </div>
 
             <div className="Navbar__Link">
-              <TbGridDots size={30} className="user-logo" />
-              <div className="Navbar__Text">For Business</div>
+              <TbGridDots size={25} className="user-logo" />
+              <div className="Navbar__Text">
+                For Business
+                <img src={DownArrow} />
+              </div>
             </div>
 
             <div className="Navbar__Link">

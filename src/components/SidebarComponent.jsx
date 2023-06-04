@@ -16,12 +16,10 @@ const SidebarComponent = ({ currentUser }) => {
           {currentUser.headline}
         </div>
         <div className="profile-connections">
-          <p>
-            <div className="profile-connections-title">
-              Your Connections &nbsp;
-              <a href="#">500+</a>
-            </div>
-          </p>
+          <div className="profile-connections-title">
+            Your Connections &nbsp;
+            <a href="#">500+</a>
+          </div>
           <div className="profile-connections-growth">Grow your Network</div>
         </div>
       </div>
