@@ -6,6 +6,8 @@ import {
   onSnapshot,
   doc,
   updateDoc,
+  query,
+  where,
 } from 'firebase/firestore'
 import { toast } from 'react-toastify'
 
@@ -27,6 +29,28 @@ export const getStatus = (setAllStatuses) => {
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id }
       })
+    )
+  })
+}
+
+export const getSingleStatus = (setAllStatuses, id) => {
+  const singlePostQuery = query(postsRef, where('userID', '=='), id)
+  onSnapshot(singlePostQuery, (response) => {
+    setAllStatuses(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id }
+      })
+    )
+  })
+}
+
+export const getSingleUser = (setCurrentUser, email) => {
+  const singleUserQuery = query(userRef, where('email', '==', email))
+  onSnapshot(singleUserQuery, (response) => {
+    setCurrentUser(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id }
+      })[0]
     )
   })
 }
@@ -53,6 +77,7 @@ export const getCurrentUser = (setCurrentUser) => {
     )
   })
 }
+
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID)
   console.log(payload)

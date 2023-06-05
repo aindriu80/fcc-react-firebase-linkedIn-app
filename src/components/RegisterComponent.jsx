@@ -16,7 +16,11 @@ export default function RegisterComponent() {
   const register = async () => {
     try {
       let res = await RegisterAPI(credentials.email, credentials.password)
-      postUserData({ name: credentials.name, email: credentials.email })
+      postUserData({
+        userID: getUniqueID(),
+        name: credentials.name,
+        email: credentials.email,
+      })
       localStorage.setItem('userEmail', res.user.email)
       navigate('/feed')
     } catch (error) {

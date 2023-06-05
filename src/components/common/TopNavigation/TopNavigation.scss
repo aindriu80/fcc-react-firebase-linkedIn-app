@@ -151,16 +151,23 @@
   font-weight: 600;
 }
 
-@media (max-width: 1462px) {
+@media (max-width: 1480px) {
   /* styles */
   .Navbar__Text {
     font-size: 12px;
   }
 }
 
-@media (max-width: 1256px) {
+@media (max-width: 1304px) {
   /* styles */
   .Navbar__Text {
     font-size: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* styles */
+  .Navbar__Text {
+    font-size: 8px;
   }
 }
