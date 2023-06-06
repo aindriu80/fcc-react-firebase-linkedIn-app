@@ -98,7 +98,9 @@ const TopNavigation = () => {
                   {currentUser.lastName}
                   <br />
                   <p>{currentUser.headline}</p>
-                  <a href="/profile">View Profile</a>
+                  <button href="/profile" className="dropdown-button">
+                    View Profile
+                  </button>
                   <h3>Account</h3>
                   <p>Retry Premium Free</p>
                   <p>Settings & Privacy</p>

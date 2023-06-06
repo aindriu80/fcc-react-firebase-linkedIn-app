@@ -14,6 +14,7 @@ const PostsCard = ({ posts, id }) => {
           })
         }>
         {posts.userName}
+        {posts.lastName}
       </p>
       <p className="time-stamp">{posts.timeStamp}</p>
       <p className="posts-status">{posts.status}</p>

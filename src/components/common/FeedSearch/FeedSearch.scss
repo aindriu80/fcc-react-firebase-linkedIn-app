@@ -7,3 +7,9 @@
   background-color: #eef3f8 !important;
   color: #75787a !important;
 }
+
+@media (max-width: 1480px) {
+  .searchBarTop {
+    visibility: false;
+  }
+}
