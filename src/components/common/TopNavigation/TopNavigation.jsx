@@ -80,7 +80,7 @@ const TopNavigation = () => {
               <AiOutlineBell size={25} className="react-icon" />
               <div className="Navbar__Text">Notifications</div>
             </div>
-            <div className="dropdown">
+            <div className="dropdown-menu">
               <BsPersonCircle
                 size={20}
                 className="user-logo"
@@ -93,22 +93,27 @@ const TopNavigation = () => {
               </div>
               {dropdownVisible && (
                 <div className="dropdown-content">
-                  <BsPersonCircle size={48} className="user-logo-post" />
-                  {currentUser.name}&nbsp;
-                  {currentUser.lastName}
-                  <br />
-                  <p>{currentUser.headline}</p>
+                  <div className="header-dropdown">
+                    <BsPersonCircle size={48} className="user-logo-post" />
+                    {currentUser.name}&nbsp;
+                    {currentUser.lastName}
+                    <br />
+                    {currentUser.headline}
+                    <p></p>
+                  </div>
                   <button href="/profile" className="dropdown-button">
                     View Profile
                   </button>
-                  <h3>Account</h3>
-                  <p>Retry Premium Free</p>
-                  <p>Settings & Privacy</p>
-                  <p>Help</p>
-                  <p>Language</p>
-                  <h3>Manage</h3>
-                  <p>Posts & Activity</p>
-                  <p>Job Posting Account</p>
+                  <hr className="hr-line" />
+                  <div className="dropdown-content-header">Account</div>
+                  <a href="#">Retry Premium Free</a>
+                  <a href="#">Settings & Privacy</a>
+                  <a href="#">Help</a>
+                  <a href="#">Language</a>
+                  <hr className="hr-line" />
+                  <div className="dropdown-content-header">Manage</div>
+                  <a href="#">Posts & Activity</a>
+                  <a href="#">Job Posting Account</a>
                   <a onClick={onLogout}>Logout</a>
                 </div>
               )}
