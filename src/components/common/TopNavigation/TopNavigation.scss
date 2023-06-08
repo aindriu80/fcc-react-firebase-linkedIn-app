@@ -210,7 +210,6 @@
 .header-dropdown {
   display: flex;
   padding: 10px;
-  align-items: space-between;
 }
 .hr-line {
   color: brown;
@@ -220,4 +219,7 @@
   border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
+}
+.dropdown-user-logo-post {
+  margin-right: 8px;
 }

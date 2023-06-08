@@ -34,7 +34,6 @@ const ProfileComponent = () => {
           </div>
           <ProfileFooter />
         </div>
-        <div className=""></div>
       </div>
     </>
   )

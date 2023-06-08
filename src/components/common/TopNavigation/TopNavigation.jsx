@@ -94,14 +94,19 @@ const TopNavigation = () => {
               {dropdownVisible && (
                 <div className="dropdown-content">
                   <div className="header-dropdown">
-                    <BsPersonCircle size={48} className="user-logo-post" />
+                    <BsPersonCircle
+                      size={48}
+                      className="dropdown-user-logo-post"
+                    />
                     {currentUser.name}&nbsp;
                     {currentUser.lastName}
                     <br />
                     {currentUser.headline}
                     <p></p>
                   </div>
-                  <button href="/profile" className="dropdown-button">
+                  <button
+                    onClick={() => goToRoute('/profile')}
+                    className="dropdown-button">
                     View Profile
                   </button>
                   <hr className="hr-line" />

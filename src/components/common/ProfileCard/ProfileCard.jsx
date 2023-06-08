@@ -11,6 +11,7 @@ const ProfileCard = ({ onEdit, currentUser }) => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [setAllStatuses, setAllStatus] = useState([])
   const [currentProfile, setCurrentProfile] = useState({})
+
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setAllStatuses, location?.state?.id)
@@ -53,9 +54,9 @@ const ProfileCard = ({ onEdit, currentUser }) => {
           <p className="headline">{currentUser.headline}</p>
           <p className="address">
             {Object.values(currentProfile).length === 0
-              ? currentUser.city
+              ? `${currentUser.city},${currentUser.country}`
               : currentProfile?.country}
-            <a href="#"> &nbsp; Contact Info</a>
+            <a href="#"> Contact Info</a>
           </p>
           <a href="#">500+ Connections</a>
           <div className="pv-top-card-v2">
