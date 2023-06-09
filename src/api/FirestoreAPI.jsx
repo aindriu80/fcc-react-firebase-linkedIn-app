@@ -80,7 +80,7 @@ export const getCurrentUser = (setCurrentUser) => {
 
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID)
-  console.log(payload)
+  console.log('payload', payload)
 
   updateDoc(userToEdit, payload)
     .then(() => {
@@ -89,5 +89,6 @@ export const editProfile = (userID, payload) => {
     })
     .catch((err) => {
       console.log(err)
+      console.log('there seems to be an error')
     })
 }

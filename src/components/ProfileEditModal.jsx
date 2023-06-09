@@ -7,7 +7,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import '../Sass/ProfileEdit.scss'
 
 const Modal = ({ onClose, onEdit, currentUser }) => {
-  const [editInputs, setEditInputs] = useState({})
+  const [editInputs, setEditInputs] = useState(currentUser)
 
   const getInput = (event) => {
     let { name, value } = event.target
@@ -16,7 +16,10 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
   }
 
   const updateProfileData = async () => {
-    await editProfile(currentUser?.userID, editInputs)
+    console.log(editInputs)
+    console.log(currentUser.id)
+    await editProfile(currentUser?.id, editInputs)
+    await onEdit()
     await onClose()
   }
 
@@ -66,7 +69,7 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               className="input__input"
               placeholder="First Name"
               name="name"
-              value={editInputs.firstname}
+              value={currentUser.name}
             />
             <label>Last Name*</label>
             <input
@@ -74,7 +77,7 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               className="input__input"
               placeholder="Last name"
               name="lastName"
-              value={editInputs.lastname}
+              value={editInputs.lastName}
             />
             <label>Additional Name</label>
             <input
@@ -89,7 +92,6 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               <FaInfoCircle className="pronunciation-info" />
               <>This can only be added using our mobile app</>
             </span>
-            {/* <div className=""> */}
             <label>Pronouns</label>
             <select
               onChange={getInput}
@@ -119,10 +121,12 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               onChange={getInput}
               id="current-position"
               name="current-position"
-              value={editInputs.currentposition}
+              value={editInputs.currentPosition}
               className="current-position">
+              <option value="currentPosition">
+                {editInputs.currentPosition}
+              </option>
               <option value="Please select">Please select</option>
-              <option value="None">None</option>
             </select>
             <span className="profile-edit-pronunciation">
               <AiOutlinePlus />
@@ -177,7 +181,7 @@ const Modal = ({ onClose, onEdit, currentUser }) => {
               value={editInputs.website}
             />
             <label>About</label>
-            <textarea
+            <input
               onChange={getInput}
               placeholder="About Me"
               className="input__input"

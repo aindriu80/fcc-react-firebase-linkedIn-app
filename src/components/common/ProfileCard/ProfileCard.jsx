@@ -72,6 +72,7 @@ const ProfileCard = ({ onEdit, currentUser }) => {
       {isModalOpen && (
         <Modal
           currentUser={currentUser}
+          onEdit={onEdit}
           onClose={() => setModalOpen(false)}
           // Pass other necessary props to the modal component
         />

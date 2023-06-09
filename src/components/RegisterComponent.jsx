@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { RegisterAPI } from '../api/AuthAPI'
 import { postUserData } from '../api/FirestoreAPI'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { getUniqueID } from '../components/helpers/getUniqueId'
 import LinkedInLogo from '../assets/LinkedInLogo.svg'
 import googleSignIn from '../assets/googleSignIn.svg'
-import '../Sass/RegisterComponent.scss'
 
-import { Link } from 'react-router-dom'
 import Footer from './FooterComponent'
-import { useNavigate } from 'react-router-dom'
+import '../Sass/RegisterComponent.scss'
 
 export default function RegisterComponent() {
   let navigate = useNavigate()
