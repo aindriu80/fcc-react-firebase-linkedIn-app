@@ -1,13 +1,25 @@
 .feed-container {
   display: grid;
-  grid-template-columns: 0.5fr 0.4fr 0.5fr;
-  grid-template-rows: 0.05fr 0.5fr 2.2fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    'global-nav global-nav global-nav'
-    'sidebar-layout share-box layout-aside'
-    'sidebar-layout feed-share layout-aside';
+  grid-template-columns: 0.5fr 10px 1fr 10px 0.5fr;
+  // grid-template-columns: 225px 30px 555px 30px 300px;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content: center;
+  width: 47.5%;
+  margin: 0 auto;
+  grid-template-areas: 'sidebar-layout . main-content-layout . right-side-layout'; /* Define grid areas */
+}
+
+.sidebar-layout {
+  grid-area: sidebar-layout;
+}
+
+.main-content-layout {
+  grid-area: main-content-layout;
+}
+
+.right-side-layout {
+  grid-area: right-side-layout;
 }
 
 .global-nav {
@@ -16,13 +28,6 @@
 
 .sidebar-layout {
   grid-area: sidebar-layout;
-}
-
-.share-box {
-  padding-top: 10px;
-  grid-area: share-box;
-  max-width: 555px;
-  padding: 10px;
 }
 
 .feed-share {
@@ -45,7 +50,7 @@
 .feedLinkedInLogo {
   height: 4.1rem;
   width: 4.1rem;
-  margin-left: 17%;
+  margin-left: 26%;
 }
 
 .global-nav-feed {

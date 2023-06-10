@@ -7,8 +7,8 @@ const SidebarComponent = ({ currentUser }) => {
   return (
     <>
       <div className="sidebar-main">
+        <img className="profile-background-sidebar" src={profileBackground} />
         <div className="sidebar-content">
-          <img className="profile-background-sidebar" src={profileBackground} />
           <BsPersonCircle size={70} className="user-logo-sidebar" />
           <div className="sidebar-user-details">
             {currentUser.name} {currentUser.lastName}

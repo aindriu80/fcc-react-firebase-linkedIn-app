@@ -4,12 +4,11 @@
   border: 1px solid #b7b7b7;
   background-color: white;
   border-radius: 10px;
-  margin-top: 20px;
-  margin-left: 50%;
   border-radius: 7px;
   min-height: 80px;
 }
 .sidebar-content {
+  padding: 5px;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -17,10 +16,10 @@
   align-items: center;
 }
 .user-logo-sidebar {
-  margin-top: -30px;
+  // margin-top: -30px;
 }
 .profile-background-sidebar {
-  margin-top: -10px;
+  // margin-top: -10px;
 }
 .profile-connections {
   display: flex;

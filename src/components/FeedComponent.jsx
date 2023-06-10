@@ -29,17 +29,15 @@ export default function FeedComponent() {
 
   return (
     <>
-      <div className="feed-container">
-        <div className="sidebar-layout">
+      <div class="feed-container">
+        <div class="sidebar-layout">
           <SidebarComponent currentUser={currentUser} />
         </div>
-        <div className="share-box">
+        <div class="main-content-layout">
           <PostUpdate currentUser={currentUser} />
-        </div>
-        <div className="feed-share">
           <MessageUpdates />
         </div>
-        <div className="layout-aside">
+        <div class="right-side-layout">
           <AddToYourFeed currentUser={currentUser} />
         </div>
       </div>
