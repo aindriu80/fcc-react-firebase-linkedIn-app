@@ -14,14 +14,16 @@
   display: flex;
   align-items: center;
   padding-top: 15px;
+  justify-content: space-between;
 
   .open-post-modal {
     display: flex;
     flex-direction: column;
-    color: #767676;
+    color: #2879c9;
     font-size: 16px;
+    font-weight: 600;
     line-height: 21px;
-    width: 80%;
+    width: 90%;
     text-align: left;
     background-color: #ffffff;
     outline: none;

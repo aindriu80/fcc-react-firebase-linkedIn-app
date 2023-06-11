@@ -1,19 +1,23 @@
+.profile-background-sidebar {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 .sidebar-main {
   justify-content: center;
   align-items: center;
   border: 1px solid #b7b7b7;
   background-color: white;
   border-radius: 10px;
-  border-radius: 7px;
-  min-height: 80px;
+  // border-radius: 7px;
+  // min-height: 80px;
 }
 .sidebar-content {
-  padding: 5px;
-  margin-top: 10px;
+  // padding: 5px;
+  // margin-top: 10px;
   display: flex;
   flex-direction: column;
-  display: flex;
   align-items: center;
+  margin-top: -15%;
 }
 .user-logo-sidebar {
   // margin-top: -30px;
@@ -34,4 +38,16 @@
 .profile-connections-growth {
   color: black;
   font-size: 12px;
+}
+.sidebar-user-details {
+  font-family: system-ui;
+  font-size: 16px;
+  font-weight: 600;
+}
+.sidebar-user-headline {
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6e6e6e;
+  margin-top: 10px;
 }

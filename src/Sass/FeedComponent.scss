@@ -1,12 +1,12 @@
 .feed-container {
   display: grid;
-  grid-template-columns: 0.5fr 10px 1fr 10px 0.5fr;
+  grid-template-columns: 0.5fr 25px 1fr 25px 0.5fr;
   // grid-template-columns: 225px 30px 555px 30px 300px;
   grid-template-rows: 1fr;
   justify-content: center;
   align-content: center;
-  width: 47.5%;
-  margin: 0 auto;
+  width: 50%;
+  margin: 25px auto;
   grid-template-areas: 'sidebar-layout . main-content-layout . right-side-layout'; /* Define grid areas */
 }
 
@@ -91,6 +91,32 @@
     background-color: blue;
     color: black;
   }
+}
+.sort-posts-ember {
+  padding-top: 10px;
+}
+.ember-sort-button {
+  display: flex;
+  width: 100% !important;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+.t-12 {
+  font-family: system-ui;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: black;
+}
+.t-black--light {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: system-ui;
+  font-weight: 400;
+  padding-top: 10px;
 }
 
 @media (max-width: 1462px) {

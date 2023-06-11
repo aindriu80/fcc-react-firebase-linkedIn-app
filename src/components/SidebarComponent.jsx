@@ -13,7 +13,7 @@ const SidebarComponent = ({ currentUser }) => {
           <div className="sidebar-user-details">
             {currentUser.name} {currentUser.lastName}
           </div>
-          {currentUser.headline}
+          <div className="sidebar-user-headline">{currentUser.headline}</div>
         </div>
         <div className="profile-connections">
           <div className="profile-connections-title">
