@@ -13,6 +13,13 @@
   padding-right: 18px;
   align-items: center;
   justify-content: space-between;
+  padding-top: 5px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .Navbar__Link {
+    padding-right: 12px;
+  }
 }
 
 .Navbar__Items {

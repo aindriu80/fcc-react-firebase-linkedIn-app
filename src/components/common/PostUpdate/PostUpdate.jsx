@@ -49,22 +49,22 @@ export default function PostUpdate({ currentUser }) {
         </div>
 
         <div className="post-status">
-          <div className="Navbar__Link">
+          <div className="post-status__Link">
             <img src={photo} width="24px" height="24px" />
             <div className="Navbar__Text">Photo</div>
           </div>
 
-          <div className="Navbar__Link">
+          <div className="post-status__Link">
             <img src={video} width="24px" height="24px" />
             <div className="Navbar__Text">Video</div>
           </div>
 
-          <div className="Navbar__Link">
+          <div className="post-status__Link">
             <img src={event} width="24px" height="24px" />
             <div className="Navbar__Text">Event</div>
           </div>
 
-          <div className="Navbar__Link">
+          <div className="post-status__Link">
             <img src={article} width="24px" height="24px" />
             <div className="Navbar__Text">Write Article</div>
           </div>

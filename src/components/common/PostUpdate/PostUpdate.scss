@@ -50,8 +50,6 @@
   align-items: left;
   padding-right: 10px;
 }
-.Navbar__Link {
-}
 
 .post-status-left {
   display: flex;
@@ -62,4 +60,13 @@
   background-color: white;
   width: 50%;
   border-radius: 10px;
+}
+
+.post-status__Link {
+  display: flex;
+  flex-direction: column;
+  padding-right: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
 }
