@@ -1,3 +1,6 @@
+.searchBarTop {
+  // margin-left: -30px;
+}
 .feedsearch-top {
   background-color: #eef3f8 !important;
   color: #75787a !important;
@@ -8,8 +11,14 @@
   color: #75787a !important;
 }
 
-@media (max-width: 1480px) {
+@media (max-width: 1037px) {
   .searchBarTop {
-    visibility: false;
+    display: none;
   }
 }
+
+// @media (max-width: 1480px) {
+//   .searchBarTop {
+//     display: none;
+//   }
+// }
