@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getCurrentUser } from '../../../api/FirestoreAPI'
+import LikeButton from '../LikeButton/LikeButton'
 import './PostsCard.scss'
 
 const PostsCard = ({ posts, id }) => {
   let navigate = useNavigate()
+  const [currentUser, setCurrentUser] = useState({})
+
+  useMemo(() => {
+    getCurrentUser(setCurrentUser)
+  }, [])
+  // console.log(currentUser?.userID)
+
   return (
     <div className="posts-card" key={id}>
       <p
@@ -18,6 +27,7 @@ const PostsCard = ({ posts, id }) => {
       </p>
       <p className="time-stamp">{posts.timeStamp}</p>
       <p className="posts-status">{posts.status}</p>
+      <LikeButton />
     </div>
   )
 }
