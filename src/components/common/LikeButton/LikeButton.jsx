@@ -1,11 +1,12 @@
 import React from 'react'
+import { likePost } from '../../../api/FirestoreAPI'
 import { AiOutlineLike, AiOutlineSend } from 'react-icons/ai'
 import { BiCommentDetail, BiRepost } from 'react-icons/bi'
 import './LikeButton.scss'
 
-const LikeButton = () => {
+const LikeButton = ({ userId, postId }) => {
   const handleLike = () => {
-    console.log('first')
+    likePost(userId, postId)
   }
   return (
     <>

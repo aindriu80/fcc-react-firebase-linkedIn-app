@@ -5,6 +5,7 @@ import {
   collection,
   onSnapshot,
   doc,
+  setDoc,
   updateDoc,
   query,
   where,
@@ -13,6 +14,7 @@ import { toast } from 'react-toastify'
 
 let postsRef = collection(firestore, 'posts')
 let userRef = collection(firestore, 'users')
+let likeRef = collection(firestore, 'likes')
 
 export const postStatus = (object) => {
   addDoc(postsRef, object)
@@ -69,7 +71,7 @@ export const getCurrentUser = (setCurrentUser) => {
     setCurrentUser(
       response.docs
         .map((docs) => {
-          return { ...docs.data(), userID: docs.id }
+          return { ...docs.data(), id: docs.id };
         })
         .filter((item) => {
           return item.email === localStorage.getItem('userEmail')
@@ -91,4 +93,14 @@ export const editProfile = (userID, payload) => {
       console.log(err)
       console.log('there seems to be an error')
     })
+}
+
+export const likePost = (userId, postId) => {
+  try {
+    let docToLike = doc(likeRef, `${userId}_${postId}`)
+
+    setDoc(docToLike, { userId, postId })
+  } catch (error) {
+    console.log(error)
+  }
 }

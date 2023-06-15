@@ -11,7 +11,8 @@ const PostsCard = ({ posts, id }) => {
   useMemo(() => {
     getCurrentUser(setCurrentUser)
   }, [])
-  // console.log(currentUser?.userID)
+  console.log('current user ID: ', currentUser?.userID)
+  console.log('posts id: ', posts.id)
 
   return (
     <div className="posts-card" key={id}>
@@ -27,7 +28,7 @@ const PostsCard = ({ posts, id }) => {
       </p>
       <p className="time-stamp">{posts.timeStamp}</p>
       <p className="posts-status">{posts.status}</p>
-      <LikeButton />
+      <LikeButton userId={currentUser?.userID} postId={posts.id} />
     </div>
   )
 }

@@ -24,6 +24,7 @@ export default function PostUpdate({ currentUser }) {
       userEmail: currentUser.email,
       userName: currentUser.name,
       postID: getUniqueID(),
+      userID: currentUser.id,
     }
     await postStatus(object)
     await setModalOpen(false)
