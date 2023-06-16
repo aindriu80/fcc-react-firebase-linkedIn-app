@@ -71,7 +71,7 @@ export const getCurrentUser = (setCurrentUser) => {
     setCurrentUser(
       response.docs
         .map((docs) => {
-          return { ...docs.data(), id: docs.id };
+          return { ...docs.data(), id: docs.id }
         })
         .filter((item) => {
           return item.email === localStorage.getItem('userEmail')
@@ -100,6 +100,24 @@ export const likePost = (userId, postId) => {
     let docToLike = doc(likeRef, `${userId}_${postId}`)
 
     setDoc(docToLike, { userId, postId })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
+  try {
+    let likeQuery = query(likeRef, where('postId', '==', postId))
+
+    onSnapshot(likeQuery, (response) => {
+      let likes = response.docs.map((doc) => doc.data())
+      let likesCount = likes?.length
+
+      const isLiked = likes.some((like) => like.id == userId)
+
+      setLikesCount(likesCount)
+      setLiked(isLiked)
+    })
   } catch (error) {
     console.log(error)
   }
