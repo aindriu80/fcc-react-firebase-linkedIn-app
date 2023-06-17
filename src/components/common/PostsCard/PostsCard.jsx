@@ -11,8 +11,6 @@ const PostsCard = ({ posts, id }) => {
   useMemo(() => {
     getCurrentUser(setCurrentUser)
   }, [])
-  console.log('current user ID: ', currentUser?.userID)
-  console.log('posts id: ', posts.id)
 
   return (
     <div className="posts-card" key={id}>
