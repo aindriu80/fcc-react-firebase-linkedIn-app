@@ -8,46 +8,111 @@
   border: 1px solid #b7b7b7;
   background-color: white;
   border-radius: 10px;
-  // border-radius: 7px;
-  // min-height: 80px;
 }
 .sidebar-content {
-  // padding: 5px;
-  // margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: -15%;
 }
-.user-logo-sidebar {
-  // margin-top: -30px;
-}
-.profile-background-sidebar {
-  // margin-top: -10px;
-}
 .profile-connections {
   display: flex;
-  padding-left: 10px;
-  padding-top: 10px;
   flex-direction: column;
 }
 .profile-connections-title {
   color: #808080;
   font-size: 12px;
+  padding-left: 10px;
 }
 .profile-connections-growth {
   color: black;
   font-size: 12px;
+  padding-left: 10px;
 }
 .sidebar-user-details {
   font-family: system-ui;
   font-size: 16px;
   font-weight: 600;
 }
+.connection-number {
+  color: #024a92;
+}
 .sidebar-user-headline {
   font-family: system-ui;
   font-size: 14px;
   font-weight: 400;
   color: #6e6e6e;
+}
+.app-aware-insights {
+  padding-left: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #004182;
+  display: flex;
+  flex-direction: row;
+}
+.hr-line {
+  color: brown;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+.premium-aware {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.community-panel {
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #b7b7b7;
+  background-color: white;
+  border-radius: 10px;
   margin-top: 10px;
+}
+.ember-view {
+  font-size: 12x;
+  line-height: 16px;
+  font-weight: 600;
+  padding-left: 10px;
+}
+.ember-bookmark {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.recent-items-img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.community-panel-title {
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+.community-panel-interest {
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 8px;
+  padding-bottom: 3px;
+}
+.community-panel-interest-links {
+  color: #818181;
+  a:visited {
+    color: #818181;
+  }
+}
+.community-panel-groups,
+.community-panel-discover-more,
+.community-panel-discover,
+.community-panel-events {
+  padding-left: 8px;
+  color: #024a92;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  padding-bottom: 5px;
 }

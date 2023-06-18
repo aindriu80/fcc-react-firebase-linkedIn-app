@@ -22,9 +22,10 @@ const LikeButton = ({ userId, postId }) => {
       <p className="social-number-of-likes">
         {likesCount} People like this Post
       </p>
+      <hr className="hr-line" />
       <div className="like-container" onClick={handleLike}>
         <span className="feed-shared-social-action">
-          {liked ? <AiFillLike /> : <AiOutlineLike />}
+          {liked ? <AiFillLike color="#378FE9" /> : <AiOutlineLike />}
           <span className={liked ? 'blue' : 'black'}>Like</span>
         </span>
         <span className="feed-shared-social-action">

@@ -203,36 +203,36 @@ body {
   font-family: var(--artdeco-reset-typography-font-family-sans);
 }
 
-a {
-  -webkit-text-decoration: var(--artdeco-reset-link-text-decoration-none);
-}
+// a {
+//   -webkit-text-decoration: var(--artdeco-reset-link-text-decoration-none);
+// }
 
-a:visited {
-  color: var(--artdeco-reset-link-color-blue7);
-}
+// a:visited {
+//   color: var(--artdeco-reset-link-color-blue7);
+// }
 
-a:hover,
-a:focus {
-  -webkit-text-decoration: var(--artdeco-reset-link-text-decoration-underline);
-  text-decoration: var(--artdeco-reset-link-text-decoration-underline);
-  color: var(--artdeco-reset-link-color-blue8);
-}
+// a:hover,
+// a:focus {
+//   -webkit-text-decoration: var(--artdeco-reset-link-text-decoration-underline);
+//   text-decoration: var(--artdeco-reset-link-text-decoration-underline);
+//   color: var(--artdeco-reset-link-color-blue8);
+// }
 
-a:active {
-  color: var(--artdeco-reset-link-color-blue9);
-}
+// a:active {
+//   color: var(--artdeco-reset-link-color-blue9);
+// }
 
-a:visited {
-  color: var(--artdeco-reset-link-color-purple7);
-}
+// a:visited {
+//   color: var(--artdeco-reset-link-color-purple7);
+// }
 
-a:visited:hover {
-  color: var(--artdeco-reset-link-color-purple8);
-}
+// a:visited:hover {
+//   color: var(--artdeco-reset-link-color-purple8);
+// }
 
-a:visited:active {
-  color: var(--artdeco-reset-link-color-purple9);
-}
+// a:visited:active {
+//   color: var(--artdeco-reset-link-color-purple9);
+// }
 
 body,
 p {
@@ -291,55 +291,55 @@ a {
   text-decoration: none;
 }
 
-a:visited {
-  color: var(--artdeco-reset-link-color-blue7);
-}
+// a:visited {
+//   color: var(--artdeco-reset-link-color-blue7);
+// }
 
-a:hover,
-a:focus {
-  -webkit-text-decoration: var(--artdeco-reset-link-text-decoration-underline);
-  text-decoration: var(--artdeco-reset-link-text-decoration-underline);
-  color: var(--artdeco-reset-link-color-blue8);
-}
+// a:hover,
+// a:focus {
+//   -webkit-text-decoration: var(--artdeco-reset-link-text-decoration-underline);
+//   text-decoration: var(--artdeco-reset-link-text-decoration-underline);
+//   color: var(--artdeco-reset-link-color-blue8);
+// }
 
-a:active {
-  color: var(--artdeco-reset-link-color-blue9);
-}
+// a:active {
+//   color: var(--artdeco-reset-link-color-blue9);
+// }
 
-a:visited {
-  color: var(--artdeco-reset-link-color-purple7);
-}
+// a:visited {
+//   color: var(--artdeco-reset-link-color-purple7);
+// }
 
-a:visited:hover {
-  color: var(--artdeco-reset-link-color-purple8);
-}
+// a:visited:hover {
+//   color: var(--artdeco-reset-link-color-purple8);
+// }
 
-a:visited:active {
-  color: var(--artdeco-reset-link-color-purple9);
-}
+// a:visited:active {
+//   color: var(--artdeco-reset-link-color-purple9);
+// }
 
-a,
-a:focus,
-a:hover {
-  color: #0a66c2;
-}
+// a,
+// a:focus,
+// a:hover {
+//   color: #0a66c2;
+// }
 
-a:active {
-  color: #004182;
-}
+// a:active {
+//   color: #004182;
+// }
 
-a:visited,
-a:visited:hover {
-  color: #8344cc;
-}
+// a:visited,
+// a:visited:hover {
+//   color: #8344cc;
+// }
 
-a:visited:active {
-  color: #592099;
-}
+// a:visited:active {
+//   color: #592099;
+// }
 
-a:hover {
-  text-decoration: underline;
-}
+// a:hover {
+//   text-decoration: underline;
+// }
 
 button,
 input {
