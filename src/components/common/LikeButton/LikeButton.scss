@@ -1,4 +1,4 @@
-.like-container {
+.like-container-main {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -36,8 +36,44 @@
   font-size: 14px;
   padding-bottom: 10px;
 }
+
 .social-number-of-likes {
   font-size: 12px;
   margin-left: 5px;
   padding-bottom: 5px;
+}
+
+.like-comment-component {
+  visibility: false;
+  padding-left: 10px;
+  padding-top: 10px;
+  display: grid;
+  display: none;
+}
+.comment-input {
+  height: 35px;
+  background-color: #ffffff;
+  padding-left: 10px;
+  margin-right: 10px;
+  border-radius: 30px;
+  border: 1px solid #212121;
+  color: #000000;
+  font-family: system-ui;
+}
+.comment-input:focus {
+  outline: 1px solid #949494;
+}
+.submit-comment-button {
+  width: 55px;
+  height: 30px;
+  background-color: #0a66c2;
+  outline: none;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
 }
