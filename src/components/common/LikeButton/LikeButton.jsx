@@ -8,14 +8,23 @@ import { useState } from 'react'
 const LikeButton = ({ userId, postId }) => {
   const [likesCount, setLikesCount] = useState(0)
   const [liked, setLiked] = useState(false)
-  const [buttonVisible, setButtonVisible] = useState(false)
+  const [commentVisible, setCommentVisible] = useState(false)
+  const [commentText, setCommentText] = useState('')
 
   const handleLike = () => {
     likePost(userId, postId, liked)
   }
 
   const handleComment = () => {
-    setOpen(true)
+    setCommentVisible(true)
+  }
+
+  const handlePostComment = () => {
+    // Perform actions to post the comment, e.g., call an API
+
+    // Reset the comment input field and hide the comment component
+    setCommentText('')
+    setCommentVisible(false)
   }
 
   useMemo(() => {
@@ -54,13 +63,20 @@ const LikeButton = ({ userId, postId }) => {
           </span>
         </div>
       </div>
-      <div className="like-comment-component">
-        <input
-          type="text"
-          placeholder="Add a comment"
-          className="comment-input"></input>
-        <button className="submit-comment-button">Post</button>
-      </div>
+      {commentVisible && (
+        <div className="like-comment-component">
+          <input
+            type="text"
+            placeholder="Add a comment"
+            className="comment-input"
+            value={commentText}
+            onChange={(e) => setCommentText(e.target.value)}
+          />
+          <button className="submit-comment-button" onClick={handlePostComment}>
+            Post
+          </button>
+        </div>
+      )}
     </>
   )
 }
