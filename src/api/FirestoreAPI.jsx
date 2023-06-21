@@ -16,6 +16,7 @@ import { toast } from 'react-toastify'
 let postsRef = collection(firestore, 'posts')
 let userRef = collection(firestore, 'users')
 let likeRef = collection(firestore, 'likes')
+let commentsRef = collection(firestore, 'comments')
 
 export const postStatus = (object) => {
   addDoc(postsRef, object)
@@ -121,6 +122,38 @@ export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
 
       setLikesCount(likesCount)
       setLiked(isLiked)
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const postComment = (postId, commentText, timeStamp) => {
+  try {
+    addDoc(commentsRef, {
+      postId,
+      commentText,
+      timeStamp,
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getComments = (postId, setComments) => {
+  try {
+    let singlePostQuery = query(commentsRef, where('postId', '==', postId))
+
+    onSnapshot(singlePostQuery, (response) => {
+      const comments = response.docs.map((doc) => {
+        return {
+          id: doc.id,
+
+          ...doc.data(),
+        }
+      })
+      setComments(comments)
+      console.log(comments)
     })
   } catch (error) {
     console.log(error)
