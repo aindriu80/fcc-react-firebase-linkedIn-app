@@ -93,11 +93,10 @@ const LikeButton = ({ userId, postId }) => {
           {comments.length > 0 ? (
             comments.map((comment) => {
               return (
-                <div className="">
-                  <p>{comment.commentText}</p>
-                  <p>{comment.timeStamp}</p>
-
-                  <p>{commentText.timeStamp}</p>
+                <div className="all-comments">
+                  <p className="name">{comment.name}</p>
+                  <p className="comment">{comment.commentText}</p>
+                  <p className="timestamp">{comment.timeStamp}</p>
                 </div>
               )
             })

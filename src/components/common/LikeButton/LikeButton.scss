@@ -75,3 +75,19 @@
   cursor: pointer;
   border: none;
 }
+.all-comments {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(208, 208, 208);
+  border-radius: 10px;
+}
+.name {
+  color: #212121;
+  text-decoration: none;
+  font-family: system-ui;
+}
+.comment {
+  margin-left: 10px;
+  margin-top: 0px;
+}
