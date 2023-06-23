@@ -11,7 +11,7 @@ import './LikeButton.scss'
 import { useState } from 'react'
 import { getCurrentTimeStamp } from '../../helpers/useMoment'
 
-const LikeButton = ({ userId, postId }) => {
+const LikeButton = ({ userId, postId, currentUser }) => {
   const [likesCount, setLikesCount] = useState(0)
   const [liked, setLiked] = useState(false)
   const [commentVisible, setCommentVisible] = useState(false)
@@ -24,20 +24,18 @@ const LikeButton = ({ userId, postId }) => {
 
   const handleComment = () => {
     setCommentVisible(true)
-    // setCommentText(event.target.value)
   }
 
-  const getComment = (event) => {}
+  // const getComment = (event) => {}
 
   const handlePostComment = () => {
-    console.log(event.value)
-    // Reset the comment input field and hide the comment component
-    // setCommentVisible(false)
-
-    postComment(postId, commentText, getCurrentTimeStamp('LLL'))
-    //   .then(() => {
+    postComment(
+      postId,
+      commentText,
+      getCurrentTimeStamp('LLL'),
+      currentUser?.name
+    )
     setCommentText('')
-    // })
   }
 
   useMemo(() => {
@@ -47,7 +45,7 @@ const LikeButton = ({ userId, postId }) => {
 
   return (
     <>
-      <p className="social-number-of-likes">
+      <p className="social-number-of-likes" key={postId}>
         {likesCount} People like this Post
       </p>
       <hr className="hr-line" />
@@ -93,11 +91,16 @@ const LikeButton = ({ userId, postId }) => {
           {comments.length > 0 ? (
             comments.map((comment) => {
               return (
-                <div className="all-comments">
-                  <p className="name">{comment.name}</p>
-                  <p className="comment">{comment.commentText}</p>
-                  <p className="timestamp">{comment.timeStamp}</p>
-                </div>
+                <>
+                  <div className="all-comments">
+                    <p className="comentReplyName">{comment.name}</p>
+                    <p className="comment">{comment.commentText}</p>
+                    <p className="timestamp">{comment.timeStamp}</p>
+                  </div>
+                  <p className="interact-comment">
+                    <a href="#">Like </a>|<a href=""> Comment</a>
+                  </p>
+                </>
               )
             })
           ) : (

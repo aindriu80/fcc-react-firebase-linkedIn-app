@@ -15,7 +15,7 @@ const PostsCard = ({ posts, id }) => {
   return (
     <div className="posts-card" key={id}>
       <p
-        className="name"
+        className="postsCardName"
         onClick={() =>
           navigate('/profile', {
             state: { id: posts?.userID, email: posts.userEmail },
@@ -26,7 +26,11 @@ const PostsCard = ({ posts, id }) => {
       </p>
       <p className="time-stamp">{posts.timeStamp}</p>
       <p className="posts-status">{posts.status}</p>
-      <LikeButton userId={currentUser?.userID} postId={posts.id} />
+      <LikeButton
+        userId={currentUser?.userID}
+        postId={posts.id}
+        currentUser={currentUser}
+      />
     </div>
   )
 }
