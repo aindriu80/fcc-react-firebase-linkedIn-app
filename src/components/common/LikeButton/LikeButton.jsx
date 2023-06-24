@@ -10,6 +10,7 @@ import { BiCommentDetail, BiRepost } from 'react-icons/bi'
 import './LikeButton.scss'
 import { useState } from 'react'
 import { getCurrentTimeStamp } from '../../helpers/useMoment'
+import { BsPersonCircle } from 'react-icons/bs'
 
 const LikeButton = ({ userId, postId, currentUser }) => {
   const [likesCount, setLikesCount] = useState(0)
@@ -25,8 +26,6 @@ const LikeButton = ({ userId, postId, currentUser }) => {
   const handleComment = () => {
     setCommentVisible(true)
   }
-
-  // const getComment = (event) => {}
 
   const handlePostComment = () => {
     postComment(
@@ -79,7 +78,7 @@ const LikeButton = ({ userId, postId, currentUser }) => {
         <div className="like-comment-component">
           <input
             type="text"
-            placeholder="Add a comment"
+            placeholder="Add a comment...."
             className="comment-input"
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
@@ -92,10 +91,16 @@ const LikeButton = ({ userId, postId, currentUser }) => {
             comments.map((comment) => {
               return (
                 <>
-                  <div className="all-comments">
-                    <p className="comentReplyName">{comment.name}</p>
-                    <p className="comment">{comment.commentText}</p>
-                    <p className="timestamp">{comment.timeStamp}</p>
+                  <div className="article-comment">
+                    <div className="user-reply-comment">
+                      <BsPersonCircle size={30} className="user-logo-sidebar" />
+                    </div>
+
+                    <div className="all-comments">
+                      <p className="comentReplyName">{comment.name}</p>
+                      <p className="comment">{comment.commentText}</p>
+                      <p className="timestamp">{comment.timeStamp}</p>
+                    </div>
                   </div>
                   <p className="interact-comment">
                     <a href="#">Like </a>|<a href=""> Comment</a>

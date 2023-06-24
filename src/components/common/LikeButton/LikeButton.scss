@@ -42,7 +42,16 @@
   margin-left: 10px;
   padding-bottom: 5px;
 }
-
+.article-comment {
+  display: flex;
+  align-items: center;
+  // width: 100%;
+  padding-right: 10px;
+  // padding: space-between;
+}
+.user-reply-comment {
+  padding-right: 5px;
+}
 .like-comment-component {
   padding-left: 10px;
   padding-top: 10px;
@@ -81,9 +90,9 @@
   flex-direction: column;
   background-color: #f2f2f2;
   border-radius: 5px;
-  // margin-top: 4px;
   margin-right: 10px;
   margin-bottom: 4px;
+  width: 100%;
 }
 .comentReplyName {
   color: #212121;
@@ -98,11 +107,13 @@
 .interact-comment {
   margin-left: 10px;
   margin-bottom: 4px;
-  // padding-bottom: 4px;
   font-size: 12px;
   line-height: 16px;
   font-family: system-ui;
   a {
     color: #888888;
   }
+}
+.interact-comment {
+  margin-left: 40px;
 }

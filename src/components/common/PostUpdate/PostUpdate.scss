@@ -8,7 +8,7 @@
   border-radius: 10px;
 }
 .post-status {
-  width: 80%;
+  width: 90%;
   height: 65px;
   border-radius: 7px;
   display: flex;
@@ -19,20 +19,28 @@
   .open-post-modal {
     display: flex;
     flex-direction: column;
-    color: #2879c9;
-    font-size: 16px;
+    // color: #2879c9;
+    color: #686868;
+    font-size: 14px;
     font-weight: 600;
     line-height: 21px;
-    width: 90%;
+    width: 100%;
     text-align: left;
     background-color: #ffffff;
     outline: none;
     border: 1px solid #b7b7b7;
     border-radius: 30px;
     cursor: pointer;
-    padding: 15px;
+    padding: 8px;
     font-family: arial;
   }
+}
+
+.post-status-interact {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
 }
 .user-logo-post {
   padding: 2px;

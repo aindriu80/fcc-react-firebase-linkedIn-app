@@ -49,7 +49,7 @@ export default function PostUpdate({ currentUser }) {
           </button>
         </div>
 
-        <div className="post-status">
+        <div className="post-status-interact">
           <div className="post-status__Link">
             <img src={photo} width="24px" height="24px" />
             <div className="Navbar__Text">Photo</div>
