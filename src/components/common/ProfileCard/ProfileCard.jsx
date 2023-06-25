@@ -3,12 +3,14 @@ import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { BsFillPencilFill } from 'react-icons/bs'
 import camera from '../../../assets/camera.svg'
 import Modal from '../../ProfileEditModal'
+import PictureModal from '../../PictureModal'
 import profileBackground from '../../../assets/profileBackground.svg'
 import './ProfileCard.scss'
 import { getSingleStatus } from '../../../api/FirestoreAPI'
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   const [isModalOpen, setModalOpen] = useState(false)
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
   const [setAllStatuses, setAllStatus] = useState([])
   const [currentProfile, setCurrentProfile] = useState({})
 
@@ -44,7 +46,13 @@ const ProfileCard = ({ onEdit, currentUser }) => {
         </div>
         <div className="ph5">
           <div className="pv-top-card--photo">
-            <BsPersonCircle size={152} className="user-logo-post" />
+            <button
+              className="profileImage"
+              onClick={() => {
+                setIsProfileModalOpen(true)
+              }}>
+              <BsPersonCircle size={152} className="user-logo-post" />
+            </button>
           </div>
           <div className="userName">
             {Object.values(currentProfile).length === 0
@@ -75,6 +83,12 @@ const ProfileCard = ({ onEdit, currentUser }) => {
           onEdit={onEdit}
           onClose={() => setModalOpen(false)}
           // Pass other necessary props to the modal component
+        />
+      )}
+      {isProfileModalOpen && (
+        <PictureModal
+          currentUser={currentUser}
+          onClose={() => isProfileModalOpen(false)}
         />
       )}
     </>
