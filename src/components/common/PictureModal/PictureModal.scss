@@ -1,0 +1,158 @@
+$linkedinBlue1: #0072b1;
+$linkedinBlue2: #0073b1;
+$linkedinBlue3: #004c75;
+
+.modal {
+  z-index: 100000;
+}
+.profile-edit-inputs {
+  display: grid;
+  margin-top: 40px;
+  gap: 20px;
+
+  label {
+    font-family: system-ui;
+    margin-bottom: -15px;
+  }
+
+  .edit-input {
+    background-color: white;
+    width: 300px;
+    height: 40px;
+  }
+}
+
+.save-container {
+  display: flex;
+  justify-content: center;
+}
+
+.save-btn {
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  background-color: $linkedinBlue2;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: system-ui;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.close-icon {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #404040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal.enter-done {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.modal.exit {
+  opacity: 0;
+}
+
+.modal-content {
+  width: 900px;
+  margin-top: 20%;
+  border-radius: 10px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-200px);
+}
+
+.modal.enter-done .modal-content {
+  transform: translateY(0);
+}
+
+.modal.exit .modal-content {
+  transform: translateY(-200px);
+}
+
+.modal-header,
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.edit-modal-header {
+  font-family: system-ui;
+  font-size: 20px;
+  line-height: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding: 1.6rem 4.8rem 1.6rem 2.4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.edit-modal-form {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+.modal-body {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #eee;
+}
+.profile-edit-pronunciation {
+  color: #56687a;
+  padding: 0.5em;
+}
+
+.pronunciation-info {
+  margin-right: 5px;
+}
+
+.pronouns-option,
+.current-position {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px;
+  height: 32px;
+  color: black;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.profile-modal-button {
+  color: black;
+  position: absolute;
+  z-index: 1;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+.modal-close-button {
+  height: 30px;
+  width: 30px;
+}
+.modal-save-button {
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: #fff;
+  border-radius: 50px;
+}

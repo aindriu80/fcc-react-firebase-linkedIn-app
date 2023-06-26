@@ -1,16 +1,21 @@
 import React, { useState, useMemo } from 'react'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
-import { BsFillPencilFill } from 'react-icons/bs'
-import camera from '../../../assets/camera.svg'
-import Modal from '../../ProfileEditModal'
-import PictureModal from '../../PictureModal'
-import profileBackground from '../../../assets/profileBackground.svg'
-import './ProfileCard.scss'
 import { getSingleStatus } from '../../../api/FirestoreAPI'
+import { BsFillPencilFill } from 'react-icons/bs'
+
+import camera from '../../../assets/camera.svg'
+import profileBackground from '../../../assets/profileBackground.svg'
+
+import Modal from '../../ProfileEditModal'
+import PictureModal from '../PictureModal/PictureModal'
+
+import './ProfileCard.scss'
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   const [isModalOpen, setModalOpen] = useState(false)
+
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
+
   const [setAllStatuses, setAllStatus] = useState([])
   const [currentProfile, setCurrentProfile] = useState({})
 
@@ -51,6 +56,7 @@ const ProfileCard = ({ onEdit, currentUser }) => {
               onClick={() => {
                 setIsProfileModalOpen(true)
               }}>
+              {/* <PictureModal /> */}
               <BsPersonCircle size={152} className="user-logo-post" />
             </button>
           </div>
@@ -88,7 +94,8 @@ const ProfileCard = ({ onEdit, currentUser }) => {
       {isProfileModalOpen && (
         <PictureModal
           currentUser={currentUser}
-          onClose={() => isProfileModalOpen(false)}
+          onEdit={onEdit}
+          onClose={() => setIsProfileModalOpen(false)}
         />
       )}
     </>
