@@ -2,11 +2,22 @@
 
 import React, { useEffect, useState } from 'react'
 import { editProfile } from '../../../api/FirestoreAPI'
+import { uploadImage } from '../../../api/ImageUpload'
 import { CgClose } from 'react-icons/cg'
 
 import './PictureModal.scss'
 
 const PictureModal = ({ onClose, currentUser }) => {
+  const [currentImage, setCurrentImage] = useState({})
+  const getImage = (event) => {
+    setCurrentImage(event.target.files[0])
+  }
+
+  const uploadProfilePicture = async () => {
+    uploadImage(currentImage)
+    await onClose()
+  }
+
   const [editInputs, setEditInputs] = useState(currentUser)
 
   const upLoadingPhoto = async () => {
@@ -48,13 +59,16 @@ const PictureModal = ({ onClose, currentUser }) => {
           <CgClose className="modal-close-button" onClick={onClose} />
         </div>
         <div className="edit-modal-form">
-          <p>* indicates required</p>
-          <h2></h2>
+          {/* <p>* indicates required</p>
+          <h2></h2> */}
         </div>
         <div className="modal-body">
           <div className="modal-footer">
-            <button className="modal-save-button" onClick={upLoadingPhoto}>
-              Upload photo
+            <input type={'file'} onChange={getImage} />
+            <button
+              onClick={uploadProfilePicture}
+              className="modal-save-button">
+              Upload
             </button>
           </div>
         </div>

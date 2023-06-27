@@ -84,7 +84,7 @@ export const getCurrentUser = (setCurrentUser) => {
 
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID)
-  console.log('payload', payload)
+  // console.log('payload', payload)
 
   updateDoc(userToEdit, payload)
     .then(() => {
