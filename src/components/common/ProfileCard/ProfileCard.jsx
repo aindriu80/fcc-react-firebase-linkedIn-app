@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
-import { getSingleStatus } from '../../../api/FirestoreAPI'
+import { getSingleStatus, getSingleUser } from '../../../api/FirestoreAPI'
 import { BsFillPencilFill } from 'react-icons/bs'
 
 import camera from '../../../assets/camera.svg'
@@ -13,9 +13,7 @@ import './ProfileCard.scss'
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   const [isModalOpen, setModalOpen] = useState(false)
-
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
-
   const [setAllStatuses, setAllStatus] = useState([])
   const [currentProfile, setCurrentProfile] = useState({})
 
@@ -56,7 +54,6 @@ const ProfileCard = ({ onEdit, currentUser }) => {
               onClick={() => {
                 setIsProfileModalOpen(true)
               }}>
-              {/* <PictureModal /> */}
               <BsPersonCircle size={152} className="user-logo-post" />
             </button>
           </div>
@@ -70,9 +67,14 @@ const ProfileCard = ({ onEdit, currentUser }) => {
             {Object.values(currentProfile).length === 0
               ? `${currentUser.city},${currentUser.country}`
               : currentProfile?.country}
-            <a href="#"> Contact Info</a>
+            <a href="#" className="connection-details">
+              {' '}
+              Contact Info
+            </a>
           </p>
-          <a href="#">500+ Connections</a>
+          <a href="#" className="connection-details">
+            500+ Connections
+          </a>
           <div className="pv-top-card-v2">
             <button className="profile-card-open-btn">Open to</button>
             <button className="profile-card-profile-btn">
@@ -88,7 +90,6 @@ const ProfileCard = ({ onEdit, currentUser }) => {
           currentUser={currentUser}
           onEdit={onEdit}
           onClose={() => setModalOpen(false)}
-          // Pass other necessary props to the modal component
         />
       )}
       {isProfileModalOpen && (

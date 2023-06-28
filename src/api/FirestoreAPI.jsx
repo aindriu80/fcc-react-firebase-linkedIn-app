@@ -84,16 +84,13 @@ export const getCurrentUser = (setCurrentUser) => {
 
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID)
-  // console.log('payload', payload)
 
   updateDoc(userToEdit, payload)
     .then(() => {
       toast.success('Profile has been updated successfully')
-      console.log('Profile has been updated successfully')
     })
     .catch((err) => {
       console.log(err)
-      console.log('there seems to be an error')
     })
 }
 
@@ -154,7 +151,7 @@ export const getComments = (postId, setComments) => {
         }
       })
       setComments(comments)
-      console.log(comments)
+      // console.log(comments)
     })
   } catch (error) {
     console.log(error)

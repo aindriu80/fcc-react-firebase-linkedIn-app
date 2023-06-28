@@ -32,14 +32,14 @@ const AddToYourFeed = ({ currentUser }) => {
               </li>
             </a>
             <div>
-              <p className="feed-follows-module-recommendation">
+              <div className="feed-follows-module-recommendation">
                 <span className="ember1000Text">
                   Code Institute
                   <div className="feed-follows-module-information">
                     Company - Code Institute
                   </div>
                 </span>
-              </p>
+              </div>
               <button className="follow-feed-button">
                 <img src={followButton} className="follow-button-plus" />
                 Follow
@@ -58,14 +58,14 @@ const AddToYourFeed = ({ currentUser }) => {
               </li>
             </a>
             <div>
-              <p className="feed-follows-module-recommendation">
+              <div className="feed-follows-module-recommendation">
                 <span className="ember1000Text">
                   World Health Organization
                   <div className="feed-follows-module-information">
                     Organization - Wold Health
                   </div>
                 </span>
-              </p>
+              </div>
               <button className="follow-feed-button">
                 <img src={followButton} className="follow-button-plus" />
                 Follow
@@ -84,14 +84,14 @@ const AddToYourFeed = ({ currentUser }) => {
               </li>
             </a>
             <div>
-              <p className="feed-follows-module-recommendation">
+              <div className="feed-follows-module-recommendation">
                 <span className="ember1000Text">
                   Ryanair
                   <div className="feed-follows-module-information">
                     Company - Airline
                   </div>
                 </span>
-              </p>
+              </div>
               <button className="follow-feed-button">
                 <img src={followButton} className="follow-button-plus" />
                 Follow
