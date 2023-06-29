@@ -26,6 +26,7 @@ const ProfileCard = ({ onEdit, currentUser }) => {
       getSingleUser(setCurrentProfile, location?.state?.email)
     }
   }, [])
+  console.log('Current Users ImageLink:', currentUser?.imageLink)
 
   return (
     <>
@@ -54,7 +55,11 @@ const ProfileCard = ({ onEdit, currentUser }) => {
               onClick={() => {
                 setIsProfileModalOpen(true)
               }}>
-              <BsPersonCircle size={152} className="user-logo-post" />
+              {currentUser.imageLink ? (
+                <img src={currentUser.imageLink} className="user-logo-post" />
+              ) : (
+                <BsPersonCircle size={152} className="user-logo-post" />
+              )}
             </button>
           </div>
           <div className="userName">

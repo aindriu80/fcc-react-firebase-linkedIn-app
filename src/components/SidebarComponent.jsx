@@ -13,7 +13,11 @@ const SidebarComponent = ({ currentUser }) => {
       <div className="sidebar-main">
         <img className="profile-background-sidebar" src={profileBackground} />
         <div className="sidebar-content">
-          <BsPersonCircle size={70} className="user-logo-sidebar" />
+          {currentUser.imageLink ? (
+            <img src={currentUser.imageLink} className="user-logo-sidebar" />
+          ) : (
+            <BsPersonCircle size={70} className="user-logo-sidebar" />
+          )}
           <div className="sidebar-user-details">
             {currentUser.name} {currentUser.lastName}
           </div>

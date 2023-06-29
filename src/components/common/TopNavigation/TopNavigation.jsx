@@ -81,29 +81,67 @@ const TopNavigation = () => {
               <div className="Navbar__Text">Notifications</div>
             </div>
             <div className="dropdown-menu">
-              <BsPersonCircle
-                size={20}
-                className="user-logo"
-                onClick={toggleDropdown}
-              />
+              {currentUser.imageLink ? (
+                <img
+                  src={currentUser.imageLink}
+                  className="user-logo-top-nav"
+                />
+              ) : (
+                <BsPersonCircle
+                  size={20}
+                  className="user-logo"
+                  onClick={toggleDropdown}
+                />
+              )}
               <div
                 className={`Navbar__Text ${dropdownVisible ? 'active' : ''}`}
                 onClick={toggleDropdown}>
                 Me <img src={DownArrow} onClick={toggleDropdown} />
               </div>
+
               {dropdownVisible && (
                 <div className="dropdown-content">
                   <div className="header-dropdown">
-                    <BsPersonCircle
-                      size={48}
-                      className="dropdown-user-logo-post"
-                    />
+                    {currentUser.imageLink ? (
+                      <img
+                        src={currentUser.imageLink}
+                        className="drop-down-menu-profile-picture"
+                      />
+                    ) : (
+                      <BsPersonCircle
+                        size={48}
+                        className="dropdown-user-logo-post"
+                      />
+                    )}
                     {currentUser.name}&nbsp;
                     {currentUser.lastName}
                     <br />
                     {currentUser.headline}
                     <p></p>
                   </div>
+
+                  {/* <div className="dropdown-content">
+                    <div className="header-dropdown">
+                      {currentUser.imageLink ? (
+                        <img
+                          src={currentUser.imageLink}
+                          className="drop-down-menu-profile-picture"
+                          alt="User Profile"
+                        />
+                      ) : (
+                        <BsPersonCircle
+                          size={48}
+                          className="dropdown-user-logo-post"
+                        />
+                      )}
+                      {currentUser.name}&nbsp;
+                      {currentUser.lastName}
+                      <br />
+                      {currentUser.headline}
+                      <p></p>
+                    </div>
+                  </div> */}
+
                   <button
                     onClick={() => goToRoute('/profile')}
                     className="dropdown-button">

@@ -40,7 +40,17 @@ export default function PostUpdate({ currentUser }) {
       <div className="post-status-main">
         <div className="post-status">
           <div className="post-status-profile">
-            <BsPersonCircle size={48} className="user-logo-post" />
+            {currentUser.imageLink ? (
+              <img
+                src={currentUser.imageLink}
+                className="post-status-user-logo-post"
+              />
+            ) : (
+              <BsPersonCircle
+                size={48}
+                className="post-status-user-logo-post"
+              />
+            )}
           </div>
           <button
             className="open-post-modal"
