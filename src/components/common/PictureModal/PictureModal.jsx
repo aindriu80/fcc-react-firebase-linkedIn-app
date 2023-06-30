@@ -47,28 +47,35 @@ const PictureModal = ({ onClose, currentUser }) => {
   }
 
   return (
-    <div className="modal" onClick={handleModalClick}>
-      <div className="modal-content">
-        <div className="modal-header">
-          <h4 className="modal-title">Upload an Image</h4>
+    <div className="picture-modal" onClick={handleModalClick}>
+      <div className="picture-modal-content">
+        <div className="picture-modal-header">
+          <h4 className="picture-modal-title">Profile photo</h4>
         </div>
-        <div className="edit-modal-header">
+
+        <div className="picture-edit-modal-header">
           <>Upload Photograph</>
         </div>
-        <div className="profile-modal-button">
-          <CgClose className="modal-close-button" onClick={onClose} />
+
+        <div className="picture-profile-modal-button">
+          <CgClose className="picture-modal-close-button" onClick={onClose} />
         </div>
-        <div className="edit-modal-form"></div>
-        <div className="modal-body">
-          <div className="modal-footer">
-            <input type={'file'} onChange={getImage} />
-            <button
-              onClick={uploadProfilePicture}
-              className="modal-save-button">
-              Upload
-            </button>
-          </div>
+        <div className="picture-edit-modal-form"></div>
+
+        <div className="picture-modal-footer">
+          <input type={'file'} onChange={getImage} />
+          <button
+            onClick={uploadProfilePicture}
+            className="picture-modal-save-button">
+            Upload
+          </button>
         </div>
+
+        <button>Edit</button>
+        <button>Add photo</button>
+        <button>Frames</button>
+        <button>Delete</button>
+        <div className="picture-modal-line"></div>
       </div>
     </div>
   )

@@ -2,10 +2,26 @@ $linkedinBlue1: #0072b1;
 $linkedinBlue2: #0073b1;
 $linkedinBlue3: #004c75;
 
-.modal {
+.picture-modal {
   z-index: 100000;
 }
-.profile-edit-inputs {
+
+.picture-modal-content {
+  // width: 900px;
+  width: 744px;
+  height: 477px;
+  margin-top: 20%;
+  border-radius: 10px;
+  max-height: 90vh;
+  overflow-y: auto;
+  // background-color: #fff;
+  color: #fff;
+  background-color: #1d2226;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-200px);
+}
+
+.picture-profile-edit-inputs {
   display: grid;
   margin-top: 40px;
   gap: 20px;
@@ -14,20 +30,22 @@ $linkedinBlue3: #004c75;
     font-family: system-ui;
     margin-bottom: -15px;
   }
+  // .picture-modal-content {
+  // }
 
-  .edit-input {
-    background-color: white;
+  .picture-edit-input {
+    // background-color: white;
     width: 300px;
     height: 40px;
   }
 }
 
-.save-container {
+.picture-save-container {
   display: flex;
   justify-content: center;
 }
 
-.save-btn {
+.picture-save-btn {
   width: 300px;
   height: 50px;
   cursor: pointer;
@@ -42,11 +60,11 @@ $linkedinBlue3: #004c75;
   margin-top: 20px;
 }
 
-.close-icon {
+.picture-close-icon {
   cursor: pointer;
 }
 
-.modal {
+.picture-modal {
   position: fixed;
   left: 0;
   top: 0;
@@ -59,44 +77,37 @@ $linkedinBlue3: #004c75;
   transition: all 0.3s ease-in-out;
 }
 
-.modal.enter-done {
+.picture-modal.enter-done {
   opacity: 1;
   pointer-events: visible;
 }
 
-.modal.exit {
+.picture-modal.exit {
   opacity: 0;
 }
 
-.modal-content {
-  width: 900px;
-  margin-top: 20%;
-  border-radius: 10px;
-  max-height: 90vh;
-  overflow-y: auto;
-  background-color: #fff;
-  transition: all 0.3s ease-in-out;
-  transform: translateY(-200px);
-}
-
-.modal.enter-done .modal-content {
+.picture-modal.enter-done .modal-content {
   transform: translateY(0);
 }
 
-.modal.exit .modal-content {
+.picture-modal.exit .picture-modal-content {
   transform: translateY(-200px);
 }
 
-.modal-header,
-.modal-footer {
+.picture-modal-header {
   padding: 10px;
 }
 
-.modal-title {
+.picture-modal-footer {
+  // height: 50px;
+  margin-bottom: 29%;
+}
+
+.picture-modal-title {
   margin: 0;
 }
 
-.edit-modal-header {
+.picture-edit-modal-header {
   font-family: system-ui;
   font-size: 20px;
   line-height: 20px;
@@ -105,27 +116,29 @@ $linkedinBlue3: #004c75;
   padding: 1.6rem 4.8rem 1.6rem 2.4rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
-.edit-modal-form {
+.picture-edit-modal-form {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
 }
-.modal-body {
+
+.picture-modal-line {
   padding-left: 20px;
   padding-right: 20px;
   border-bottom: 1px solid #eee;
 }
+
 .profile-edit-pronunciation {
   color: #56687a;
   padding: 0.5em;
 }
 
-.pronunciation-info {
+.picture-pronunciation-info {
   margin-right: 5px;
 }
 
-.pronouns-option,
-.current-position {
+.picture-pronouns-option,
+.picture-current-position {
   width: 100%;
   background-color: #fff;
   border-radius: 4px;
@@ -136,18 +149,20 @@ $linkedinBlue3: #004c75;
   cursor: pointer;
 }
 
-.profile-modal-button {
+.picture-profile-modal-button {
   color: black;
   position: absolute;
   z-index: 1;
   top: 1.5rem;
   right: 1.5rem;
 }
-.modal-close-button {
+
+.picture-modal-close-button {
   height: 30px;
   width: 30px;
 }
-.modal-save-button {
+
+.picture-modal-save-button {
   height: 50px;
   width: 100px;
   cursor: pointer;
