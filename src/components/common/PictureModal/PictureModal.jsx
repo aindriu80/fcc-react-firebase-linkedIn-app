@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { Button } from 'antd'
 import { uploadImage as uploadImageAPI } from '../../../api/ImageUpload'
+import { BsPersonCircle } from 'react-icons/bs'
 import { CgClose } from 'react-icons/cg'
 import { editProfile } from '../../../api/FirestoreAPI'
+import editPhoto from '../../../assets/editPhoto.svg'
+import addPhoto from '../../../assets/addPhoto.svg'
+import framesPhoto from '../../../assets/framesPhoto.svg'
+import deletePhoto from '../../../assets/deletePhoto.svg'
 
 import './PictureModal.scss'
 
@@ -11,6 +17,7 @@ const PictureModal = ({ onClose, currentUser }) => {
 
   const getImage = (event) => {
     setCurrentImage(event.target.files[0])
+    setImageLink(URL.createObjectURL(event.target.files[0]))
   }
 
   const uploadProfilePicture = () => {
@@ -20,11 +27,7 @@ const PictureModal = ({ onClose, currentUser }) => {
 
   useEffect(() => {
     editProfile('CurrentUser', currentUser)
-    console.log('image link', imageLink)
   }, [imageLink])
-
-  console.log(currentUser?.userID)
-  console.log(currentUser?.id)
 
   useEffect(() => {
     const handleEscKey = (event) => {
@@ -50,32 +53,90 @@ const PictureModal = ({ onClose, currentUser }) => {
     <div className="picture-modal" onClick={handleModalClick}>
       <div className="picture-modal-content">
         <div className="picture-modal-header">
-          <h4 className="picture-modal-title">Profile photo</h4>
-        </div>
-
-        <div className="picture-edit-modal-header">
-          <>Upload Photograph</>
+          <div className="picture-edit-modal-header">Profile photo</div>
         </div>
 
         <div className="picture-profile-modal-button">
           <CgClose className="picture-modal-close-button" onClick={onClose} />
         </div>
-        <div className="picture-edit-modal-form"></div>
-
-        <div className="picture-modal-footer">
-          <input type={'file'} onChange={getImage} />
-          <button
-            onClick={uploadProfilePicture}
-            className="picture-modal-save-button">
-            Upload
-          </button>
+        <div className="picture-edit-modal-form">
+          {imageLink ? (
+            <img
+              src={imageLink}
+              className="user-logo-post"
+              alt="User profile"
+            />
+          ) : currentUser.imageLink ? (
+            <img
+              src={currentUser.imageLink}
+              className="user-logo-post"
+              alt="User profile"
+            />
+          ) : (
+            <BsPersonCircle size={152} className="user-logo-post" />
+          )}
         </div>
 
-        <button>Edit</button>
-        <button>Add photo</button>
-        <button>Frames</button>
-        <button>Delete</button>
-        <div className="picture-modal-line"></div>
+        <div className="picture-modal-footer">
+          <div className="image-upload-main">
+            <label htmlFor="actual-btn" className="upload-image-btn"></label>
+            <Button
+              onClick={uploadProfilePicture}
+              className="picture-modal-save-button">
+              Upload
+            </Button>
+          </div>
+
+          <div className="picture-upload-interact">
+            <div className="profile-photo__Link">
+              <img
+                src={editPhoto}
+                className="profile-photo-img"
+                alt="Edit photo"
+              />
+              <div className="Navbar__Text">Photo</div>
+            </div>
+
+            <div className="profile-photo__Link">
+              <div className="Navbar__Text">
+                <label htmlFor="actual-btn" className="profile-photo__Link">
+                  <img
+                    src={addPhoto}
+                    className="profile-photo-img"
+                    alt="Add photo"
+                  />
+                  <input
+                    type="file"
+                    id="actual-btn"
+                    hidden
+                    onChange={getImage}
+                  />
+                  <div className="Navbar__Text">Add photos</div>
+                </label>
+              </div>
+            </div>
+
+            <div className="profile-photo__Link">
+              <img
+                src={framesPhoto}
+                className="profile-photo-img"
+                alt="Frames"
+              />
+              <div className="Navbar__Text">Frames</div>
+            </div>
+
+            <div className="picture-upload-rhs">
+              <div className="profile-photo__Link">
+                <img
+                  src={deletePhoto}
+                  className="profile-photo-img"
+                  alt="Delete image"
+                />
+                <div className="Navbar__Text">Delete Image</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

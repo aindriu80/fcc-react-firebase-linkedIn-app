@@ -1,6 +1,7 @@
 $linkedinBlue1: #0072b1;
 $linkedinBlue2: #0073b1;
 $linkedinBlue3: #004c75;
+$currentcolor: #fff;
 
 .picture-modal {
   z-index: 100000;
@@ -70,7 +71,8 @@ $linkedinBlue3: #004c75;
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: #404040;
+  // background-color: #404040;
+  background-color: #3d3d3c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,7 +102,7 @@ $linkedinBlue3: #004c75;
 
 .picture-modal-footer {
   // height: 50px;
-  margin-bottom: 29%;
+  margin-bottom: -0.05%;
 }
 
 .picture-modal-title {
@@ -117,7 +119,8 @@ $linkedinBlue3: #004c75;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 .picture-edit-modal-form {
-  padding-left: 20px;
+  // padding-left: 20px;
+  padding-left: 38%;
   padding-right: 20px;
   padding-top: 10px;
 }
@@ -150,7 +153,8 @@ $linkedinBlue3: #004c75;
 }
 
 .picture-profile-modal-button {
-  color: black;
+  // color: black;
+  color: #fff;
   position: absolute;
   z-index: 1;
   top: 1.5rem;
@@ -170,4 +174,47 @@ $linkedinBlue3: #004c75;
   border-color: #0a66c2;
   color: #fff;
   border-radius: 50px;
+}
+
+.profile-photo__Link {
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+.profile-photo-img {
+  // color: #fff;
+  width: 24px;
+  height: 24px;
+}
+.picture-upload-interact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin-left: 10px;
+  padding-top: 140px;
+}
+.picture-upload-rhs {
+  // display: flex;
+  // justify-content: right;
+  // align-items: right;
+}
+
+.image-upload-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  flex-direction: column;
+
+  .upload-image-btn {
+    border: 1px solid #212121;
+    padding: 10px;
+    cursor: pointer;
+    font-family: system-ui;
+  }
 }
