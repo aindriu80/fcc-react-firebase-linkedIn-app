@@ -2,7 +2,7 @@ import { storage } from '../../firebaseConfig'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 import { editProfile } from './FirestoreAPI'
 
-export const uploadImage = (file, id) => {
+export const uploadImage = (file, id, setProgress) => {
   const profilePicsRef = ref(storage, `profileImages/${file.name}`)
   const uploadTask = uploadBytesResumable(profilePicsRef, file)
 
@@ -12,7 +12,7 @@ export const uploadImage = (file, id) => {
       const progress = Math.round(
         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       )
-      console.log(progress)
+      setProgress(progress)
     },
     (error) => {
       console.log(error)

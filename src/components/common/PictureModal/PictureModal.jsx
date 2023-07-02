@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from 'antd'
-import { uploadImage as uploadImageAPI } from '../../../api/ImageUpload'
+import { Button, Progress } from 'antd'
 import { BsPersonCircle } from 'react-icons/bs'
 import { CgClose } from 'react-icons/cg'
+import { uploadImage as uploadImageAPI } from '../../../api/ImageUpload'
 import { editProfile } from '../../../api/FirestoreAPI'
 import editPhoto from '../../../assets/editPhoto.svg'
 import addPhoto from '../../../assets/addPhoto.svg'
@@ -14,6 +14,8 @@ import './PictureModal.scss'
 const PictureModal = ({ onClose, currentUser }) => {
   const [currentImage, setCurrentImage] = useState({})
   const [imageLink, setImageLink] = useState('')
+  const [progress, setProgress] = useState(0)
+  const [uploading, setUploading] = useState(false)
 
   const getImage = (event) => {
     setCurrentImage(event.target.files[0])
@@ -21,12 +23,19 @@ const PictureModal = ({ onClose, currentUser }) => {
   }
 
   const uploadProfilePicture = () => {
-    uploadImageAPI(currentImage, currentUser.id)
-    onClose()
+    setUploading(true)
+    uploadImageAPI(currentImage, currentUser.id, setProgress)
   }
 
   useEffect(() => {
-    editProfile('CurrentUser', currentUser)
+    if (progress === 100) {
+      setUploading(false)
+      onClose()
+    }
+  }, [progress, onClose])
+
+  useEffect(() => {
+    editProfile(currentUser.id, { imageLink })
   }, [imageLink])
 
   useEffect(() => {
@@ -81,10 +90,23 @@ const PictureModal = ({ onClose, currentUser }) => {
           <div className="image-upload-main">
             <label htmlFor="actual-btn" className="upload-image-btn"></label>
             <Button
+              disabled={uploading || !currentImage.name}
               onClick={uploadProfilePicture}
               className="picture-modal-save-button">
               Upload
             </Button>
+            {uploading ? (
+              <div className="progress-bar">
+                {/* <Progress percent={progress} className="progress-bar" /> */}
+                <Progress
+                  percent={progress}
+                  style={{ color: '#fff' }}
+                  format={() => (
+                    <span className="progress-text">{progress}%</span>
+                  )}
+                />
+              </div>
+            ) : null}
           </div>
 
           <div className="picture-upload-interact">
