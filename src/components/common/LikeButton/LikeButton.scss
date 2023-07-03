@@ -117,3 +117,19 @@
 .interact-comment {
   margin-left: 40px;
 }
+.like-container-hr-line {
+  color: brown;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+  width: 95%;
+  margin-left: 2.5%;
+}
+.user-logo-reply-comments {
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+}

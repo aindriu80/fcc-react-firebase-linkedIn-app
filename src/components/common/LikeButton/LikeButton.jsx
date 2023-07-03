@@ -19,6 +19,8 @@ const LikeButton = ({ userId, postId, currentUser }) => {
   const [commentText, setCommentText] = useState('')
   const [comments, setComments] = useState([])
 
+  const [imageLink, setImageLink] = useState('')
+
   const handleLike = () => {
     likePost(userId, postId, liked)
   }
@@ -47,7 +49,7 @@ const LikeButton = ({ userId, postId, currentUser }) => {
       <p className="social-number-of-likes" key={postId}>
         {likesCount} People like this Post
       </p>
-      <hr className="hr-line" />
+      <hr className="like-container-hr-line" />
       <div className="like-container-main">
         <div className="social-action" onClick={handleLike}>
           <span className="feed-shared-social-action">
@@ -93,7 +95,22 @@ const LikeButton = ({ userId, postId, currentUser }) => {
                 <>
                   <div className="article-comment">
                     <div className="user-reply-comment">
-                      <BsPersonCircle size={30} className="user-logo-sidebar" />
+                      {/* <BsPersonCircle size={30} className="user-logo-sidebar" /> */}
+                      {imageLink ? (
+                        <img
+                          src={imageLink}
+                          className="user-logo-reply-comments"
+                          alt="User profile"
+                        />
+                      ) : currentUser.imageLink ? (
+                        <img
+                          src={currentUser.imageLink}
+                          className="user-logo-reply-comments"
+                          alt="User profile"
+                        />
+                      ) : (
+                        <BsPersonCircle size={152} className="user-logo-post" />
+                      )}
                     </div>
 
                     <div className="all-comments">
