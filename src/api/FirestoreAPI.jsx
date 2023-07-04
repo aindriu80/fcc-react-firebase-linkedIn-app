@@ -167,3 +167,24 @@ export const getComments = (postId, setComments) => {
     console.log(error)
   }
 }
+
+export const getConnections = (userId, targetId, setIsConnected) => {
+  try {
+    let connectionsQuery = query(
+      connectionRef,
+      where('targetId', '==', targetId)
+    )
+
+    onSnapshot(connectionsQuery, (response) => {
+      let connections = response.docs.map((doc) => doc.data())
+
+      const isConnected = connections.some(
+        (connection) => connection.userId === userId
+      )
+
+      setIsConnected(isConnected)
+    })
+  } catch (err) {
+    console.log(err)
+  }
+}

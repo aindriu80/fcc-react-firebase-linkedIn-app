@@ -1,23 +1,26 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getCurrentUser, getAllUsers } from '../../../api/FirestoreAPI'
+import {
+  getCurrentUser,
+  getAllUsers,
+  // deletePost,
+} from '../../../api/FirestoreAPI'
+
 import LikeButton from '../LikeButton/LikeButton'
+import threeDots from '../../../assets/threeDots.svg'
 import './PostsCard.scss'
 
 const PostsCard = ({ posts, id }) => {
   let navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({})
+  console.log(currentUser)
   const [allUsers, setAllUsers] = useState([])
+  const [isConnected, setIsConnected] = useState(false)
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)
     getAllUsers(setAllUsers)
   }, [])
-  console.log(
-    allUsers
-      .filter((item) => item.id === posts.userID)
-      .map((item) => item.imageLink)
-  )
 
   return (
     <div className="posts-card" key={id}>
@@ -38,11 +41,16 @@ const PostsCard = ({ posts, id }) => {
               state: { id: posts?.userID, email: posts.userEmail },
             })
           }>
-          {posts.userName}
-          {posts.lastName}
+          {posts.userName}&nbsp;
+          {posts.userLastname}
+        </p>
+
+        <p className="posts-card-edit">
+          <button>
+            <img src={threeDots} />
+          </button>
         </p>
       </div>
-
       <p className="time-stamp">{posts.timeStamp}</p>
       <p className="posts-status">{posts.status}</p>
       <LikeButton

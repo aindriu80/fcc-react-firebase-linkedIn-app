@@ -23,6 +23,7 @@ export default function PostUpdate({ currentUser }) {
       timeStamp: getCurrentTimeStamp('LLLL'),
       userEmail: currentUser.email,
       userName: currentUser.name,
+      userLastname: currentUser.lastName,
       postID: getUniqueID(),
       userID: currentUser.id,
     }
