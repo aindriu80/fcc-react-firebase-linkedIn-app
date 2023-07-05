@@ -1,10 +1,8 @@
 import React, { useMemo, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {
-  getCurrentUser,
-  getAllUsers,
-  // deletePost,
-} from '../../../api/FirestoreAPI'
+import { getCurrentUser, getAllUsers } from '../../../api/FirestoreAPI'
+
+import ModalComponent from '../Modal/Modal'
 
 import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
@@ -13,9 +11,17 @@ import './PostsCard.scss'
 const PostsCard = ({ posts, id }) => {
   let navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({})
-  console.log(currentUser)
   const [allUsers, setAllUsers] = useState([])
-  const [isConnected, setIsConnected] = useState(false)
+  const [status, setStatus] = useState('')
+
+  const [allStatuses, setAllStatuses] = useState([])
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const getEditData = (posts) => {
+    setModalOpen(true)
+    setStatus(posts?.status)
+    console.log(setStatus)
+  }
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)
@@ -47,7 +53,7 @@ const PostsCard = ({ posts, id }) => {
 
         <p className="posts-card-edit">
           <button>
-            <img src={threeDots} />
+            <img src={threeDots} onClick={() => getEditData(posts)} />
           </button>
         </p>
       </div>
@@ -57,6 +63,12 @@ const PostsCard = ({ posts, id }) => {
         userId={currentUser?.userID}
         postId={posts.id}
         currentUser={currentUser}
+      />
+
+      <ModalComponent
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        status={setStatus}
       />
     </div>
   )
