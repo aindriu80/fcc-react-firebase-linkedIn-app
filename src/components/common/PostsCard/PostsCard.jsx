@@ -8,7 +8,7 @@ import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
 import './PostsCard.scss'
 
-const PostsCard = ({ posts, id }) => {
+const PostsCard = ({ posts, id, getEditData }) => {
   let navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({})
   const [allUsers, setAllUsers] = useState([])
@@ -16,12 +16,6 @@ const PostsCard = ({ posts, id }) => {
 
   const [allStatuses, setAllStatuses] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
-
-  const getEditData = (posts) => {
-    setModalOpen(true)
-    setStatus(posts?.status)
-    console.log(setStatus)
-  }
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)

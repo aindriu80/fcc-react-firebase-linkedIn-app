@@ -7,6 +7,7 @@ import article from '../../../assets/article.svg'
 import ModalComponent from '../Modal/Modal'
 import { getCurrentTimeStamp } from '../../helpers/useMoment'
 import { getUniqueID } from '../../helpers/getUniqueId'
+import PostsCard from '../PostsCard/PostsCard'
 
 import './PostUpdate.scss'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
@@ -30,6 +31,12 @@ export default function PostUpdate({ currentUser }) {
     await postStatus(object)
     await setModalOpen(false)
     await setStatus('')
+  }
+
+  const getEditData = (posts) => {
+    setModalOpen(true)
+    setStatus(posts?.status)
+    // console.log(setStatus)
   }
 
   useMemo(() => {
@@ -90,6 +97,13 @@ export default function PostUpdate({ currentUser }) {
           sendStatus={sendStatus}
         />
       </div>
+      {allStatuses.map((posts) => {
+        return (
+          <div className="" key={posts.id}>
+            <PostsCard posts={posts} getEditData={getEditData} />
+          </div>
+        )
+      })}
     </>
   )
 }

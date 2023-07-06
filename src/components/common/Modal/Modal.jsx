@@ -35,14 +35,20 @@ const ModalComponent = ({
         }}
         open={modalOpen}
         centered
-        onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
+        onOk={() => {
+          setStatus('')
+          setModalOpen(false)
+        }}
+        onCancel={() => {
+          setStatus('')
+          setModalOpen(false)
+        }}
         footer={[
           <Button
             onClick={sendStatus}
             key="submit"
             type="primary"
-            disabled={status.length > 0 ? false : true}
+            // disabled={status.length > 0 ? false : true}
             loading={loading}>
             Post
           </Button>,
