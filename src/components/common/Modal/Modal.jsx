@@ -9,6 +9,8 @@ const ModalComponent = ({
   setModalOpen,
   setStatus,
   status,
+  isEdit,
+  updateStatus,
 }) => {
   const [loading, setLoading] = useState(false)
   const [visible, setVisible] = useState(false)
@@ -29,7 +31,7 @@ const ModalComponent = ({
   return (
     <>
       <Modal
-        title="Create a post"
+        title={isEdit ? 'Edit post' : 'Create a post'}
         style={{
           top: 20,
         }}
@@ -45,12 +47,13 @@ const ModalComponent = ({
         }}
         footer={[
           <Button
-            onClick={sendStatus}
+            onClick={isEdit ? updateStatus : sendStatus}
             key="submit"
             type="primary"
-            // disabled={status.length > 0 ? false : true}
-            loading={loading}>
-            Post
+            disabled={status.length > 0 ? false : true}
+            // loading={loading}
+          >
+            {isEdit ? 'Update' : 'Post'}
           </Button>,
         ]}>
         <input

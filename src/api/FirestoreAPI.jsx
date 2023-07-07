@@ -188,3 +188,11 @@ export const getConnections = (userId, targetId, setIsConnected) => {
     console.log(err)
   }
 }
+export const updatePost = (id, status) => {
+  let updateToUpdate = doc(postsRef, id)
+  try {
+    updateDoc(updateToUpdate, { status })
+  } catch (error) {
+    console.log(error)
+  }
+}

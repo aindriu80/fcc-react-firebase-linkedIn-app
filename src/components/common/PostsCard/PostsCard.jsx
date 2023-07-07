@@ -21,6 +21,8 @@ const PostsCard = ({ posts, id, getEditData }) => {
     getCurrentUser(setCurrentUser)
     getAllUsers(setAllUsers)
   }, [])
+  // console.log(currentUser.id)
+  // console.log(posts.userID)
 
   return (
     <div className="posts-card" key={id}>
@@ -34,6 +36,7 @@ const PostsCard = ({ posts, id, getEditData }) => {
               .map((item) => item.imageLink)[0]
           }
         />
+
         <p
           className="postsCardName"
           onClick={() =>
@@ -46,9 +49,13 @@ const PostsCard = ({ posts, id, getEditData }) => {
         </p>
 
         <p className="posts-card-edit">
-          <button>
-            <img src={threeDots} onClick={() => getEditData(posts)} />
-          </button>
+          {currentUser.id === posts.userID ? (
+            <button>
+              <img src={threeDots} onClick={() => getEditData(posts)} />
+            </button>
+          ) : (
+            <></>
+          )}
         </p>
       </div>
       <p className="time-stamp">{posts.timeStamp}</p>

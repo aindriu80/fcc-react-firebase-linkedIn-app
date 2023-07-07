@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import { postStatus, getStatus } from '../../../api/FirestoreAPI'
+import { postStatus, getStatus, updatePost } from '../../../api/FirestoreAPI'
 import photo from '../../../assets/photo.svg'
 import video from '../../../assets/video.svg'
 import event from '../../../assets/event.svg'
@@ -16,6 +16,9 @@ export default function PostUpdate({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [status, setStatus] = useState('')
   const [allStatuses, setAllStatuses] = useState([])
+  const [currentPost, setCurrentPost] = useState({})
+  const [isEdit, setIsEdit] = useState(false)
+
   let userEmail = localStorage.getItem('userEmail')
 
   const sendStatus = async () => {
@@ -30,13 +33,21 @@ export default function PostUpdate({ currentUser }) {
     }
     await postStatus(object)
     await setModalOpen(false)
+    setIsEdit(false)
     await setStatus('')
   }
 
   const getEditData = (posts) => {
     setModalOpen(true)
     setStatus(posts?.status)
-    // console.log(setStatus)
+    setCurrentPost(posts)
+    setIsEdit(true)
+  }
+
+  const updateStatus = () => {
+    console.log(status)
+    updatePost(currentPost.id, status)
+    setModalOpen(false)
   }
 
   useMemo(() => {
@@ -62,7 +73,10 @@ export default function PostUpdate({ currentUser }) {
           </div>
           <button
             className="open-post-modal"
-            onClick={() => setModalOpen(true)}>
+            onClick={() => {
+              setIsEdit(false)
+              setModalOpen(true)
+            }}>
             Start a Post
           </button>
         </div>
@@ -95,6 +109,8 @@ export default function PostUpdate({ currentUser }) {
           setModalOpen={setModalOpen}
           status={status}
           sendStatus={sendStatus}
+          isEdit={isEdit}
+          updateStatus={updateStatus}
         />
       </div>
       {allStatuses.map((posts) => {
