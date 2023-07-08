@@ -7,6 +7,7 @@ import ModalComponent from '../Modal/Modal'
 import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
 import './PostsCard.scss'
+// import '../../../components/common/TopNavigation/TopNavigation.scss'
 
 const PostsCard = ({ posts, id, getEditData }) => {
   let navigate = useNavigate()
@@ -17,12 +18,20 @@ const PostsCard = ({ posts, id, getEditData }) => {
   const [allStatuses, setAllStatuses] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
 
+  const [dropdownVisible, setDropdownVisible] = useState(false)
+
+  const showSubMenu = () => {
+    setDropdownVisible(!dropdownVisible)
+  }
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible)
+  }
+
   useMemo(() => {
     getCurrentUser(setCurrentUser)
     getAllUsers(setAllUsers)
   }, [])
-  // console.log(currentUser.id)
-  // console.log(posts.userID)
 
   return (
     <div className="posts-card" key={id}>
@@ -51,10 +60,26 @@ const PostsCard = ({ posts, id, getEditData }) => {
         <p className="posts-card-edit">
           {currentUser.id === posts.userID ? (
             <button>
-              <img src={threeDots} onClick={() => getEditData(posts)} />
+              {/* <img src={threeDots} onClick={() => getEditData(posts)} /> */}
+              <img src={threeDots} onClick={() => showSubMenu()} />
             </button>
           ) : (
             <></>
+          )}
+
+          {dropdownVisible && (
+            <div className="posts-dropdown-content">
+              <div className="posts-header-dropdown"></div>
+
+              <a href="#">Feature on top of profile</a>
+              <a href="#">Save</a>
+              <a href="#">copy link to post</a>
+              <a href="#">Embed this post</a>
+              <a href="#">Edit post</a>
+              <a href="#">Delete post</a>
+              <a href="#">Who can comment on this post?</a>
+              <a href="#">Who can see this post?</a>
+            </div>
           )}
         </p>
       </div>
