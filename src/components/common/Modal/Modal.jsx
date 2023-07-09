@@ -51,8 +51,7 @@ const ModalComponent = ({
             key="submit"
             type="primary"
             disabled={status.length > 0 ? false : true}
-            // loading={loading}
-          >
+            loading={loading}>
             {isEdit ? 'Update' : 'Post'}
           </Button>,
         ]}>

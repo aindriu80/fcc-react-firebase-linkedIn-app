@@ -1,21 +1,17 @@
 import React, { useMemo, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCurrentUser, getAllUsers } from '../../../api/FirestoreAPI'
-
 import ModalComponent from '../Modal/Modal'
-
 import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
 import './PostsCard.scss'
-// import '../../../components/common/TopNavigation/TopNavigation.scss'
 
 const PostsCard = ({ posts, id, getEditData }) => {
   let navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({})
   const [allUsers, setAllUsers] = useState([])
   const [status, setStatus] = useState('')
-
-  const [allStatuses, setAllStatuses] = useState([])
+  // const [allStatuses, setAllStatuses] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
 
   const [dropdownVisible, setDropdownVisible] = useState(false)
@@ -24,8 +20,14 @@ const PostsCard = ({ posts, id, getEditData }) => {
     setDropdownVisible(!dropdownVisible)
   }
 
-  const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible)
+  const editPost = () => {
+    console.log('Edit Post')
+    // getEditData(posts)
+
+    setModalOpen(true)
+    setStatus(posts?.status)
+    setCurrentPost(posts)
+    setIsEdit(true)
   }
 
   useMemo(() => {
@@ -60,8 +62,8 @@ const PostsCard = ({ posts, id, getEditData }) => {
         <p className="posts-card-edit">
           {currentUser.id === posts.userID ? (
             <button>
-              {/* <img src={threeDots} onClick={() => getEditData(posts)} /> */}
               <img src={threeDots} onClick={() => showSubMenu()} />
+              {/* <img src={threeDots} onClick={() => getEditData(posts)} /> */}
             </button>
           ) : (
             <></>
@@ -75,7 +77,7 @@ const PostsCard = ({ posts, id, getEditData }) => {
               <a href="#">Save</a>
               <a href="#">copy link to post</a>
               <a href="#">Embed this post</a>
-              <a href="#">Edit post</a>
+              <a onClick={() => getEditData(posts)}>Edit post</a>
               <a href="#">Delete post</a>
               <a href="#">Who can comment on this post?</a>
               <a href="#">Who can see this post?</a>

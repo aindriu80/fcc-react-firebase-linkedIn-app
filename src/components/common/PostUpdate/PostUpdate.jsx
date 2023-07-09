@@ -116,7 +116,7 @@ export default function PostUpdate({ currentUser }) {
       {allStatuses.map((posts) => {
         return (
           <div className="" key={posts.id}>
-            <PostsCard posts={posts} getEditData={getEditData} />
+            {/* <PostsCard posts={posts} getEditData={getEditData} /> */}
           </div>
         )
       })}
