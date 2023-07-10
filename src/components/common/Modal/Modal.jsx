@@ -13,20 +13,6 @@ const ModalComponent = ({
   updateStatus,
 }) => {
   const [loading, setLoading] = useState(false)
-  const [visible, setVisible] = useState(false)
-  const myRef = useRef()
-
-  const showModal = () => {
-    setVisible(true)
-  }
-
-  const handleOk = (e) => {
-    setVisible(false)
-  }
-
-  const handleCancel = (e) => {
-    setVisible(false)
-  }
 
   return (
     <>

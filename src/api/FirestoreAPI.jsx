@@ -161,7 +161,6 @@ export const getComments = (postId, setComments) => {
         }
       })
       setComments(comments)
-      // console.log(comments)
     })
   } catch (error) {
     console.log(error)
@@ -192,6 +191,15 @@ export const updatePost = (id, status) => {
   let updateToUpdate = doc(postsRef, id)
   try {
     updateDoc(updateToUpdate, { status })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deletePost = (id) => {
+  let docToDelete = doc(postsRef, id)
+  try {
+    deleteDoc(docToDelete)
   } catch (error) {
     console.log(error)
   }

@@ -7,7 +7,6 @@ import article from '../../../assets/article.svg'
 import ModalComponent from '../Modal/Modal'
 import { getCurrentTimeStamp } from '../../helpers/useMoment'
 import { getUniqueID } from '../../helpers/getUniqueId'
-import PostsCard from '../PostsCard/PostsCard'
 
 import './PostUpdate.scss'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
@@ -18,8 +17,6 @@ export default function PostUpdate({ currentUser }) {
   const [allStatuses, setAllStatuses] = useState([])
   const [currentPost, setCurrentPost] = useState({})
   const [isEdit, setIsEdit] = useState(false)
-
-  let userEmail = localStorage.getItem('userEmail')
 
   const sendStatus = async () => {
     let object = {
@@ -35,13 +32,6 @@ export default function PostUpdate({ currentUser }) {
     await setModalOpen(false)
     setIsEdit(false)
     await setStatus('')
-  }
-
-  const getEditData = (posts) => {
-    setModalOpen(true)
-    setStatus(posts?.status)
-    setCurrentPost(posts)
-    setIsEdit(true)
   }
 
   const updateStatus = () => {
@@ -113,12 +103,9 @@ export default function PostUpdate({ currentUser }) {
           updateStatus={updateStatus}
         />
       </div>
+
       {allStatuses.map((posts) => {
-        return (
-          <div className="" key={posts.id}>
-            {/* <PostsCard posts={posts} getEditData={getEditData} /> */}
-          </div>
-        )
+        return <div className="" key={posts.id}></div>
       })}
     </>
   )

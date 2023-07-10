@@ -34,9 +34,6 @@
 }
 .image-post-card {
   display: flex;
-  // width: 100%;
-  // align-items: left;
-  // flex-direction: row;
 }
 .post-image-feed {
   width: 35px;
@@ -46,9 +43,6 @@
 }
 
 .posts-card-edit {
-  // align-items: right;
-  // margin-left: 50%;
-  // padding-right: 1px;
   float: right;
 }
 .posts-dropdown-menu {
@@ -66,13 +60,11 @@
   width: 265px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  // top: 100%; /* Position the dropdown content below the dropdown container */
   border-radius: 10px;
 }
 
 /* Links inside the dropdown */
 .posts-dropdown-content a {
-  // float: none;
   color: black;
   text-decoration: none;
   display: block;

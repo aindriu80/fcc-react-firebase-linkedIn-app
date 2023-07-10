@@ -1,6 +1,11 @@
 import React, { useMemo, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getCurrentUser, getAllUsers } from '../../../api/FirestoreAPI'
+import {
+  getCurrentUser,
+  getAllUsers,
+  updatePost,
+  deletePost,
+} from '../../../api/FirestoreAPI'
 import ModalComponent from '../Modal/Modal'
 import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
@@ -11,9 +16,10 @@ const PostsCard = ({ posts, id, getEditData }) => {
   const [currentUser, setCurrentUser] = useState({})
   const [allUsers, setAllUsers] = useState([])
   const [status, setStatus] = useState('')
-  // const [allStatuses, setAllStatuses] = useState([])
+  const [currentPost, setCurrentPost] = useState({})
   const [modalOpen, setModalOpen] = useState(false)
 
+  const [isEdit, setIsEdit] = useState(false)
   const [dropdownVisible, setDropdownVisible] = useState(false)
 
   const showSubMenu = () => {
@@ -22,12 +28,24 @@ const PostsCard = ({ posts, id, getEditData }) => {
 
   const editPost = () => {
     console.log('Edit Post')
-    // getEditData(posts)
-
+    setDropdownVisible(false)
     setModalOpen(true)
     setStatus(posts?.status)
     setCurrentPost(posts)
     setIsEdit(true)
+  }
+
+  const updateStatus = () => {
+    console.log(status)
+    updatePost(currentPost.id, status)
+    setModalOpen(false)
+  }
+
+  const deleteIndividualPost = () => {
+    setModalOpen(false)
+    console.log('delete post')
+    console.log(posts.id)
+    deletePost(posts.id)
   }
 
   useMemo(() => {
@@ -48,7 +66,7 @@ const PostsCard = ({ posts, id, getEditData }) => {
           }
         />
 
-        <p
+        <div
           className="postsCardName"
           onClick={() =>
             navigate('/profile', {
@@ -57,13 +75,12 @@ const PostsCard = ({ posts, id, getEditData }) => {
           }>
           {posts.userName}&nbsp;
           {posts.userLastname}
-        </p>
+        </div>
 
-        <p className="posts-card-edit">
+        <div className="posts-card-edit">
           {currentUser.id === posts.userID ? (
             <button>
               <img src={threeDots} onClick={() => showSubMenu()} />
-              {/* <img src={threeDots} onClick={() => getEditData(posts)} /> */}
             </button>
           ) : (
             <></>
@@ -77,13 +94,13 @@ const PostsCard = ({ posts, id, getEditData }) => {
               <a href="#">Save</a>
               <a href="#">copy link to post</a>
               <a href="#">Embed this post</a>
-              <a onClick={() => getEditData(posts)}>Edit post</a>
-              <a href="#">Delete post</a>
+              <a onClick={() => editPost(posts)}>Edit post</a>
+              <a onClick={() => deleteIndividualPost(posts.id)}>Delete post</a>
               <a href="#">Who can comment on this post?</a>
               <a href="#">Who can see this post?</a>
             </div>
           )}
-        </p>
+        </div>
       </div>
       <p className="time-stamp">{posts.timeStamp}</p>
       <p className="posts-status">{posts.status}</p>
@@ -94,9 +111,12 @@ const PostsCard = ({ posts, id, getEditData }) => {
       />
 
       <ModalComponent
+        setStatus={setStatus}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
-        status={setStatus}
+        status={status}
+        isEdit={isEdit}
+        updateStatus={updateStatus}
       />
     </div>
   )
