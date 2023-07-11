@@ -1,5 +1,5 @@
 .profile-container {
-  margin-left: 17%;
+  margin-left: 27%;
   display: grid;
   grid-template-columns: 870px 10px 10px;
   grid-auto-columns: 1fr;
@@ -14,6 +14,7 @@
     'scaffold-layout__skills scaffold-layout__skills scaffold-layout__aside'
     'scaffold-layout__interests scaffold-layout__interests scaffold-layout__aside';
 }
+.profile-page-card-analytics,
 .profile-page-card-item,
 .scaffold-layout__about,
 .scaffold-layout__activity,
@@ -22,9 +23,11 @@
   width: 860px;
   background-color: #fff;
   position: relative;
-  height: 300px;
+  height: 200px;
   border-radius: 10px;
   margin-top: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .scaffold-layout__aside {
@@ -62,4 +65,32 @@
 
 .scaffold-layout__interests {
   grid-area: scaffold-layout__interests;
+}
+.profile-card-header-title {
+  font-family: system-ui;
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 600;
+}
+.analytics-privacy-setting {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #707070;
+}
+.profile-card-contents {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.profile-card-content {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.analytics-image-items {
+  padding-right: 7px;
+  padding-left: 3px;
 }

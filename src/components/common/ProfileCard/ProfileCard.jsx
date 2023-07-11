@@ -88,7 +88,6 @@ const ProfileCard = ({ onEdit, currentUser }) => {
             <button className="modal-save-more-btn">More</button>
           </div>
         </div>
-        <br />
       </div>
       {isModalOpen && (
         <Modal
