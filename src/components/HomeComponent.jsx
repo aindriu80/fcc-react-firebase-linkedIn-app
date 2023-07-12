@@ -27,6 +27,7 @@ export default function Home() {
   const login = async () => {
     try {
       let res = await LoginAPI(credentials.email, credentials.password)
+      localStorage.setItem('userEmail', res.user.email)
     } catch (error) {
       console.log(error)
     }

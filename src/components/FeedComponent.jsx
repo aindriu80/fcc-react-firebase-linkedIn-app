@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react'
+import DocumentTitle from 'react-document-title'
 import { useNavigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import PostUpdate from '../components/common/PostUpdate/PostUpdate'
@@ -34,6 +35,8 @@ export default function FeedComponent() {
 
   return (
     <>
+      <DocumentTitle title={`Feed | LinkedIn`}></DocumentTitle>
+
       <div className="feed-container">
         <div className="sidebar-layout">
           <SidebarComponent currentUser={currentUser} />

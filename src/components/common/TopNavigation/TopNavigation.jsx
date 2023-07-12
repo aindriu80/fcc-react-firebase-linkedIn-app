@@ -18,9 +18,11 @@ import { getCurrentUser } from '../../../api/FirestoreAPI'
 import { onLogout } from '../../../api/AuthAPI'
 import './TopNavigation.scss'
 
-const TopNavigation = () => {
+const TopNavigation = ({ activeLink }) => {
   const [currentUser, setCurrentUser] = useState({})
   const [dropdownVisible, setDropdownVisible] = useState(false)
+  // const [activeLink, setActiveLink] = useState('')
+
   useMemo(() => {
     getCurrentUser(setCurrentUser)
   }, [])
@@ -33,7 +35,7 @@ const TopNavigation = () => {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible)
   }
-
+  console.log({ activeLink })
   return (
     <>
       <div className="global-nav">
@@ -46,40 +48,47 @@ const TopNavigation = () => {
           <FeedSearch />
 
           <div className="global-nav-feed">
-            <div className="Navbar__Link">
-              <AiOutlineHome
-                size={25}
-                className="react-icon"
-                onClick={() => goToRoute('/')}
-              />
-              <div className="Navbar__Text">Home</div>
+            <div className="Navbar__Link" onClick={() => goToRoute('/')}>
+              <AiOutlineHome size={25} className="react-icon" />
+
+              <div
+                className={`Navbar__Link ${
+                  activeLink === 'home' ? 'Navbar__Text_Active' : 'Navbar__Text'
+                }`}>
+                &nbsp; &nbsp; Home
+              </div>
             </div>
 
-            <div className="Navbar__Link">
-              <AiOutlineUserSwitch
-                size={25}
-                className="react-icon"
-                onClick={() => goToRoute('/profile')}
-              />
-              <div className="Navbar__Text">My Network</div>
+            <div
+              className="Navbar__Link"
+              onClick={() => goToRoute('/mynetwork')}>
+              <AiOutlineUserSwitch size={25} className="react-icon" />
+
+              <div
+                className={`Navbar__Link ${
+                  activeLink === 'network'
+                    ? 'Navbar__Text_Active'
+                    : 'Navbar__Text'
+                }`}>
+                My Network
+              </div>
             </div>
+
             <div className="Navbar__Link">
               <BsBriefcase size={25} className="react-icon" />
-              <div className="Navbar__Text">My Network</div>
-            </div>
-
-            <div className="Navbar__Link">
-              <AiOutlineSearch size={25} className="react-icon" />
               <div className="Navbar__Text">Jobs</div>
             </div>
+
             <div className="Navbar__Link">
               <AiOutlineMessage size={25} className="react-icon" />
               <div className="Navbar__Text">Messaging</div>
             </div>
+
             <div className="Navbar__Link">
               <AiOutlineBell size={25} className="react-icon" />
               <div className="Navbar__Text">Notifications</div>
             </div>
+
             <div className="dropdown-menu">
               {currentUser.imageLink ? (
                 <img

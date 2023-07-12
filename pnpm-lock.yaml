@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   antd:
     specifier: ^5.4.6
@@ -25,6 +29,9 @@ dependencies:
   react-bootstrap:
     specifier: ^2.7.4
     version: 2.7.4(@types/react@18.0.37)(react-dom@18.2.0)(react@18.2.0)
+  react-document-title:
+    specifier: ^2.0.3
+    version: 2.0.3(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -2510,6 +2517,15 @@ packages:
       warning: 4.0.3
     dev: false
 
+  /react-document-title@2.0.3(react@18.2.0):
+    resolution: {integrity: sha512-T5y+quDAybtD7JhvVyc2BDW3a9xj6MoW6/VZU6OJkbASqwEMo5G4nB0RqFJCEHOqjQMcQI+wGRPDhUADnaHlQw==}
+    dependencies:
+      prop-types: 15.8.1
+      react-side-effect: 1.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -2578,6 +2594,15 @@ packages:
     dependencies:
       '@remix-run/router': 1.5.0
       react: 18.2.0
+    dev: false
+
+  /react-side-effect@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-v1ht1aHg5k/thv56DRcjw+WtojuuDHFUgGfc+bFHOWsF4ZK6C2V57DO0Or0GPsg6+LSTE0M6Ry/gfzhzSwbc5w==}
+    peerDependencies:
+      react: ^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      react: 18.2.0
+      shallowequal: 1.1.0
     dev: false
 
   /react-side-effect@2.1.2(react@18.2.0):
@@ -2694,6 +2719,10 @@ packages:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
     dev: true
+
+  /shallowequal@1.1.0:
+    resolution: {integrity: sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==}
+    dev: false
 
   /sort-by@1.2.0:
     resolution: {integrity: sha512-aRyW65r3xMnf4nxJRluCg0H/woJpksU1dQxRtXYzau30sNBOmf5HACpDd9MZDhKh7ALQ5FgSOfMPwZEtUmMqcg==}

@@ -4,6 +4,7 @@ import Login from '../Pages/Login'
 import Register from '../Pages/Register'
 import Feed from '../Pages/Feed'
 import Profile from '../Pages/Profile'
+import MyNetwork from '../Pages/MyNetwork'
 
 export const router = createBrowserRouter([
   {
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
   {
     path: '/profile',
     element: <Profile />,
+  },
+  {
+    path: '/mynetwork',
+    element: <MyNetwork />,
   },
 ])

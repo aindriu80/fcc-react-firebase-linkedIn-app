@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react'
+import DocumentTitle from 'react-document-title'
 import { getCurrentUser } from '../api/FirestoreAPI'
 import ProfileCard from './common/ProfileCard/ProfileCard'
 import EditPublicProfile from './common/EditPublicProfile/EditPublicProfile'
@@ -12,6 +13,7 @@ import '../Sass/ProfileComponent.scss'
 
 const ProfileComponent = () => {
   const [currentUser, setCurrentUser] = useState({})
+  const textAA = 'LinkedIn'
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)
@@ -19,6 +21,8 @@ const ProfileComponent = () => {
 
   return (
     <>
+      <DocumentTitle
+        title={`${currentUser.name} ${currentUser.lastName} | LinkedIn`}></DocumentTitle>
       <div className="profile-component">
         <div className="profile-container">
           <div className="scaffold-layout__main">

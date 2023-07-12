@@ -21,7 +21,7 @@ export default function Feed() {
 
   return (
     <>
-      <TopNavigation />
+      <TopNavigation activeLink="home" />
       <FeedComponent />
     </>
   )

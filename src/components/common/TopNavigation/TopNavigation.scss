@@ -73,6 +73,13 @@
     color: #5d3b09;
   }
 }
+.Navbar__Text_Active {
+  border-bottom: 2px solid;
+  color: #191919;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
 
 .react-icon {
   color: #666666;
