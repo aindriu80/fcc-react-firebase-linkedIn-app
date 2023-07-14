@@ -1,8 +1,9 @@
 import React from 'react'
 import NetworkComponent from '../components/NetworkComponent'
 import TopNavigation from '../components/common/TopNavigation/TopNavigation'
+import '../Sass/NetworkComponent.scss'
 
-const myNetwork = () => {
+const MyNetwork = () => {
   return (
     <>
       <TopNavigation activeLink="network" />
@@ -11,4 +12,4 @@ const myNetwork = () => {
   )
 }
 
-export default myNetwork
+export default MyNetwork

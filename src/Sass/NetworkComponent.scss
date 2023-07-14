@@ -1,4 +1,166 @@
-.networkConnectionsMain {
+// .networkConnectionsMain {
+//   display: grid;
+//   grid-template-columns: auto auto;
+// }
+
+.feed-container {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 0.5fr 25px 1fr 25px 0.6fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+  margin: 25px auto;
+  grid-template-areas: 'sidebar-layout . main-content-layout . right-side-layout'; /* Define grid areas */
+}
+
+.sidebar-layout {
+  grid-area: sidebar-layout;
+}
+
+.main-content-layout {
+  grid-area: main-content-layout;
+}
+
+.right-side-layout {
+  grid-area: right-side-layout;
+}
+
+.global-nav {
+  grid-area: global-nav;
+}
+
+.sidebar-layout {
+  grid-area: sidebar-layout;
+}
+
+.feed-share {
+  grid-area: feed-share;
+  padding-left: 10px;
+}
+
+.layout-aside {
+  grid-area: layout-aside;
+  padding-left: 20px;
+}
+
+.global-nav-feed {
+  display: flex;
+  margin-left: 5%;
+}
+
+.Navbar__Text {
+  text-align: center;
+}
+
+.react-icon {
+  color: #666666;
+  cursor: pointer;
+}
+
+.react-icon:hover {
+  color: #000000;
+}
+
+.user-logo {
+  width: 40px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.feed-logout-btn {
+  background-color: #000000;
+  color: black;
+  cursor: pointer;
+}
+.feed-component {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  button {
+    width: 10%;
+    background-color: blue;
+    color: black;
+  }
+}
+.sort-posts-ember {
+  padding-top: 10px;
+}
+.ember-sort-button {
+  display: flex;
+  width: 100% !important;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+.t-12 {
+  font-family: system-ui;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: black;
+}
+.t-black--light {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: system-ui;
+  font-weight: 400;
+  padding-top: 10px;
+}
+@media (max-width: 1466px) {
+  .feed-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1462px) {
+  /* styles */
+  .Navbar__Text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1256px) {
+  /* styles */
+  .Navbar__Text {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1038px) {
+  .feed-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 945px) {
+  .feed-container {
+    grid-template-columns: 1.5fr 15px 2.5fr;
+    width: 90%;
+  }
+}
+
+@media (max-width: 945px) {
+  .right-side-layout {
+    display: none;
+  }
+}
+
+@media (max-width: 776px) {
+  .sidebar-layout {
+    display: none;
+  }
+  .feed-container {
+    grid-template-columns: 0.5fr 0px 75% 0.5fr;
+    width: 100%;
+  }
+}
+.networkConnectionsMain {
+  height: auto;
+  width: 400px;
+  background-color: #ffffff;
+  border-radius: 7px;
+  margin-left: 30px;
 }

@@ -33,6 +33,7 @@
   font-family: system-ui;
   font-size: 16px;
   font-weight: 600;
+  padding-top: 10px;
 }
 .connection-number {
   color: #024a92;
@@ -120,4 +121,22 @@
   width: 70px;
   height: 70px;
   border-radius: 50px;
+}
+.manage-my-network-items {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  a {
+    color: #bababa;
+  }
+}
+.sidebar-footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  color: #bababa;
+  a {
+    color: #bababa;
+    padding: 2px;
+  }
 }
