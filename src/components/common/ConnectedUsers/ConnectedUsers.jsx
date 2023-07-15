@@ -1,9 +1,11 @@
 import React from 'react'
 
-const ConnectedUsers = ({ user }) => {
+const ConnectedUsers = ({ user, getCurrentUser }) => {
   return (
     <div>
-      <div className="connectedUsersUserName">
+      <div
+        className="connectedUsersUserName"
+        onClick={() => getCurrentUser(user.id)}>
         {user.name}&nbsp;
         {user.lastName}
         <br />
