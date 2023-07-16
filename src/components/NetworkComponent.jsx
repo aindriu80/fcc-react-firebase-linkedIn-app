@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { getAllUsers } from '../api/FirestoreAPI'
+import { getAllUsers, addConnection } from '../api/FirestoreAPI'
 import DocumentTitle from 'react-document-title'
 import ConnectedUsers from './common/ConnectedUsers/ConnectedUsers'
 import MyNetworkSidebar from './MyNetworkSidebar'
 import '../Sass/NetworkComponent.scss'
 
-const NetworkComponent = () => {
-  const [currentUser, setCurrentUser] = useState({})
+const NetworkComponent = ({ currentUser }) => {
   const [users, setUsers] = useState([])
 
   const getCurrentUser = (id) => {
-    console.log(id)
+    addConnection(currentUser.id, id)
   }
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const NetworkComponent = () => {
 
       <div className="feed-container">
         <div className="sidebar-layout">
-          <MyNetworkSidebar currentUser={currentUser} />
+          <MyNetworkSidebar />
         </div>
         <div className="main-content-layout"></div>
         <div className="networkConnectionsMain">
@@ -31,8 +30,11 @@ const NetworkComponent = () => {
           <hr className="hr-line" />
           <div className="networkConnectionsContent">
             {users.map((user) => {
-              return (
+              return user.id === currentUser.id ? (
+                <></>
+              ) : (
                 <ConnectedUsers
+                  currentUser={currentUser}
                   user={user}
                   key={user.id}
                   getCurrentUser={getCurrentUser}

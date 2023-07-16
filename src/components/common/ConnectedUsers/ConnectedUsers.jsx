@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const ConnectedUsers = ({ user, getCurrentUser }) => {
+import { getConnections } from '../../../api/FirestoreAPI'
+
+const ConnectedUsers = ({ user, getCurrentUser, currentUser }) => {
+  const [isConnected, setIsConnected] = useState(false)
+  useEffect(() => {
+    getConnections(currentUser.id, user.id, setIsConnected)
+  }, [currentUser.id, user.id])
+
   return (
     <div>
       <div

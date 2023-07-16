@@ -13,7 +13,6 @@ const MyNetworkSidebar = () => {
         <hr className="hr-line" />
         <div className="profile-connections">
           <div className="profile-connections-title"></div>
-          {/* <div className="profile-connections-growth">Grow your Network</div> */}
           <div className="manage-my-network-items">
             <a href="#"> Connections </a>
             <a href="#"> Contacts </a>

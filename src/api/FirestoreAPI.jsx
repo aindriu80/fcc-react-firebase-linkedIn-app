@@ -17,6 +17,7 @@ let postsRef = collection(firestore, 'posts')
 let userRef = collection(firestore, 'users')
 let likeRef = collection(firestore, 'likes')
 let commentsRef = collection(firestore, 'comments')
+let connectionsRef = collection(firestore, 'connections')
 
 export const postStatus = (object) => {
   addDoc(postsRef, object)
@@ -170,7 +171,7 @@ export const getComments = (postId, setComments) => {
 export const getConnections = (userId, targetId, setIsConnected) => {
   try {
     let connectionsQuery = query(
-      connectionRef,
+      connectionsRef,
       where('targetId', '==', targetId)
     )
 
@@ -200,6 +201,16 @@ export const deletePost = (id) => {
   let docToDelete = doc(postsRef, id)
   try {
     deleteDoc(docToDelete)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const addConnection = (userId, targetId) => {
+  try {
+    let connectionToAdd = doc(connectionsRef, `${userId}_${targetId}`)
+    setDoc(connectionToAdd, { userId, targetId })
+    console.log('Connection has been added!!')
   } catch (error) {
     console.log(error)
   }

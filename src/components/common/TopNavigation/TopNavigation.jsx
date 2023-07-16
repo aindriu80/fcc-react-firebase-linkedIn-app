@@ -35,7 +35,6 @@ const TopNavigation = ({ activeLink }) => {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible)
   }
-  // console.log({ activeLink })
   return (
     <>
       <div className="global-nav">
