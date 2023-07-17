@@ -5,11 +5,13 @@ import Register from '../Pages/Register'
 import Feed from '../Pages/Feed'
 import Profile from '../Pages/Profile'
 import MyNetwork from '../Pages/MyNetwork'
+import ErrorPage from '../Pages/ErrorPage'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/login',
@@ -30,5 +32,8 @@ export const router = createBrowserRouter([
   {
     path: '/mynetwork',
     element: <MyNetwork />,
+  },
+  {
+    errorElement: <ErrorPage />,
   },
 ])
