@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getAllUsers, addConnection } from '../api/FirestoreAPI'
+import { getAllUsers, addConnection, getConnections } from '../api/FirestoreAPI'
 import DocumentTitle from 'react-document-title'
 import ConnectedUsers from './common/ConnectedUsers/ConnectedUsers'
 import MyNetworkSidebar from './MyNetworkSidebar'
@@ -36,7 +36,6 @@ const NetworkComponent = ({ currentUser }) => {
                 <ConnectedUsers
                   currentUser={currentUser}
                   user={user}
-                  key={user.id}
                   getCurrentUser={getCurrentUser}
                 />
               )

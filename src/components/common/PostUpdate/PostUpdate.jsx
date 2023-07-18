@@ -1,5 +1,10 @@
-import React, { useState, useMemo } from 'react'
-import { postStatus, getStatus, updatePost } from '../../../api/FirestoreAPI'
+import React, { useState, useMemo, useEffect } from 'react'
+import {
+  postStatus,
+  getStatus,
+  updatePost,
+  getConnections,
+} from '../../../api/FirestoreAPI'
 import photo from '../../../assets/photo.svg'
 import video from '../../../assets/video.svg'
 import event from '../../../assets/event.svg'

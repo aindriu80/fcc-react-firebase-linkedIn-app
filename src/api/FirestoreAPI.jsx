@@ -168,26 +168,6 @@ export const getComments = (postId, setComments) => {
   }
 }
 
-export const getConnections = (userId, targetId, setIsConnected) => {
-  try {
-    let connectionsQuery = query(
-      connectionsRef,
-      where('targetId', '==', targetId)
-    )
-
-    onSnapshot(connectionsQuery, (response) => {
-      let connections = response.docs.map((doc) => doc.data())
-
-      const isConnected = connections.some(
-        (connection) => connection.userId === userId
-      )
-
-      setIsConnected(isConnected)
-    })
-  } catch (err) {
-    console.log(err)
-  }
-}
 export const updatePost = (id, status) => {
   let updateToUpdate = doc(postsRef, id)
   try {
@@ -213,5 +193,26 @@ export const addConnection = (userId, targetId) => {
     console.log('Connection has been added!!')
   } catch (error) {
     console.log(error)
+  }
+}
+
+export const getConnections = (userId, targetId, setIsConnected) => {
+  try {
+    let connectionsQuery = query(
+      connectionsRef,
+      where('targetId', '==', targetId)
+    )
+
+    onSnapshot(connectionsQuery, (response) => {
+      let connections = response.docs.map((doc) => doc.data())
+
+      const isConnected = connections.some(
+        (connection) => connection.userId === userId
+      )
+
+      setIsConnected(isConnected)
+    })
+  } catch (err) {
+    console.log(err)
   }
 }

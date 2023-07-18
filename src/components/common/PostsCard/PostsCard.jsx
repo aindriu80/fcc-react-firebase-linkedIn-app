@@ -5,6 +5,7 @@ import {
   getAllUsers,
   updatePost,
   deletePost,
+  getConnections,
 } from '../../../api/FirestoreAPI'
 import ModalComponent from '../Modal/Modal'
 import LikeButton from '../LikeButton/LikeButton'
@@ -18,6 +19,7 @@ const PostsCard = ({ posts, id, getEditData }) => {
   const [status, setStatus] = useState('')
   const [currentPost, setCurrentPost] = useState({})
   const [modalOpen, setModalOpen] = useState(false)
+  const [isConnected, setIsConnected] = useState(false)
 
   const [isEdit, setIsEdit] = useState(false)
   const [dropdownVisible, setDropdownVisible] = useState(false)
@@ -53,7 +55,13 @@ const PostsCard = ({ posts, id, getEditData }) => {
     getAllUsers(setAllUsers)
   }, [])
 
-  return (
+  useEffect(() => {
+    getConnections(currentUser.id, posts.userID, setIsConnected)
+  }, [currentUser.id, posts.userID])
+
+  console.log('is Connected ', isConnected)
+
+  return isConnected ? (
     <div className="posts-card" key={id}>
       <div className="image-post-card">
         <img
@@ -119,6 +127,8 @@ const PostsCard = ({ posts, id, getEditData }) => {
         updateStatus={updateStatus}
       />
     </div>
+  ) : (
+    <></>
   )
 }
 
