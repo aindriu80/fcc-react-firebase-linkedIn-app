@@ -59,7 +59,7 @@ const PostsCard = ({ posts, id, getEditData }) => {
     getConnections(currentUser.id, posts.userID, setIsConnected)
   }, [currentUser.id, posts.userID])
 
-  console.log('is Connected ', isConnected)
+  // console.log('is Connected ', isConnected)
 
   return isConnected ? (
     <div className="posts-card" key={id}>
@@ -78,7 +78,12 @@ const PostsCard = ({ posts, id, getEditData }) => {
           className="postsCardName"
           onClick={() =>
             navigate('/profile', {
-              state: { id: posts?.userID, email: posts.userEmail },
+              state: {
+                id: posts?.userID,
+                email: posts.userEmail,
+                name: posts.userName,
+                lastName: posts.userLastname,
+              },
             })
           }>
           {posts.userName}&nbsp;

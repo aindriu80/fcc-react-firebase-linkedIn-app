@@ -26,7 +26,7 @@ const ProfileCard = ({ onEdit, currentUser }) => {
       getSingleUser(setCurrentProfile, location?.state?.email)
     }
   }, [])
-  console.log('Current Users ImageLink:', currentUser?.imageLink)
+  // console.log('Current Users ImageLink:', currentUser?.imageLink)
 
   return (
     <>

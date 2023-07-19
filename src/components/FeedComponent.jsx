@@ -12,6 +12,7 @@ import downArrow from '../assets/down-arrow.svg'
 import '../Sass/FeedComponent.scss'
 
 export default function FeedComponent() {
+  const [loading, setLoading] = useState(true)
   const [currentUser, setCurrentUser] = useState({})
   const navigate = useNavigate()
 

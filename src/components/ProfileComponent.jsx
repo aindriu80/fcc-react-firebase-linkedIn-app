@@ -12,8 +12,8 @@ import analyticsSearchAppearances from '../assets/analyticsSearchAppearances.svg
 import '../Sass/ProfileComponent.scss'
 
 const ProfileComponent = () => {
+  const [loading, setLoading] = useState(true)
   const [currentUser, setCurrentUser] = useState({})
-  const textAA = 'LinkedIn'
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)

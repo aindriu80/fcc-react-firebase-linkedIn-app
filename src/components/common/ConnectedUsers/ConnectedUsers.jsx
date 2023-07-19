@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-
+import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { getConnections } from '../../../api/FirestoreAPI'
+
+import './ConnectedUsers.scss'
 
 const ConnectedUsers = ({ user, getCurrentUser, currentUser }) => {
   const [isConnected, setIsConnected] = useState(false)
@@ -14,11 +16,19 @@ const ConnectedUsers = ({ user, getCurrentUser, currentUser }) => {
       <div
         className="connectedUsersUserName"
         onClick={() => getCurrentUser(user.id)}>
-        {user.name}&nbsp;
-        {user.lastName}
+        <div className="network-post-card">
+          {user.imageLink ? (
+            <img src={user.imageLink} className="network-logo-post" />
+          ) : (
+            <BsPersonCircle size={152} className="network-logo-post" />
+          )}
+          {user.name}&nbsp;
+          {user.lastName}
+          <br />
+          {user.headline}
+        </div>
         <br />
       </div>
-      <div className="connectedUsersUserName">{user.headline}</div>
     </div>
   )
 }

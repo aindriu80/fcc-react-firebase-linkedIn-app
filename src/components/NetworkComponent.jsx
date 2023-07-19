@@ -33,11 +33,22 @@ const NetworkComponent = ({ currentUser }) => {
               return user.id === currentUser.id ? (
                 <></>
               ) : (
-                <ConnectedUsers
-                  currentUser={currentUser}
-                  user={user}
-                  getCurrentUser={getCurrentUser}
-                />
+                <>
+                  <div className="invitation-card-left">
+                    <ConnectedUsers
+                      currentUser={currentUser}
+                      user={user}
+                      getCurrentUser={getCurrentUser}
+                    />
+
+                    <div className="invitation-card-right">
+                      <div className="button-container">
+                        <button className="network-ignore-btn">Ignore</button>
+                        <button className="network-accept-btn">Accept</button>
+                      </div>
+                    </div>
+                  </div>
+                </>
               )
             })}
           </div>
