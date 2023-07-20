@@ -6,6 +6,9 @@ import Feed from '../Pages/Feed'
 import Profile from '../Pages/Profile'
 import MyNetwork from '../Pages/MyNetwork'
 import ErrorPage from '../Pages/ErrorPage'
+import Jobs from '../Pages/Jobs'
+import Messaging from '../Pages/Messaging'
+import Notifications from '../Pages/Notifications'
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +35,18 @@ export const router = createBrowserRouter([
   {
     path: '/mynetwork',
     element: <MyNetwork />,
+  },
+  {
+    path: '/jobs',
+    element: <Jobs />,
+  },
+  {
+    path: '/messaging',
+    element: <Messaging />,
+  },
+  {
+    path: '/notifications',
+    element: <Notifications />,
   },
   {
     errorElement: <ErrorPage />,

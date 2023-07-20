@@ -9,7 +9,14 @@ const NetworkComponent = ({ currentUser }) => {
   const [users, setUsers] = useState([])
 
   const getCurrentUser = (id) => {
-    addConnection(currentUser.id, id)
+    // addConnection(currentUser.id, id)
+    console.log('this has been clicked')
+  }
+  const handleAccept = (id) => {
+    addConnection(currentUser.id, id).then(() => {
+      // After adding the connection, update the user list to remove the accepted user.
+      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id))
+    })
   }
 
   useEffect(() => {
@@ -44,7 +51,12 @@ const NetworkComponent = ({ currentUser }) => {
                     <div className="invitation-card-right">
                       <div className="button-container">
                         <button className="network-ignore-btn">Ignore</button>
-                        <button className="network-accept-btn">Accept</button>
+
+                        <button
+                          className="network-accept-btn"
+                          onClick={() => handleAccept(user.id)}>
+                          Accept
+                        </button>
                       </div>
                     </div>
                   </div>

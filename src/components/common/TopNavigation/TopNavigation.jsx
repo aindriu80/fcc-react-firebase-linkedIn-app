@@ -17,6 +17,7 @@ import DownArrow from '../../../assets/downArrow.svg'
 import { getCurrentUser } from '../../../api/FirestoreAPI'
 import { onLogout } from '../../../api/AuthAPI'
 import './TopNavigation.scss'
+import Notifications from '../../../Pages/Notifications'
 
 const TopNavigation = ({ activeLink }) => {
   const [currentUser, setCurrentUser] = useState({})
@@ -73,19 +74,45 @@ const TopNavigation = ({ activeLink }) => {
               </div>
             </div>
 
-            <div className="Navbar__Link">
+            <div className="Navbar__Link" onClick={() => goToRoute('/jobs')}>
               <BsBriefcase size={25} className="react-icon" />
-              <div className="Navbar__Text">Jobs</div>
+
+              <div
+                className={`Navbar__Link ${
+                  activeLink === 'jobs' ? 'Navbar__Text_Active' : 'Navbar__Text'
+                }`}>
+                Jobs
+              </div>
             </div>
 
-            <div className="Navbar__Link">
+            <div
+              className="Navbar__Link"
+              onClick={() => goToRoute('/messaging')}>
               <AiOutlineMessage size={25} className="react-icon" />
-              <div className="Navbar__Text">Messaging</div>
+
+              <div
+                className={`Navbar__Link ${
+                  activeLink === 'messaging'
+                    ? 'Navbar__Text_Active'
+                    : 'Navbar__Text'
+                }`}>
+                Messaging
+              </div>
             </div>
 
-            <div className="Navbar__Link">
+            <div
+              className="Navbar__Link"
+              onClick={() => goToRoute('/notifications')}>
               <AiOutlineBell size={25} className="react-icon" />
-              <div className="Navbar__Text">Notifications</div>
+
+              <div
+                className={`Navbar__Link ${
+                  activeLink === 'notifications'
+                    ? 'Navbar__Text_Active'
+                    : 'Navbar__Text'
+                }`}>
+                Notifications
+              </div>
             </div>
 
             <div className="dropdown-menu">
