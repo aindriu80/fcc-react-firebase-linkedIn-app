@@ -13,10 +13,11 @@ const NetworkComponent = ({ currentUser }) => {
     console.log('this has been clicked')
   }
   const handleAccept = (id) => {
-    addConnection(currentUser.id, id).then(() => {
-      // After adding the connection, update the user list to remove the accepted user.
-      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id))
-    })
+    addConnection(currentUser.id, id)
+    // .then(() => {
+    // After adding the connection, update the user list to remove the accepted user.
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id))
+    // })
   }
 
   useEffect(() => {
@@ -31,7 +32,6 @@ const NetworkComponent = ({ currentUser }) => {
         <div className="sidebar-layout">
           <MyNetworkSidebar />
         </div>
-        <div className="main-content-layout"></div>
         <div className="networkConnectionsMain">
           <div className="networkConnectionsMainHeader">Invitations</div>
           <hr className="hr-line" />
@@ -64,7 +64,9 @@ const NetworkComponent = ({ currentUser }) => {
               )
             })}
           </div>
+          <br />
         </div>
+        {/* <div className="networkConnectionsAddContacts">XXXX</div> */}
       </div>
     </>
   )

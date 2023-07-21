@@ -21,89 +21,90 @@
   grid-area: right-side-layout;
 }
 
-.global-nav {
-  grid-area: global-nav;
-}
+// .global-nav {
+//   grid-area: global-nav;
+// }
 
-.sidebar-layout {
-  grid-area: sidebar-layout;
-}
+// .sidebar-layout {
+//   grid-area: sidebar-layout;
+// }
 
 .feed-share {
   grid-area: feed-share;
   padding-left: 10px;
 }
 
-.layout-aside {
-  grid-area: layout-aside;
-  padding-left: 20px;
-}
+// .layout-aside {
+//   grid-area: layout-aside;
+//   padding-left: 20px;
+// }
 
-.global-nav-feed {
-  display: flex;
-  margin-left: 5%;
-}
+// .global-nav-feed {
+//   display: flex;
+//   margin-left: 5%;
+// }
 
 .Navbar__Text {
   text-align: center;
 }
 
-.react-icon {
-  color: #666666;
-  cursor: pointer;
-}
+// .react-icon {
+//   color: #666666;
+//   cursor: pointer;
+// }
 
-.react-icon:hover {
-  color: #000000;
-}
+// .react-icon:hover {
+//   color: #000000;
+// }
 
-.user-logo {
-  width: 40px;
-  right: 30px;
-  cursor: pointer;
-}
+// .user-logo {
+//   width: 40px;
+//   right: 30px;
+//   cursor: pointer;
+// }
 
-.feed-logout-btn {
-  background-color: #000000;
-  color: black;
-  cursor: pointer;
-}
-.feed-component {
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-  button {
-    width: 10%;
-    background-color: blue;
-    color: black;
-  }
-}
-.sort-posts-ember {
-  padding-top: 10px;
-}
-.ember-sort-button {
-  display: flex;
-  width: 100% !important;
-  cursor: pointer;
-  padding: 0;
-  border: none;
-}
-.flex-grow-1 {
-  flex-grow: 1 !important;
-}
-.t-12 {
-  font-family: system-ui;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  color: black;
-}
-.t-black--light {
-  color: rgba(0, 0, 0, 0.6);
-  font-family: system-ui;
-  font-weight: 400;
-  padding-top: 10px;
-}
+// .feed-logout-btn {
+//   background-color: #000000;
+//   color: black;
+//   cursor: pointer;
+// }
+// .feed-component {
+//   display: flex;
+//   justify-content: center;
+//   padding-top: 10px;
+//   button {
+//     width: 10%;
+//     background-color: blue;
+//     color: black;
+//   }
+// }
+// .sort-posts-ember {
+//   padding-top: 10px;
+// }
+// .ember-sort-button {
+//   display: flex;
+//   width: 100% !important;
+//   cursor: pointer;
+//   padding: 0;
+//   border: none;
+// }
+// .flex-grow-1 {
+//   flex-grow: 1 !important;
+// }
+// .t-12 {
+//   font-family: system-ui;
+//   font-weight: 600;
+//   font-size: 12px;
+//   line-height: 16px;
+//   color: black;
+// }
+// .t-black--light {
+//   color: rgba(0, 0, 0, 0.6);
+//   font-family: system-ui;
+//   font-weight: 400;
+//   padding-top: 10px;
+// }
+
 @media (max-width: 1466px) {
   .feed-container {
     width: 70%;
@@ -152,6 +153,7 @@
     width: 100%;
   }
 }
+
 .networkConnectionsMain {
   height: auto;
   width: 800px;
@@ -219,4 +221,17 @@
   word-wrap: normal;
   box-shadow: rgb(10, 102, 194) 0px 0px 0px 1px;
   border-radius: 20px;
+}
+
+.networkConnectionsAddContacts {
+  // New styles for networkConnectionsAddContacts
+  height: auto;
+  width: 800px;
+  background-color: #ffffff;
+  border-radius: 7px;
+  margin-left: 30px;
+  margin-top: 1000px; // Add a margin of 10px below the networkConnectionsMain
+}
+.networkConnectionsContent {
+  margin-bottom: 10px;
 }
