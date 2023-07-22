@@ -2,7 +2,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { AutoComplete, Input } from 'antd'
 import './FeedSearch.scss'
 
-const App = () => (
+const FeedSearch = ({ setIsSearch, setSearchInput }) => (
   <>
     <div className="searchBarTop">
       <AutoComplete
@@ -13,10 +13,13 @@ const App = () => (
           size="large"
           className="feedsearch-top"
           placeholder="Search"
+          onChange={(event) => {
+            setSearchInput = event.target.value
+          }}
           prefix={<AiOutlineSearch />}
         />
       </AutoComplete>
     </div>
   </>
 )
-export default App
+export default FeedSearch

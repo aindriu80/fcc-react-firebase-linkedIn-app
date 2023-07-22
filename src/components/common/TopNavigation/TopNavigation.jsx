@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import linkedInLogo from '../../../assets/top-nav.svg'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
@@ -12,16 +12,19 @@ import {
 import { TbGridDots } from 'react-icons/tb'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
+import { getCurrentUser, getAllUsers } from '../../../api/FirestoreAPI'
+import { onLogout } from '../../../api/AuthAPI'
 import FeedSearch from '../FeedSearch/FeedSearch'
 import DownArrow from '../../../assets/downArrow.svg'
-import { getCurrentUser } from '../../../api/FirestoreAPI'
-import { onLogout } from '../../../api/AuthAPI'
+// import Notifications from '../../../Pages/Notifications'
 import './TopNavigation.scss'
-import Notifications from '../../../Pages/Notifications'
 
 const TopNavigation = ({ activeLink }) => {
   const [currentUser, setCurrentUser] = useState({})
   const [dropdownVisible, setDropdownVisible] = useState(false)
+  const [isSearch, setIsSearch] = useState(false)
+  const [searchInput, setSearchInput] = useState(false)
+  const [users, setUsers] = useState([])
   // const [activeLink, setActiveLink] = useState('')
 
   useMemo(() => {
@@ -36,6 +39,10 @@ const TopNavigation = ({ activeLink }) => {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible)
   }
+
+  useEffect(() => {
+    getAllUsers()
+  }, [])
   return (
     <>
       <div className="global-nav">
@@ -45,7 +52,10 @@ const TopNavigation = ({ activeLink }) => {
             src={linkedInLogo}
             alt="LinkedIn Logo"
           />
-          <FeedSearch />
+          <FeedSearch
+            setIsSearch={setIsSearch}
+            setSearchInput={setSearchInput}
+          />
 
           <div className="global-nav-feed">
             <div className="Navbar__Link" onClick={() => goToRoute('/')}>
@@ -193,6 +203,15 @@ const TopNavigation = ({ activeLink }) => {
                   Retry Premium Free
                 </a>
               </div>
+            </div>
+            <div className="search-results">
+              {users.map((user) => (
+                <div
+                  className="
+                ">
+                  <img src={user.imageLink} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
