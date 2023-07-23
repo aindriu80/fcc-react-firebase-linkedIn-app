@@ -38,9 +38,9 @@ const NetworkComponent = ({ currentUser }) => {
           <div className="networkConnectionsContent">
             {users.map((user) => {
               return user.id === currentUser.id ? (
-                <></>
+                <React.Fragment key={user.userID}></React.Fragment>
               ) : (
-                <>
+                <React.Fragment key={user.userID}>
                   <div className="invitation-card-left">
                     <ConnectedUsers
                       currentUser={currentUser}
@@ -60,7 +60,7 @@ const NetworkComponent = ({ currentUser }) => {
                       </div>
                     </div>
                   </div>
-                </>
+                </React.Fragment>
               )
             })}
           </div>

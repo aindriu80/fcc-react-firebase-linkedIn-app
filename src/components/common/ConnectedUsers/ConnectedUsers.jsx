@@ -15,7 +15,8 @@ const ConnectedUsers = ({ user, getCurrentUser, currentUser }) => {
     <div>
       <div
         className="connectedUsersUserName"
-        onClick={() => getCurrentUser(user.id)}>
+        // onClick={() => getCurrentUser(user.id)}
+      >
         <div className="network-post-card">
           {user.imageLink ? (
             <img src={user.imageLink} className="network-logo-post" />

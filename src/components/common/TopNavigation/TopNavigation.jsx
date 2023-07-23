@@ -25,6 +25,7 @@ const TopNavigation = ({ activeLink }) => {
   const [isSearch, setIsSearch] = useState(false)
   const [searchInput, setSearchInput] = useState(false)
   const [users, setUsers] = useState([])
+  const [allUsers, setAllUsers] = useState([])
   // const [activeLink, setActiveLink] = useState('')
 
   useMemo(() => {
@@ -41,8 +42,9 @@ const TopNavigation = ({ activeLink }) => {
   }
 
   useEffect(() => {
-    getAllUsers()
+    getAllUsers(setAllUsers)
   }, [])
+
   return (
     <>
       <div className="global-nav">
@@ -51,12 +53,22 @@ const TopNavigation = ({ activeLink }) => {
             className="feedLinkedInLogo"
             src={linkedInLogo}
             alt="LinkedIn Logo"
+            onClick={() => goToRoute('/')}
           />
           <FeedSearch
-            setIsSearch={setIsSearch}
+            // setIsSearch={setIsSearch}
             setSearchInput={setSearchInput}
           />
-
+          {isSearch ? (
+            <div className="search-results">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias
+              libero enim recusandae nulla laborum quaerat nesciunt,
+              perspiciatis aliquid iste fuga sequi, error, corporis ipsa sint
+              placeat iure ab ipsam nostrum.
+            </div>
+          ) : (
+            <></>
+          )}
           <div className="global-nav-feed">
             <div className="Navbar__Link" onClick={() => goToRoute('/')}>
               <AiOutlineHome size={25} className="react-icon" />
@@ -210,6 +222,7 @@ const TopNavigation = ({ activeLink }) => {
                   className="
                 ">
                   <img src={user.imageLink} />
+                  <p>{user.name}</p>
                 </div>
               ))}
             </div>
