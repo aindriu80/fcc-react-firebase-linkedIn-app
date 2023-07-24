@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './SearchUsers.scss'
 
-const SearchUsers = ({ setIsSearch }) => {
+const SearchUsers = ({ setIsSearch, setSearchInput }) => {
   return (
     <div className="search-users">
       <input />

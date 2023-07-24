@@ -251,14 +251,14 @@
 }
 .search-results {
   padding-left: 10px;
-  display: none;
   position: absolute;
-  // background-color: white;
-  background-color: blue;
-  min-width: 160px;
-  width: 265px;
+  background-color: white;
+  top: 50px;
+  left: 6.5%;
+  width: 340px;
+  height: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  top: 100%; /* Position the dropdown content below the dropdown container */
+  // top: 100%; /* Position the dropdown content below the dropdown container */
   border-radius: 10px;
 }
