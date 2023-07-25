@@ -23,6 +23,7 @@ const TopNavigation = ({ activeLink }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false)
   const [isSearch, setIsSearch] = useState(false)
   const [searchInput, setSearchInput] = useState(false)
+  const [filteredUsers, setFilteredUsers] = useState(false)
   const [users, setUsers] = useState([])
   const [allUsers, setAllUsers] = useState([])
 
@@ -43,6 +44,22 @@ const TopNavigation = ({ activeLink }) => {
     getAllUsers(setAllUsers)
   }, [])
 
+  useEffect(() => {
+    // Fetch all users and set both allUsers and users state
+    getAllUsers((data) => {
+      setAllUsers(data)
+      setUsers(data)
+    })
+  }, [])
+
+  const handleSearch = (searchValue) => {
+    // Filter users based on the search input
+    const filteredUsers = allUsers.filter((user) =>
+      user.name.toLowerCase().includes(searchValue.toLowerCase())
+    )
+    setUsers(filteredUsers)
+  }
+
   return (
     <>
       <div className="global-nav">
@@ -56,22 +73,24 @@ const TopNavigation = ({ activeLink }) => {
           <FeedSearch
             setIsSearch={setIsSearch}
             setSearchInput={setSearchInput}
+            handleSearch={handleSearch}
           />
-          {isSearch ? (
+          {isSearch && (
             <div className="search-results">
               {users.map((user) => (
                 <div
-                  className="
+                  className="search-inner
                 ">
                   <img src={user.imageLink} />
-                  <p>{user.name}</p>
+                  <p>
+                    {user.name} {user.lastName}
+                  </p>
                 </div>
               ))}
             </div>
-          ) : (
-            <></>
+            // ) : (
+            //   <></>
           )}
-
           <div className="global-nav-feed">
             <div className="Navbar__Link" onClick={() => goToRoute('/')}>
               <AiOutlineHome size={25} className="react-icon" />
