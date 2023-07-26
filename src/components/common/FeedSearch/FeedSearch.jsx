@@ -21,9 +21,6 @@ const FeedSearch = ({ setIsSearch, setSearchInput, handleSearch }) => {
             className="feedsearch-top"
             placeholder="Search"
             onClick={() => setIsSearch(true)}
-            // onChange={(event) => {
-            //   setSearchInput = event.target.value
-            // }}
             onChange={handleInputChange}
             prefix={<AiOutlineSearch />}
           />

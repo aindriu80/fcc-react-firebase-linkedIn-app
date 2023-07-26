@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button'
 import {
   AiOutlineHome,
   AiOutlineUserSwitch,
-  AiOutlineSearch,
   AiOutlineMessage,
   AiOutlineBell,
 } from 'react-icons/ai'
@@ -23,7 +22,6 @@ const TopNavigation = ({ activeLink }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false)
   const [isSearch, setIsSearch] = useState(false)
   const [searchInput, setSearchInput] = useState(false)
-  const [filteredUsers, setFilteredUsers] = useState(false)
   const [users, setUsers] = useState([])
   const [allUsers, setAllUsers] = useState([])
 
@@ -46,11 +44,15 @@ const TopNavigation = ({ activeLink }) => {
 
   useEffect(() => {
     // Fetch all users and set both allUsers and users state
-    getAllUsers((data) => {
-      setAllUsers(data)
-      setUsers(data)
-    })
-  }, [])
+    let debounced = setTimeout(() => {
+      handleSearch()
+    }, 1000)
+    return () => clearTimeout(debounced)
+  }, [searchInput])
+
+  const viewSearchedUser = (user) => {
+    navigate('/profile', { state })
+  }
 
   const handleSearch = (searchValue) => {
     // Filter users based on the search input
@@ -80,7 +82,8 @@ const TopNavigation = ({ activeLink }) => {
               {users.map((user) => (
                 <div
                   className="search-inner
-                ">
+                "
+                  onClick={() => viewSearchedUser(user)}>
                   <img src={user.imageLink} />
                   <p>
                     {user.name} {user.lastName}
@@ -88,8 +91,6 @@ const TopNavigation = ({ activeLink }) => {
                 </div>
               ))}
             </div>
-            // ) : (
-            //   <></>
           )}
           <div className="global-nav-feed">
             <div className="Navbar__Link" onClick={() => goToRoute('/')}>
@@ -238,8 +239,6 @@ const TopNavigation = ({ activeLink }) => {
                 </a>
               </div>
             </div>
-            {/* <div className="search-results">
-            </div> */}
           </div>
         </div>
       </div>
