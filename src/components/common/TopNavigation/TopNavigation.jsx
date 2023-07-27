@@ -51,13 +51,19 @@ const TopNavigation = ({ activeLink }) => {
   }, [searchInput])
 
   const viewSearchedUser = (user) => {
-    navigate('/profile', { state })
+    navigate('/profile', {
+      state: {
+        id: user.id,
+        email: user.userEmail,
+      },
+    })
   }
 
   const handleSearch = (searchValue) => {
     // Filter users based on the search input
     const filteredUsers = allUsers.filter((user) =>
-      user.name.toLowerCase().includes(searchValue.toLowerCase())
+      // user.name.toLowerCase().includes(searchValue.toLowerCase())
+      user.name.toLowerCase()
     )
     setUsers(filteredUsers)
   }

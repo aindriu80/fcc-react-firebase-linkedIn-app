@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react'
-import { postStatus, getStatus } from '../../../api/FirestoreAPI'
+import { getStatus, getSingleUser } from '../../../api/FirestoreAPI'
 import PostsCard from '../PostsCard/PostsCard'
 
-export default function MessageUpdates({ currentUser }) {
+export default function MessageUpdates() {
   const [allStatuses, setAllStatuses] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
 
   useMemo(() => {
     getStatus(setAllStatuses)
+    getSingleUser(setCurrentUser, localStorage.getItem('userEmail'))
   }, [])
 
   return (
@@ -15,7 +17,8 @@ export default function MessageUpdates({ currentUser }) {
         {allStatuses.map((posts, id) => {
           return (
             <div key={posts.id}>
-              <PostsCard posts={posts} currentUser={currentUser} />
+              {/* <PostsCard posts={posts} userID={userID} /> */}
+              <PostsCard posts={posts} userID={currentUser} />
             </div>
           )
         })}

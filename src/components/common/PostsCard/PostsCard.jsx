@@ -6,15 +6,16 @@ import {
   updatePost,
   deletePost,
   getConnections,
+  getUserById,
 } from '../../../api/FirestoreAPI'
 import ModalComponent from '../Modal/Modal'
 import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
 import './PostsCard.scss'
 
-const PostsCard = ({ posts, id, getEditData }) => {
+const PostsCard = ({ posts, id, getCurrentUser, getEditData }) => {
   let navigate = useNavigate()
-  const [currentUser, setCurrentUser] = useState({})
+  // const [currentUser, setCurrentUser] = useState({})
   const [allUsers, setAllUsers] = useState([])
   const [status, setStatus] = useState('')
   const [currentPost, setCurrentPost] = useState({})
@@ -51,15 +52,26 @@ const PostsCard = ({ posts, id, getEditData }) => {
   }
 
   useMemo(() => {
-    getCurrentUser(setCurrentUser)
     getAllUsers(setAllUsers)
+    // getCurrentUser(setCurrentUser)
   }, [])
 
-  useEffect(() => {
-    getConnections(currentUser.id, posts.userID, setIsConnected)
-  }, [currentUser.id, posts.userID])
+  // useEffect(() => {
+  //   getAllUsers(setAllUsers)
+  //   getConnections(currentUser.id, posts.userID, setIsConnected)
+  // }, [currentUser.id, posts.userID])
 
-  // console.log('is Connected ', isConnected)
+  // useEffect(() => {
+  //   getConnections(userID, posts.userID, setIsConnected)
+  // }, [userID, posts.userID])
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const userData = await getUserById(posts.userID)
+      // Do something with the user data if needed
+    }
+    fetchUserData()
+  }, [posts.userID])
 
   return isConnected ? (
     <div className="posts-card" key={id}>
@@ -78,12 +90,7 @@ const PostsCard = ({ posts, id, getEditData }) => {
           className="postsCardName"
           onClick={() =>
             navigate('/profile', {
-              state: {
-                id: posts?.userID,
-                email: posts.userEmail,
-                name: posts.userName,
-                lastName: posts.userLastname,
-              },
+              state: { id: posts?.userID, email: posts.userEmail },
             })
           }>
           {posts.userName}&nbsp;

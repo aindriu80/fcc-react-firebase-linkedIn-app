@@ -216,3 +216,16 @@ export const getConnections = (userId, targetId, setIsConnected) => {
     console.log(err)
   }
 }
+export const getUserById = async (userId) => {
+  try {
+    const userDoc = await doc(userRef, userId).get()
+    if (userDoc.exists()) {
+      return { ...userDoc.data(), id: userDoc.id }
+    } else {
+      return null
+    }
+  } catch (error) {
+    console.log(error)
+    return null
+  }
+}
