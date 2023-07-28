@@ -22,6 +22,8 @@ export default function PostUpdate({ currentUser }) {
   const [allStatuses, setAllStatuses] = useState([])
   const [currentPost, setCurrentPost] = useState({})
   const [isEdit, setIsEdit] = useState(false)
+  const [currentImage, setCurrentImage] = useState({})
+  console.log(currentImage)
 
   const sendStatus = async () => {
     let object = {
@@ -106,6 +108,7 @@ export default function PostUpdate({ currentUser }) {
           sendStatus={sendStatus}
           isEdit={isEdit}
           updateStatus={updateStatus}
+          setCurrentImage={setCurrentImage}
         />
       </div>
 

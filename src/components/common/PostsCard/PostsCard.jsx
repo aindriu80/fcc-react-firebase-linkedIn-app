@@ -13,9 +13,9 @@ import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
 import './PostsCard.scss'
 
-const PostsCard = ({ posts, id, getCurrentUser, getEditData }) => {
+const PostsCard = ({ posts, id, getEditData }) => {
   let navigate = useNavigate()
-  // const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({})
   const [allUsers, setAllUsers] = useState([])
   const [status, setStatus] = useState('')
   const [currentPost, setCurrentPost] = useState({})
@@ -53,13 +53,15 @@ const PostsCard = ({ posts, id, getCurrentUser, getEditData }) => {
 
   useMemo(() => {
     getAllUsers(setAllUsers)
-    // getCurrentUser(setCurrentUser)
+    getCurrentUser(setCurrentUser)
+    getUserById(id)
   }, [])
 
-  // useEffect(() => {
-  //   getAllUsers(setAllUsers)
-  //   getConnections(currentUser.id, posts.userID, setIsConnected)
-  // }, [currentUser.id, posts.userID])
+  useEffect(() => {
+    getAllUsers(setAllUsers)
+    getConnections(currentUser.id, posts.userID, setIsConnected)
+    // getConnections(currentUser.id)
+  }, [currentUser.id, posts.userID])
 
   // useEffect(() => {
   //   getConnections(userID, posts.userID, setIsConnected)

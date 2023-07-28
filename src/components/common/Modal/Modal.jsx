@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { AiOutlinePicture } from 'react-icons/ai'
 import { Button, Modal } from 'antd'
 
 import './Modal.scss'
@@ -11,6 +12,7 @@ const ModalComponent = ({
   status,
   isEdit,
   updateStatus,
+  setCurrentImage,
 }) => {
   const [loading, setLoading] = useState(false)
 
@@ -45,7 +47,17 @@ const ModalComponent = ({
           className="modal-input"
           placeholder="What do you want to talk about?"
           onChange={(event) => setStatus(event.target.value)}
+          autoFocus
           value={status}
+        />
+        <label for="modal-picture-upload">
+          <AiOutlinePicture className="picture-icon" />
+        </label>
+        <input
+          id="modal-picture-upload"
+          type={'file'}
+          hidden
+          onChange={(event) => setCurrentImage(event.target.files[0])}
         />
       </Modal>
     </>
