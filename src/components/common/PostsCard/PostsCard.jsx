@@ -30,7 +30,6 @@ const PostsCard = ({ posts, id, getEditData }) => {
   }
 
   const editPost = () => {
-    console.log('Edit Post')
     setDropdownVisible(false)
     setModalOpen(true)
     setStatus(posts?.status)
@@ -39,15 +38,12 @@ const PostsCard = ({ posts, id, getEditData }) => {
   }
 
   const updateStatus = () => {
-    console.log(status)
     updatePost(currentPost.id, status)
     setModalOpen(false)
   }
 
   const deleteIndividualPost = () => {
     setModalOpen(false)
-    console.log('delete post')
-    console.log(posts.id)
     deletePost(posts.id)
   }
 
@@ -60,22 +56,9 @@ const PostsCard = ({ posts, id, getEditData }) => {
   useEffect(() => {
     getAllUsers(setAllUsers)
     getConnections(currentUser.id, posts.userID, setIsConnected)
-    // getConnections(currentUser.id)
   }, [currentUser.id, posts.userID])
 
-  // useEffect(() => {
-  //   getConnections(userID, posts.userID, setIsConnected)
-  // }, [userID, posts.userID])
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const userData = await getUserById(posts.userID)
-      // Do something with the user data if needed
-    }
-    fetchUserData()
-  }, [posts.userID])
-
-  return isConnected ? (
+  return isConnected || currentUser.id === posts.userID ? (
     <div className="posts-card" key={id}>
       <div className="image-post-card">
         <img

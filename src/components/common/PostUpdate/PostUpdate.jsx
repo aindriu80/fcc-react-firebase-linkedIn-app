@@ -10,11 +10,12 @@ import video from '../../../assets/video.svg'
 import event from '../../../assets/event.svg'
 import article from '../../../assets/article.svg'
 import ModalComponent from '../Modal/Modal'
+import { uploadPostImage } from '../../../api/ImageUpload'
 import { getCurrentTimeStamp } from '../../helpers/useMoment'
 import { getUniqueID } from '../../helpers/getUniqueId'
+import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 
 import './PostUpdate.scss'
-import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 
 export default function PostUpdate({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false)
@@ -23,7 +24,8 @@ export default function PostUpdate({ currentUser }) {
   const [currentPost, setCurrentPost] = useState({})
   const [isEdit, setIsEdit] = useState(false)
   const [currentImage, setCurrentImage] = useState({})
-  console.log(currentImage)
+  const [postImage, setPostImage] = useState('')
+  console.log(postImage)
 
   const sendStatus = async () => {
     let object = {
@@ -108,7 +110,10 @@ export default function PostUpdate({ currentUser }) {
           sendStatus={sendStatus}
           isEdit={isEdit}
           updateStatus={updateStatus}
-          setCurrentImage={setCurrentImage}
+          // setCurrentImage={setCurrentImage}
+          uploadPostImage={uploadPostImage}
+          setPostImage={setPostImage}
+          postImage={postImage}
         />
       </div>
 

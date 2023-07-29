@@ -14,7 +14,7 @@ import './ProfileCard.scss'
 const ProfileCard = ({ onEdit, currentUser }) => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
-  const [setAllStatuses, setAllStatus] = useState([])
+  const [allStatuses, setAllStatuses] = useState([])
   const [currentProfile, setCurrentProfile] = useState({})
 
   useMemo(() => {

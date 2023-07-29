@@ -6,7 +6,7 @@ import PostUpdate from '../components/common/PostUpdate/PostUpdate'
 import MessageUpdates from '../components/common/MessageUpdates/MessageUpdates'
 import SidebarComponent from './SidebarComponent'
 import AddToYourFeed from './AddToYourFeed'
-import { getCurrentUser } from '../api/FirestoreAPI'
+import { getAllUsers, getCurrentUser } from '../api/FirestoreAPI'
 import { auth } from '../../firebaseConfig'
 import downArrow from '../assets/down-arrow.svg'
 import '../Sass/FeedComponent.scss'
@@ -14,6 +14,8 @@ import '../Sass/FeedComponent.scss'
 export default function FeedComponent() {
   const [loading, setLoading] = useState(true)
   const [currentUser, setCurrentUser] = useState({})
+  const [allUsers, setAllUsers] = useState([])
+  const [allStatuses, setAllStatus] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -32,6 +34,7 @@ export default function FeedComponent() {
 
   useMemo(() => {
     getCurrentUser(setCurrentUser)
+    getAllUsers(setAllUsers)
   }, [])
 
   return (
@@ -55,7 +58,20 @@ export default function FeedComponent() {
               </div>
             </button>
           </div>
-          <MessageUpdates />
+
+          <div>
+            <MessageUpdates />
+            {allStatuses.map((posts) => {
+              return (
+                <div key={posts.id}>
+                  {/* <PostsCard posts={posts} getEditData={getEditData} /> */}
+                  <MessageUpdates posts={posts} getEditData={getEditData} />
+                  {console.log('posts', posts)}
+                  {console.log('getEditData', getEditData)}
+                </div>
+              )
+            })}
+          </div>
         </div>
         <div className="right-side-layout">
           <AddToYourFeed currentUser={currentUser} />

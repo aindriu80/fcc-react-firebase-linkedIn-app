@@ -12,7 +12,10 @@ const ModalComponent = ({
   status,
   isEdit,
   updateStatus,
-  setCurrentImage,
+  // setCurrentImage,
+  uploadPostImage,
+  setPostImage,
+  postImage,
 }) => {
   const [loading, setLoading] = useState(false)
 
@@ -28,10 +31,12 @@ const ModalComponent = ({
         onOk={() => {
           setStatus('')
           setModalOpen(false)
+          setPostImage('')
         }}
         onCancel={() => {
           setStatus('')
           setModalOpen(false)
+          setPostImage('')
         }}
         footer={[
           <Button
@@ -43,13 +48,25 @@ const ModalComponent = ({
             {isEdit ? 'Update' : 'Post'}
           </Button>,
         ]}>
-        <input
-          className="modal-input"
-          placeholder="What do you want to talk about?"
-          onChange={(event) => setStatus(event.target.value)}
-          autoFocus
-          value={status}
-        />
+        <div>
+          <input
+            className="modal-input"
+            placeholder="What do you want to talk about?"
+            onChange={(event) => setStatus(event.target.value)}
+            autoFocus
+            value={status}
+          />
+
+          {postImage?.length > 0 ? (
+            <img
+              src={postImage}
+              className="post-image-upload"
+              alt="postImage"
+            />
+          ) : (
+            <></>
+          )}
+        </div>
         <label for="modal-picture-upload">
           <AiOutlinePicture className="picture-icon" />
         </label>
@@ -57,7 +74,10 @@ const ModalComponent = ({
           id="modal-picture-upload"
           type={'file'}
           hidden
-          onChange={(event) => setCurrentImage(event.target.files[0])}
+          // onChange={(event) => setCurrentImage(event.target.files[0])}
+          onChange={(event) =>
+            uploadPostImage(event.target.files[0], setPostImage)
+          }
         />
       </Modal>
     </>
