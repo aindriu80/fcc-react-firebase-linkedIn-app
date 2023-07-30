@@ -36,7 +36,7 @@ export const uploadPostImage = (file, setPostImage, setProgress) => {
       const progress = Math.round(
         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       )
-      // setProgress(progress)
+      setProgress(progress)
     },
     (error) => {
       console.log(error)

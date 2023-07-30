@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { AiOutlinePicture } from 'react-icons/ai'
-import { Button, Modal } from 'antd'
+import { Button, Modal, Progress } from 'antd'
 
 import './Modal.scss'
 
@@ -18,6 +18,7 @@ const ModalComponent = ({
   postImage,
 }) => {
   const [loading, setLoading] = useState(false)
+  const [progress, setProgress] = useState(0)
 
   return (
     <>
@@ -56,6 +57,19 @@ const ModalComponent = ({
             autoFocus
             value={status}
           />
+          <div className="modal-progress-bar">
+            {progress === 0 || progress === 100 ? (
+              <></>
+            ) : (
+              <div className="">
+                <Progress
+                  className="modal-progress-percentage"
+                  type="circle"
+                  percent={progress}
+                />
+              </div>
+            )}
+          </div>
 
           {postImage?.length > 0 ? (
             <img
@@ -76,7 +90,7 @@ const ModalComponent = ({
           hidden
           // onChange={(event) => setCurrentImage(event.target.files[0])}
           onChange={(event) =>
-            uploadPostImage(event.target.files[0], setPostImage)
+            uploadPostImage(event.target.files[0], setPostImage, setProgress)
           }
         />
       </Modal>

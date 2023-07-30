@@ -108,6 +108,15 @@ const PostsCard = ({ posts, id, getEditData }) => {
         </div>
       </div>
       <p className="time-stamp">{posts.timeStamp}</p>
+      {posts.postImage ? (
+        <img
+          src={posts.postImage}
+          alt="post-image"
+          className="postsCardImage"
+        />
+      ) : (
+        <></>
+      )}
       <p className="posts-status">{posts.status}</p>
       <LikeButton
         userId={currentUser?.userID}

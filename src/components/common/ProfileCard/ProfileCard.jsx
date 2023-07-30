@@ -2,19 +2,16 @@ import React, { useState, useMemo } from 'react'
 import { BsPersonCircle, BsBriefcase } from 'react-icons/bs'
 import { getSingleStatus, getSingleUser } from '../../../api/FirestoreAPI'
 import { BsFillPencilFill } from 'react-icons/bs'
-
-import camera from '../../../assets/camera.svg'
-import profileBackground from '../../../assets/profileBackground.svg'
-
 import Modal from '../../ProfileEditModal'
 import PictureModal from '../PictureModal/PictureModal'
-
+import camera from '../../../assets/camera.svg'
+import profileBackground from '../../../assets/profileBackground.svg'
 import './ProfileCard.scss'
 
 const ProfileCard = ({ onEdit, currentUser }) => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
-  const [allStatuses, setAllStatuses] = useState([])
+  // const [allStatuses, setAllStatuses] = useState([])
   const [currentProfile, setCurrentProfile] = useState({})
 
   useMemo(() => {
@@ -27,7 +24,7 @@ const ProfileCard = ({ onEdit, currentUser }) => {
     }
   }, [])
   // console.log('Current Users ImageLink:', currentUser?.imageLink)
-
+  console.log(currentProfile)
   return (
     <>
       <div className="profile-card">

@@ -25,7 +25,6 @@ export default function PostUpdate({ currentUser }) {
   const [isEdit, setIsEdit] = useState(false)
   const [currentImage, setCurrentImage] = useState({})
   const [postImage, setPostImage] = useState('')
-  console.log(postImage)
 
   const sendStatus = async () => {
     let object = {
@@ -36,6 +35,7 @@ export default function PostUpdate({ currentUser }) {
       userLastname: currentUser.lastName,
       postID: getUniqueID(),
       userID: currentUser.id,
+      postImage: postImage,
     }
     await postStatus(object)
     await setModalOpen(false)
@@ -44,8 +44,7 @@ export default function PostUpdate({ currentUser }) {
   }
 
   const updateStatus = () => {
-    console.log(status)
-    updatePost(currentPost.id, status)
+    updatePost(currentPost.id, status, postImage)
     setModalOpen(false)
   }
 

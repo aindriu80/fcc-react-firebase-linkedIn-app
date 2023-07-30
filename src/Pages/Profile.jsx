@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { auth } from '../../firebaseConfig'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
@@ -10,6 +10,7 @@ import '../index.scss'
 const Profile = ({ currentUser }) => {
   const [loading, setLoading] = useState(true)
   let navigate = useNavigate()
+
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       if (!res?.accessToken) {

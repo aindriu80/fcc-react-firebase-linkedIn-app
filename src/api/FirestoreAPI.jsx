@@ -168,10 +168,10 @@ export const getComments = (postId, setComments) => {
   }
 }
 
-export const updatePost = (id, status) => {
+export const updatePost = (id, status, postImage) => {
   let updateToUpdate = doc(postsRef, id)
   try {
-    updateDoc(updateToUpdate, { status })
+    updateDoc(updateToUpdate, { status, postImage })
   } catch (error) {
     console.log(error)
   }
