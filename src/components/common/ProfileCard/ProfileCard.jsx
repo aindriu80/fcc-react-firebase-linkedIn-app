@@ -8,11 +8,14 @@ import camera from '../../../assets/camera.svg'
 import profileBackground from '../../../assets/profileBackground.svg'
 import './ProfileCard.scss'
 
-const ProfileCard = ({ onEdit, currentUser }) => {
+const ProfileCard = ({ onEdit, id }) => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
   // const [allStatuses, setAllStatuses] = useState([])
   const [currentProfile, setCurrentProfile] = useState({})
+
+  const [currentUser, setCurrentUser] = useState({})
+  console.log('currentUSer', currentUser)
 
   useMemo(() => {
     if (location?.state?.id) {

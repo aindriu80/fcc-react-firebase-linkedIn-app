@@ -1,25 +1,25 @@
-import React, { useState, useMemo } from 'react'
-import { getStatus, getSingleUser } from '../../../api/FirestoreAPI'
+import React, { useState, useEffect } from 'react'
+import { getStatus, getUserById } from '../../../api/FirestoreAPI'
 import PostsCard from '../PostsCard/PostsCard'
 
-export default function MessageUpdates(posts, id, getEditData) {
+export default function MessageUpdates() {
   const [allStatuses, setAllStatuses] = useState([])
   const [currentUser, setCurrentUser] = useState({})
-  const [userID, setUserID] = useState({})
 
-  useMemo(() => {
+  useEffect(() => {
     getStatus(setAllStatuses)
-    getSingleUser(setCurrentUser, localStorage.getItem('userEmail'))
+    getUserById(localStorage.getItem('userEmail')).then((user) => {
+      setCurrentUser(user)
+    })
   }, [])
 
   return (
     <>
       <div className="post-messages">
-        {allStatuses.map((posts, id) => {
+        {allStatuses.map((post) => {
           return (
-            <div key={posts.id}>
-              <PostsCard posts={posts} userID={userID} />
-              {/* <PostsCard posts={posts} userID={currentUser} /> */}
+            <div key={post.id}>
+              <PostsCard posts={post} currentUser={currentUser} />
             </div>
           )
         })}

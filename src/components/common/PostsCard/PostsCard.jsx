@@ -13,9 +13,10 @@ import LikeButton from '../LikeButton/LikeButton'
 import threeDots from '../../../assets/threeDots.svg'
 import './PostsCard.scss'
 
-const PostsCard = ({ posts, id, getEditData }) => {
+const PostsCard = ({ posts, id }) => {
   let navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({})
+  console.log('currentUSer', currentUser)
   const [allUsers, setAllUsers] = useState([])
   const [status, setStatus] = useState('')
   const [currentPost, setCurrentPost] = useState({})
@@ -24,6 +25,15 @@ const PostsCard = ({ posts, id, getEditData }) => {
 
   const [isEdit, setIsEdit] = useState(false)
   const [dropdownVisible, setDropdownVisible] = useState(false)
+
+  useMemo(() => {
+    getCurrentUser(setCurrentUser)
+    getAllUsers(setAllUsers)
+  }, [])
+
+  useEffect(() => {
+    getConnections(currentUser.id, posts.userID, setIsConnected)
+  }, [currentUser.id, posts.userID])
 
   const showSubMenu = () => {
     setDropdownVisible(!dropdownVisible)
