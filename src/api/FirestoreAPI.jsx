@@ -219,7 +219,7 @@ export const getConnections = (userId, targetId, setIsConnected) => {
 export const getUserById = async (userId) => {
   try {
     const userDoc = await doc(userRef, userId).get()
-    if (userDoc.exists()) {
+    if (userDoc.exists) {
       return { ...userDoc.data(), id: userDoc.id }
     } else {
       return null

@@ -16,24 +16,49 @@ import './PostsCard.scss'
 const PostsCard = ({ posts, id }) => {
   let navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({})
-  console.log('currentUSer', currentUser)
   const [allUsers, setAllUsers] = useState([])
   const [status, setStatus] = useState('')
   const [currentPost, setCurrentPost] = useState({})
   const [modalOpen, setModalOpen] = useState(false)
   const [isConnected, setIsConnected] = useState(false)
-
   const [isEdit, setIsEdit] = useState(false)
   const [dropdownVisible, setDropdownVisible] = useState(false)
 
-  useMemo(() => {
-    getCurrentUser(setCurrentUser)
-    getAllUsers(setAllUsers)
+  // Fetch all users and current user data on component mount
+  useEffect(() => {
+    Promise.all([getAllUsers(), getCurrentUser()])
+      .then(([users, user]) => {
+        setAllUsers(users)
+        setCurrentUser(user)
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error)
+      })
   }, [])
 
+  // Fetch the user data for the clicked user whenever `posts.userID` changes
   useEffect(() => {
-    getConnections(currentUser.id, posts.userID, setIsConnected)
-  }, [currentUser.id, posts.userID])
+    getUserById(posts.userID)
+      .then((user) => {
+        if (user) {
+          // Check if user is defined before updating the state
+          setCurrentUser(user)
+          if (user.id && posts.userID) {
+            // Fetch connections when both `user` and `posts.userID` are available
+            getConnections(user.id, posts.userID)
+              .then((connected) => {
+                setIsConnected(connected)
+              })
+              .catch((error) => {
+                console.error('Error fetching connections:', error)
+              })
+          }
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error)
+      })
+  }, [posts.userID])
 
   const showSubMenu = () => {
     setDropdownVisible(!dropdownVisible)
@@ -68,7 +93,8 @@ const PostsCard = ({ posts, id }) => {
     getConnections(currentUser.id, posts.userID, setIsConnected)
   }, [currentUser.id, posts.userID])
 
-  return isConnected || currentUser.id === posts.userID ? (
+  // return isConnected || currentUser.id === posts.userID ? (
+  return isConnected || (currentUser.id && currentUser.id === posts.userID) ? (
     <div className="posts-card" key={id}>
       <div className="image-post-card">
         <img
